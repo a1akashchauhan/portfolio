@@ -111,9 +111,40 @@
   .contact li{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid var(--line);font-size:15px}
   .contact li span:first-child{font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--muted)}
   .fine{font-size:13px;color:var(--muted);padding:0 22px 26px;max-width:980px;margin:0 auto}
+
+  /* mascot */
+  .hero-grid{display:grid;grid-template-columns:1.3fr .9fr;gap:28px;align-items:center}
+  @media (max-width:820px){.hero-grid{grid-template-columns:1fr}.hero-grid figure{max-width:380px}}
+  figure.mascot{margin:0}
+  figure.mascot svg{width:100%;height:auto;display:block}
+  figure.mascot figcaption{font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:var(--muted);margin-top:8px;padding-left:4px}
+  .sec-head .sec-mascot{margin-left:auto;width:112px;height:auto;align-self:flex-end;margin-bottom:-6px}
+  .card-mascot{height:66px;width:auto;display:block;margin:-4px 0 8px}
+  .foot-mascot{display:flex;align-items:flex-end;gap:12px;margin-top:18px}
+  .foot-mascot svg{width:110px;height:auto;flex:none}
+  .foot-mascot span{font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:var(--muted);padding-bottom:10px}
 </style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="kachhua" viewBox="0 0 150 110">
+ <g stroke="#151515" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round">
+  <path d="M18 78 L4 84 L20 87 Z" fill="#8CC79A"/>
+  <rect x="28" y="74" width="18" height="24" rx="8" fill="#8CC79A"/>
+  <rect x="80" y="74" width="18" height="24" rx="8" fill="#8CC79A"/>
+  <path d="M98 78 Q104 60 112 60 L124 68 Q114 76 110 84 Z" fill="#8CC79A"/>
+  <path d="M14 80 C14 36 38 20 62 20 C88 20 110 36 110 80 Z" fill="#F7A501"/>
+  <path d="M62 30 L76 40 L74 58 L62 66 L50 58 L48 40 Z" fill="#FFD36B"/>
+  <path d="M48 40 L28 48 M76 40 L96 48 M50 58 L36 80 M74 58 L88 80 M62 66 L62 80 M62 30 L62 21" fill="none"/>
+  <path d="M10 80 H114 Q114 89 106 89 H18 Q10 89 10 80 Z" fill="#F54E00"/>
+  <circle cx="124" cy="48" r="22" fill="#8CC79A"/>
+  <circle cx="129" cy="42" r="6.5" fill="#fff"/>
+  <circle cx="114" cy="43" r="5.5" fill="#fff"/>
+  <path d="M120 57 Q128 63 136 56" fill="none"/>
+ </g>
+ <circle cx="131" cy="42" r="3" fill="#151515"/><circle cx="116" cy="43" r="2.6" fill="#151515"/>
+ <ellipse cx="140" cy="52" rx="4" ry="2.5" fill="#F4766B" opacity=".7"/>
+</symbol></defs></svg>
 
 <header class="top">
   <div class="wrap">
@@ -133,6 +164,7 @@
   <div class="wrap">
 
     <div class="hero">
+      <div class="hero-grid"><div>
       <div class="eyebrow">// product · edtech · ai for learning</div>
       <h1>I build products that help people <span class="hl">actually learn</span>.</h1>
       <p class="lede">I'm an engineer and instructor at Newton School of Technology. For the last two years I've worked between the classroom and the codebase: interviewing students, writing specs, defining metrics and shipping tools used every day by thousands of students and hundreds of instructors. I'm now looking for a product role at an early-stage startup.</p>
@@ -140,6 +172,26 @@
         <a class="btn primary" href="resume.pdf" target="_blank" rel="noopener">Resume ↗</a>
         <a class="btn" href="#cases">Read a case study</a>
         <a class="btn" href="#contact">Get in touch</a>
+      </div>
+      </div>
+      <figure class="mascot"><svg class="hero-art" viewBox="0 0 420 244" role="img" aria-label="Kachhua the turtle teaching at a blackboard">
+ <g stroke="#151515" stroke-width="2.5" stroke-linejoin="round">
+  <rect x="10" y="14" width="232" height="150" rx="6" fill="#B07A45"/>
+  <rect x="20" y="24" width="212" height="130" rx="3" fill="#2F4F3E"/>
+  <path d="M40 164 L30 222 M212 164 L222 222" fill="none"/>
+  <rect x="60" y="160" width="40" height="7" rx="2" fill="#F4F4EE"/>
+ </g>
+ <g font-family="IBM Plex Mono, monospace" fill="#F4F4EE">
+  <text x="38" y="62" font-size="17">learn  ≠  remember</text>
+  <text x="38" y="96" font-size="13" opacity=".85">read → write → speak</text>
+  <text x="38" y="124" font-size="13" opacity=".85">ship. measure. repeat.</text>
+ </g>
+ <path d="M36 70 Q120 78 214 68" stroke="#F7A501" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+ <svg x="226" y="96" width="196" height="144" viewBox="0 0 150 110">
+  <use href="#kachhua" width="150" height="110"/><g stroke="#151515" stroke-width="2" fill="none"><circle cx="114" cy="43" r="7.5"/><circle cx="129.5" cy="42" r="8"/></g>
+  
+ </svg>
+</svg><figcaption>↑ this is Kachhua. slow learner, never forgets.</figcaption></figure>
       </div>
 
       <div class="stats">
@@ -152,7 +204,7 @@
 
     <!-- WORK -->
     <section id="work">
-      <div class="sec-head"><span class="num">01</span><h2>Product work</h2></div>
+      <div class="sec-head"><span class="num">01</span><h2>Product work</h2><svg class="sec-mascot" viewBox="0 8 150 102" role="img" aria-label="Kachhua the turtle"><use href="#kachhua" width="150" height="110"/><g stroke="#151515" stroke-width="2.2" stroke-linejoin="round"><path d="M104 32 Q106 12 125 12 Q144 12 146 32 Z" fill="#F7A501"/><rect x="99" y="30" width="52" height="6" rx="3" fill="#F7A501"/><path d="M125 13 V30"/></g></svg></div>
       <div class="role">
         <b>Newton School of Technology · SDE + Instructor 2</b>
         <span class="small mono">Jun 2024 — present · Sonipat</span>
@@ -251,6 +303,7 @@
         <div class="win">
           <div class="bar"><i></i><i></i><i></i><span class="t">litmus</span></div>
           <div class="body">
+            <svg class="card-mascot" viewBox="0 14 152 96" role="img" aria-label="Kachhua the turtle"><use href="#kachhua" width="150" height="110"/><g stroke="#151515" stroke-width="2" fill="none"><circle cx="114" cy="43" r="7.5"/><circle cx="129.5" cy="42" r="8"/></g><g stroke="#151515" stroke-width="2.2" stroke-linejoin="round"><path d="M112 96 L130 88 L148 96 L148 106 L130 98 L112 106 Z" fill="#fff"/><path d="M130 88 V98"/><path d="M116 97 L126 93 M134 93 L144 97" stroke-width="1.5"/></g></svg>
             <span class="mode m-read">read</span><br>
             <span class="tag build">building</span><span class="tag">chrome extension</span>
             <h3>Litmus</h3>
@@ -261,6 +314,7 @@
         <div class="win">
           <div class="bar"><i></i><i></i><i></i><span class="t">make-it-stick</span></div>
           <div class="body">
+            <svg class="card-mascot" viewBox="0 14 152 96" role="img" aria-label="Kachhua the turtle"><use href="#kachhua" width="150" height="110"/><g stroke="#151515" stroke-width="2" stroke-linejoin="round" transform="rotate(35 120 80)"><rect x="116" y="58" width="9" height="34" fill="#F7A501"/><rect x="116" y="54" width="9" height="6" fill="#F4766B"/><path d="M116 92 L120.5 101 L125 92 Z" fill="#F3E3C3"/></g></svg>
             <span class="mode m-write">write</span><br>
             <span class="tag build">building</span><span class="tag">claude agent</span>
             <h3>Make It Stick</h3>
@@ -271,6 +325,7 @@
         <div class="win">
           <div class="bar"><i></i><i></i><i></i><span class="t">teach-to-ai</span></div>
           <div class="body">
+            <svg class="card-mascot wide" viewBox="0 0 216 110" role="img" aria-label="Kachhua the turtle"><use href="#kachhua" width="150" height="110"/><g stroke="#151515" stroke-width="2.2" stroke-linejoin="round"><path d="M158 4 H206 Q212 4 212 10 V32 Q212 38 206 38 H168 L150 46 L160 38 H158 Q152 38 152 32 V10 Q152 4 158 4 Z" fill="#fff"/><path d="M160 14 H204 M160 22 H196 M160 30 H186" stroke-width="2"/></g></svg>
             <span class="mode m-speak">speak</span><br>
             <span class="tag build">building</span><span class="tag">voice</span>
             <h3>Teach to AI</h3>
@@ -283,7 +338,7 @@
 
     <!-- TEACHING -->
     <section id="teaching">
-      <div class="sec-head"><span class="num">04</span><h2>Teaching</h2></div>
+      <div class="sec-head"><span class="num">04</span><h2>Teaching</h2><svg class="sec-mascot" viewBox="0 12 150 98" role="img" aria-label="Kachhua the turtle"><use href="#kachhua" width="150" height="110"/><g stroke="#151515" stroke-width="2" stroke-linejoin="round"><path d="M104 27 L126 18 L148 27 L126 35 Z" fill="#151515"/><rect x="117" y="29" width="18" height="7" fill="#151515"/><path d="M148 27 V40" stroke="#F7A501" stroke-width="3"/></g><g stroke="#151515" stroke-width="2" fill="none"><circle cx="114" cy="43" r="7.5"/><circle cx="129.5" cy="42" r="8"/></g></svg></div>
       <p class="sec-sub">Teaching gives me user research every day. A lecture is a product launch, and students tell me within ten minutes whether it's working.</p>
       <div class="win">
         <div class="bar"><i></i><i></i><i></i><span class="t">classroom</span></div>
@@ -299,7 +354,7 @@
 
     <!-- WRITING -->
     <section id="writing">
-      <div class="sec-head"><span class="num">05</span><h2>Writing</h2></div>
+      <div class="sec-head"><span class="num">05</span><h2>Writing</h2><svg class="sec-mascot" viewBox="0 14 152 96" role="img" aria-label="Kachhua the turtle"><use href="#kachhua" width="150" height="110"/><g stroke="#151515" stroke-width="2" stroke-linejoin="round"><rect x="104" y="72" width="44" height="34" rx="2" fill="#fff" transform="rotate(-6 126 89)"/><path d="M110 80 H140 M110 88 H140 M110 96 H128" transform="rotate(-6 126 89)" stroke-width="1.6"/></g></svg></div>
       <div class="win">
         <div class="bar"><i></i><i></i><i></i><span class="t">office-hours</span></div>
         <div class="body">
@@ -319,6 +374,7 @@
     <div>
       <h2>Let's talk.</h2>
       <p>If you're building something that helps people learn and you need someone who has sat in the classroom and also shipped the tools, I'd like to hear from you.</p>
+      <div class="foot-mascot"><svg class="" viewBox="0 14 150 96" role="img" aria-label="Kachhua the turtle"><use href="#kachhua" width="150" height="110"/><g stroke="#151515" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"><rect x="98" y="58" width="16" height="24" rx="8" fill="#8CC79A" transform="rotate(-140 106 70)"/><path d="M84 30 Q80 36 84 42 M76 26 Q70 36 76 46" fill="none" stroke-width="2"/></g></svg><span>Kachhua says bye. he'll reply faster than he walks.</span></div>
     </div>
     <ul class="list contact">
       <li><span>email</span><span>a1akashchauhan@gmail.com</span></li>
