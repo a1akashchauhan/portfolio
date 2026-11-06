@@ -190,6 +190,31 @@
   /* reveal on scroll (only when JS + motion allowed) */
   .js-motion .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease, transform .6s ease}
   .js-motion .reveal.in{opacity:1;transform:none}
+
+  .journey-wrap{margin-top:30px}
+  .journey{display:grid;grid-template-columns:repeat(4,1fr);position:relative;margin-top:14px}
+  .journey::before{content:"";position:absolute;left:8px;right:40px;top:8px;border-top:2px dashed var(--ink)}
+  .node{position:relative;padding:30px 14px 0 0;font-size:14px}
+  .node::before{content:"";position:absolute;left:0;top:0;width:14px;height:14px;border-radius:50%;background:var(--paper);border:2px solid var(--ink)}
+  .node.on::before{background:var(--yellow)}
+  .node .yr{display:block;font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--orange)}
+  .node > b{display:block;font-size:16px;margin:2px 0}
+  .node > span{color:var(--muted)}
+  .mini{list-style:none;margin:6px 0 0;padding:0;font-size:13px;color:var(--muted)}
+  .mini li{margin:3px 0;display:flex;align-items:center;gap:6px}
+  .mini li b{color:var(--ink);font-weight:600}
+  .mini i{width:8px;height:8px;border-radius:2px;flex:none;border:1px solid var(--ink)}
+  .walker{position:absolute;top:-30px;right:0;width:58px;height:auto}
+  @media (max-width:720px){
+    .journey{grid-template-columns:1fr;gap:18px}
+    .journey::before{left:6px;right:auto;top:8px;bottom:8px;border-top:0;border-left:2px dashed var(--ink)}
+    .node{padding:0 0 0 30px}
+    .walker{top:-6px;right:auto;left:150px}
+  }
+  @media (prefers-reduced-motion: no-preference){
+    .js-motion .walker{transition:transform 1.6s cubic-bezier(.3,.7,.3,1) .3s;transform:translateX(-60px)}
+    .js-motion .journey-wrap.in .walker{transform:none}
+  }
   /* gentle motion */
   @media (prefers-reduced-motion: no-preference){
     .walk-in{animation:walkin 1.6s cubic-bezier(.3,.7,.3,1) .2s both}
@@ -387,7 +412,23 @@
         </div>
       </div>
 
-      <p class="earlier"><span class="mono">earlier →</span> <span class="chip-s">ML · Algo8</span><span class="chip-s">NLP · Suvidha</span><span class="chip-s">Backend · Samsu</span></p>
+      <div class="journey-wrap reveal">
+        <div class="eyebrow">// the path so far</div>
+        <div class="journey">
+          <div class="node"><span class="yr">2020</span><b>RGIPT</b><span>B.Tech CSE · top 10%</span></div>
+          <div class="node"><span class="yr">2022 – 24</span><b>3 internships</b>
+            <ul class="mini">
+              <li><i style="background:#1D4AFF"></i><b>ML</b> · HR analytics models, Algo8</li>
+              <li><i style="background:#2F8F5B"></i><b>NLP</b> · text summarisation, Suvidha</li>
+              <li><i style="background:#F54E00"></i><b>Backend</b> · Django APIs, Samsu</li>
+            </ul>
+          </div>
+          <div class="node"><span class="yr">2024</span><b>Newton School</b><span>joined as an intern</span></div>
+          <div class="node on"><span class="yr">now</span><b>Team lead</b><span>product + teaching</span>
+            <svg class="walker" viewBox="0 14 150 96" aria-hidden="true"><use href="#kachhua" width="150" height="110"/></svg>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- CASE STUDIES -->
