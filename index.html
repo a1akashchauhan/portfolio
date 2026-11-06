@@ -126,6 +126,70 @@
   .foot-mascot svg{width:110px;height:auto;flex:none}
   .foot-mascot span{font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:var(--muted);padding-bottom:10px}
 
+
+  /* skim layer */
+  .stat .count,.tile .count{font-size:inherit;color:inherit;display:inline;margin:0;line-height:inherit}
+  .tile .big .count{font-size:inherit}
+  .stat b small,.big small,.tile .big small{font-size:.55em;font-weight:600;color:var(--muted)}
+  .lede b{background:linear-gradient(transparent 62%, rgba(247,165,1,.35) 62%)}
+  .big{font-size:40px;font-weight:700;line-height:1;letter-spacing:-.02em;margin-top:4px}
+  .bl{font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:var(--muted);margin:6px 0 14px}
+  .ladder{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:4px 0 16px}
+  .ladder span{font-family:"IBM Plex Mono",monospace;font-size:13px;padding:3px 10px;border:1.5px solid var(--ink);border-radius:20px;background:var(--paper)}
+  .ladder span.on{background:var(--yellow)}
+  .ladder i{font-style:normal;color:var(--muted)}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+  .chips span{font-family:"IBM Plex Mono",monospace;font-size:12.5px;padding:3px 10px;border:1px solid var(--ink);border-radius:4px;background:#fff}
+  .chips.subj{margin-top:18px}
+  .flag-head{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap;margin-bottom:22px}
+  .flag-head h3{margin:4px 0 0}
+  .flag .body{display:block}
+  .panels{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  @media (max-width:820px){.panels{grid-template-columns:1fr}}
+  .panel{position:relative;border:1.5px solid var(--ink);border-radius:6px;padding:22px 16px 14px;background:#fff radial-gradient(#E4E5DD 1.1px,transparent 1.3px) 0 0/9px 9px;min-height:178px;display:flex;flex-direction:column;justify-content:space-between}
+  .panel .lbl{position:absolute;top:-11px;left:12px;background:var(--ink);color:#fff;font-family:"IBM Plex Mono",monospace;font-size:11.5px;padding:2px 8px;border-radius:3px}
+  .panel p{margin:10px 0 0;font-size:15px}
+  .win-panel{background:#FFF8E6}
+  .win-panel .big{font-size:34px}
+  .win-panel .bl{margin:2px 0 8px}
+  .scatter{display:flex;flex-wrap:wrap;gap:8px;padding-top:4px}
+  .scatter em{font-style:normal;font-family:"IBM Plex Mono",monospace;font-size:12.5px;border:1.5px solid var(--ink);border-radius:4px;padding:2px 8px;background:#fff;transform:rotate(var(--r))}
+  .scatter em.q{background:#F4766B;color:#fff;font-weight:700}
+  .daycard{border:1.5px solid var(--ink);border-radius:6px;overflow:hidden;background:#fff;text-align:center;width:150px}
+  .daycard div{background:var(--yellow);border-bottom:1.5px solid var(--ink);font-family:"IBM Plex Mono",monospace;font-size:12px;padding:3px}
+  .daycard b{display:block;font-size:18px;padding-top:6px}
+  .daycard span{display:block;font-size:12px;color:var(--muted);padding:0 6px 8px}
+  .flow{display:flex;flex-wrap:wrap;align-items:center;gap:6px}
+  .flow span{font-family:"IBM Plex Mono",monospace;font-size:12px;border:1.5px solid var(--ink);border-radius:4px;padding:2px 7px;background:#fff}
+  .flow span.x{background:#FDE2DF;text-decoration:line-through}
+  .flow i{font-style:normal;color:var(--muted)}
+  .earlier{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:22px;color:var(--muted);font-size:14px}
+  .chip-s{font-family:"IBM Plex Mono",monospace;font-size:12px;border:1px solid var(--line);border-radius:4px;padding:2px 8px;background:var(--paper);color:var(--ink)}
+  a.case{text-decoration:none;display:block;transition:transform .15s, box-shadow .15s}
+  a.case:hover{transform:translateY(-3px);box-shadow:0 7px 0 var(--ink)}
+  .lab-intro .modes{display:flex;gap:8px;align-items:center}
+  .lab-intro .modes span{font-family:"IBM Plex Mono",monospace;font-size:13px;color:#fff;padding:2px 10px;border-radius:4px}
+  .lab-intro .modes i{font-style:normal;color:#bdbdb5}
+  .lab .mode{margin-bottom:6px}
+  .soon{display:block;font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--muted);margin-top:8px}
+  .tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  @media (max-width:820px){.tiles{grid-template-columns:1fr 1fr}}
+  .tile{background:var(--paper);border:1.5px solid var(--ink);border-radius:8px;box-shadow:0 4px 0 var(--ink);padding:18px}
+  .tile span{display:block;font-size:14px;color:var(--muted);margin-top:8px;line-height:1.45}
+  .fun-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+  @media (max-width:900px){.fun-grid{grid-template-columns:repeat(2,1fr)}}
+  .fun{background:var(--paper) radial-gradient(#E4E5DD 1.1px,transparent 1.3px) 0 0/9px 9px;border:1.5px solid var(--ink);border-radius:8px;box-shadow:0 4px 0 var(--ink);padding:16px 14px;text-align:center;transition:transform .2s}
+  .fun:nth-child(odd):hover{transform:rotate(-2deg)}
+  .fun:nth-child(even):hover{transform:rotate(2deg)}
+  .fun-art{height:76px;width:auto;max-width:100%;display:block;margin:0 auto 10px}
+  .fun b{display:block;font-size:16px}
+  .fun span{display:block;font-size:13.5px;color:var(--muted);line-height:1.45;margin-top:4px}
+  .note-row{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+  .note-row h3{margin:0 0 4px}
+  .note-row p{margin:0}
+  /* reveal on scroll (only when JS + motion allowed) */
+  .js-motion .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease, transform .6s ease}
+  .js-motion .reveal.in{opacity:1;transform:none}
   /* gentle motion */
   @media (prefers-reduced-motion: no-preference){
     .walk-in{animation:walkin 1.6s cubic-bezier(.3,.7,.3,1) .2s both}
@@ -187,8 +251,8 @@
       <a href="#cases">Case studies</a>
       <a href="#lab">Learning Lab</a>
       <a href="#teaching">Teaching</a>
-      <a href="#writing">Writing</a>
-      <a href="#contact">Contact</a>
+      <a href="#fun">Off the clock</a>
+            <a href="#contact">Contact</a>
     </nav>
   </div>
 </header>
@@ -200,10 +264,10 @@
       <div class="hero-grid"><div>
       <div class="eyebrow">// product · edtech · ai for learning</div>
       <h1>I build products that help people <span class="hl">actually learn</span>.</h1>
-      <p class="lede">I'm an engineer and instructor at Newton School of Technology. For the last two years I've worked between the classroom and the codebase: interviewing students, writing specs, defining metrics and shipping tools used every day by thousands of students and hundreds of instructors. I'm now looking for a product role at an early-stage startup.</p>
+      <p class="lede">Engineer + instructor at Newton School of Technology. I talk to students, define the metrics and ship the tools. Now looking for a <b>product role at an early-stage startup</b>.</p>
       <div class="btns">
         <a class="btn primary" href="resume.pdf" target="_blank" rel="noopener">Resume ↗</a>
-        <a class="btn" href="#cases">Read a case study</a>
+        <a class="btn" href="qotd/">Read a case study</a>
         <a class="btn" href="#contact">Get in touch</a>
       </div>
       </div>
@@ -228,10 +292,10 @@
       </div>
 
       <div class="stats">
-        <div class="stat"><b>600+</b><span>daily active users on Question of the Day, across 3 campuses</span></div>
-        <div class="stat"><b>200+</b><span>instructors on the content system I helped build</span></div>
-        <div class="stat"><b>1,000+</b><span>students in one proctored contest on our in-house tools</span></div>
-        <div class="stat"><b>6</b><span>people on the instructional team I lead</span></div>
+        <div class="stat"><b><span class="count" data-to="600" data-prefix="" data-suffix="+">600+</span></b><span>daily users on a product I took 0 → 1</span></div>
+        <div class="stat"><b><span class="count" data-to="200" data-prefix="" data-suffix="+">200+</span></b><span>instructors on a tool I helped build</span></div>
+        <div class="stat"><b><span class="count" data-to="1000" data-prefix="" data-suffix="+">1,000+</span></b><span>students in one proctored contest</span></div>
+        <div class="stat"><b>4.7<small>/5</small></b><span>rating across 500+ hours taught</span></div>
       </div>
     </div>
 
@@ -248,9 +312,11 @@
         <div>
           <div class="eyebrow">// hi, i'm akash</div>
           <h2>Teacher by day, builder by habit.</h2>
-          <p>I studied computer science at RGIPT and joined Newton School of Technology as an intern in 2024. Since then I've gone from intern to SME to instructor to leading a team, and along the way I've built the tools our students and instructors use every day.</p>
-          <p>What I care about is simple: people should leave a product understanding more than when they arrived, not just having clicked more.</p>
-          <p class="small">Outside work: trekking, photography, board games (yes, I teach game theory with Catan) and anime, which may explain the hat.</p>
+          <div class="ladder">
+            <span>Intern</span><i>→</i><span>SME</span><i>→</i><span>Instructor</span><i>→</i><span class="on">Team lead</span>
+          </div>
+          <p>Two years at Newton School of Technology, building the tools our students and instructors use every day. I care about one thing: <b>people should leave a product understanding more</b>, not just having clicked more.</p>
+          <div class="chips"><span>B.Tech CSE · RGIPT</span><span>Delhi NCR, India</span><span>open to remote</span></div>
         </div>
       </div>
     </section>
@@ -260,88 +326,89 @@
       <div class="sec-head"><span class="num">01</span><h2>Product work</h2><svg class="sec-mascot" viewBox="0 8 150 102" role="img" aria-label="Kachhua the turtle"><use href="#kachhua" width="150" height="110"/><g stroke="#151515" stroke-width="2.2" stroke-linejoin="round"><path d="M104 32 Q106 12 125 12 Q144 12 146 32 Z" fill="#F7A501"/><rect x="99" y="30" width="52" height="6" rx="3" fill="#F7A501"/><path d="M125 13 V30"/></g></svg></div>
       <div class="role">
         <b>Newton School of Technology · SDE + Instructor 2</b>
-        <span class="small mono">Jun 2024 — present · Sonipat</span>
+        <span class="small mono">Jun 2024 — present</span>
       </div>
 
-      <div class="win flag">
+      <div class="win flag reveal">
         <div class="bar"><i></i><i></i><i></i><span class="t">question-of-the-day.md</span></div>
         <div class="body">
-          <div>
-            <span class="tag live">shipped · in use</span><span class="tag">0 → 1</span><span class="tag">metrics design</span>
-            <h3>Question of the Day</h3>
-            <dl class="kv">
-              <dt>Problem</dt>
-              <dd>Students practised on LeetCode, GFG and InterviewBit with no shared record of what they attempted. The questions often needed concepts they hadn't been taught yet, so practice felt random and many stopped.</dd>
-              <dt>What I did</dt>
-              <dd>Ran student interviews and made the case for the product to the CTO. Released questions to match each year's syllabus coverage, and set up question ideation, creation and review across all three campuses. I also defined the success metrics and worked with the analytics team on Metabase dashboards.</dd>
-            </dl>
+          <div class="flag-head">
+            <div><span class="tag live">shipped · in use</span><span class="tag">0 → 1</span><span class="tag">metrics design</span>
+            <h3>Question of the Day</h3></div>
+            <a class="link" href="qotd/">Read the full case study →</a>
           </div>
-          <div class="outcome">
-            <h4>// outcome</h4>
-            <ul>
-              <li><b>600+ daily active users</b></li>
-              <li>More than <b>50% of students</b> kept a 30+ day streak</li>
-              <li><b>Strong correlation</b> between QoTD activity and exam scores</li>
-              <li>Running across all years on all 3 campuses (Delhi NCR, Bengaluru, Pune)</li>
-            </ul>
-            <p style="margin-top:14px"><a class="link" href="qotd/">Read the full case study →</a></p>
+          <div class="panels">
+            <div class="panel">
+              <span class="lbl">1 · before</span>
+              <div class="scatter"><em style="--r:-8deg">LeetCode</em><em style="--r:6deg">GFG</em><em style="--r:-3deg">InterviewBit</em><em class="q" style="--r:10deg">?</em></div>
+              <p>Practice everywhere,<br><b>tracked nowhere.</b></p>
+            </div>
+            <div class="panel">
+              <span class="lbl">2 · the bet</span>
+              <div class="daycard"><div>DAY 24</div><b>1 question</b><span>matched to your syllabus</span></div>
+              <p>Small, daily and <b>always solvable.</b></p>
+            </div>
+            <div class="panel win-panel">
+              <span class="lbl">3 · after</span>
+              <div class="big"><span class="count" data-to="600" data-prefix="" data-suffix="+">600+</span></div><p class="bl">daily active users</p>
+              <div class="big">&gt;<span class="count" data-to="50" data-prefix="" data-suffix="%">50%</span></div><p class="bl">on 30+ day streaks</p>
+            </div>
           </div>
         </div>
       </div>
 
       <div class="grid3" style="margin-top:20px">
-        <div class="win">
+        <div class="win reveal">
           <div class="bar"><i></i><i></i><i></i><span class="t">tms</span></div>
           <div class="body">
-            <span class="tag live">internal tool</span>
+            <div class="big"><span class="count" data-to="200" data-prefix="" data-suffix="+">200+</span></div><p class="bl">instructors · 20+ courses</p>
             <h3>Task Management System</h3>
-            <p>Replaced a mess of spreadsheets with one place to create, review and release course content. It's Jira-like and used by <b>200+ instructors</b> across <b>20+ live courses</b>.</p>
+            <div class="flow"><span class="x">sheets ×∞</span><i>→</i><span>create</span><i>→</i><span>review</span><i>→</i><span>release</span></div>
           </div>
         </div>
-        <div class="win">
+        <div class="win reveal">
           <div class="bar"><i></i><i></i><i></i><span class="t">athena + heimdall</span></div>
           <div class="body">
-            <span class="tag live">internal tool</span>
+            <div class="big"><span class="count" data-to="1000" data-prefix="" data-suffix="+">1,000+</span></div><p class="bl">students, one contest, live</p>
             <h3>Testing &amp; proctoring</h3>
-            <p>Contributed to our in-house test and proctoring platform, where <b>1,000+ students</b> take contests at the same time. I designed the proctor report that ranks students by number of breaches.</p>
+            <div class="flow"><span>test</span><i>+</i><span>proctor</span><i>→</i><span>breach report</span></div>
           </div>
         </div>
-        <div class="win">
+        <div class="win reveal">
           <div class="bar"><i></i><i></i><i></i><span class="t">live-class</span></div>
           <div class="body">
-            <span class="tag live">shipped</span>
+            <div class="big">4.75<small>/5</small></div><p class="bl">satisfaction · 200+ sessions</p>
             <h3>Live class tools</h3>
-            <p>Tick-and-release assignments, in-class polling, topic-tree marking, with assignments released during class. <b>200+ sessions</b>, <b>4.75/5</b> satisfaction.</p>
+            <div class="flow"><span>tick &amp; release</span><span>polls</span><span>topic tree</span></div>
           </div>
         </div>
       </div>
 
-      <p class="small" style="margin-top:22px"><span class="mono">earlier →</span> internships in ML (attrition modelling, Algo8), NLP (Suvidha Foundation) and backend engineering (Django/PostgreSQL, Samsu). B.Tech CSE, RGIPT.</p>
+      <p class="earlier"><span class="mono">earlier →</span> <span class="chip-s">ML · Algo8</span><span class="chip-s">NLP · Suvidha</span><span class="chip-s">Backend · Samsu</span></p>
     </section>
 
     <!-- CASE STUDIES -->
     <section id="cases">
       <div class="sec-head"><span class="num">02</span><h2>Case studies</h2></div>
-      <p class="sec-sub">Longer write-ups covering the problem, what I tried, what I'd do differently, and the numbers.</p>
       <div class="grid2">
-        <div class="win">
+        <a class="win case reveal" href="qotd/">
           <div class="bar"><i></i><i></i><i></i><span class="t">case-01</span></div>
           <div class="body">
             <span class="tag">edtech</span><span class="tag">habit design</span>
             <h3>Turning daily practice into a habit</h3>
-            <p>How Question of the Day went from "why should this exist?" to a daily habit for half the student body. Covers the interviews, the metrics and what didn't work.</p>
-            <a class="link" href="qotd/">Read the case study →</a>
+            <p>Interviews → a bet → metrics → 600+ daily users.</p>
+            <span class="link">Read it →</span>
           </div>
-        </div>
-        <div class="win">
+        </a>
+        <a class="win case reveal" href="https://claude.ai/artifact/3CGzDVf1g9eVEEgzgbBpzJ">
           <div class="bar"><i></i><i></i><i></i><span class="t">case-02</span></div>
           <div class="body">
             <span class="tag proto">prototype</span><span class="tag">ai tutor</span><span class="tag">upsc</span>
-            <h3>My Pages: UPSC prep as a ladder, not a floor</h3>
-            <p>A feature proposal for SuperKalam. It turns a UPSC lesson into the student's own marked-up copy: mistakes from a worksheet become sticky notes on the exact lines, and revision marks them fixed. It comes with a working prototype.</p>
-            <a class="link" href="https://claude.ai/artifact/3CGzDVf1g9eVEEgzgbBpzJ">See the case study + prototype →</a>
+            <h3>My Pages: your mistakes, pinned to the page</h3>
+            <p>Worksheet mistakes become sticky notes on the exact lines of a UPSC lesson.</p>
+            <span class="link">See case study + prototype →</span>
           </div>
-        </div>
+        </a>
       </div>
     </section>
 
@@ -349,41 +416,38 @@
     <section id="lab" class="lab">
       <div class="sec-head"><span class="num">03</span><h2>Learning Lab</h2></div>
       <div class="lab-intro">
-        <p>Most learning tools test what you remember. I'm building a set of three tools that help you <b>understand</b> what you learn and keep it. Each one works through a different mode: <span class="mono">read</span>, <span class="mono">write</span>, <span class="mono">speak</span>.</p>
-        <span class="mono small" style="color:#bdbdb5">side projects · in progress</span>
+        <p><b>learn ≠ remember.</b> Three side projects, one for each way you learn.</p>
+        <div class="modes"><span class="m-read">read</span><i>→</i><span class="m-write">write</span><i>→</i><span class="m-speak">speak</span></div>
       </div>
       <div class="grid3">
-        <div class="win">
+        <div class="win reveal">
           <div class="bar"><i></i><i></i><i></i><span class="t">litmus</span></div>
           <div class="body">
             <svg class="card-mascot" viewBox="0 14 152 96" role="img" aria-label="Kachhua the turtle"><use href="#kachhua" width="150" height="110"/><g stroke="#151515" stroke-width="2" fill="none"><circle cx="114" cy="43" r="7.5"/><circle cx="129.5" cy="42" r="8"/></g><g stroke="#151515" stroke-width="2.2" stroke-linejoin="round"><path d="M112 96 L130 88 L148 96 L148 106 L130 98 L112 106 Z" fill="#fff"/><path d="M130 88 V98"/><path d="M116 97 L126 93 M134 93 L144 97" stroke-width="1.5"/></g></svg>
-            <span class="mode m-read">read</span><br>
-            <span class="tag build">building</span><span class="tag">chrome extension</span>
+            <span class="mode m-read">read</span>
             <h3>Litmus</h3>
-            <p>Click the extension on any article and it asks you questions that test whether you understood it, not just whether you remember it. It also links the ideas to other topics and suggests what to explore next.</p>
-            <span class="small mono">demo coming soon →</span>
+            <p>Click on any article. Get asked if you <b>understood</b> it.</p>
+            <span class="soon">building · chrome extension</span>
           </div>
         </div>
-        <div class="win">
+        <div class="win reveal">
           <div class="bar"><i></i><i></i><i></i><span class="t">make-it-stick</span></div>
           <div class="body">
             <svg class="card-mascot" viewBox="0 14 152 96" role="img" aria-label="Kachhua the turtle"><use href="#kachhua" width="150" height="110"/><g stroke="#151515" stroke-width="2" stroke-linejoin="round" transform="rotate(35 120 80)"><rect x="116" y="58" width="9" height="34" fill="#F7A501"/><rect x="116" y="54" width="9" height="6" fill="#F4766B"/><path d="M116 92 L120.5 101 L125 92 Z" fill="#F3E3C3"/></g></svg>
-            <span class="mode m-write">write</span><br>
-            <span class="tag build">building</span><span class="tag">claude agent</span>
+            <span class="mode m-write">write</span>
             <h3>Make It Stick</h3>
-            <p>Give it a topic, a PDF or a lecture transcript and get back a guided-discovery worksheet to work through, along with a solutions version. It's for anyone learning on their own, not just students.</p>
-            <span class="small mono">demo coming soon →</span>
+            <p>Topic or PDF in. <b>Guided worksheet</b> out.</p>
+            <span class="soon">building · claude agent</span>
           </div>
         </div>
-        <div class="win">
+        <div class="win reveal">
           <div class="bar"><i></i><i></i><i></i><span class="t">teach-to-ai</span></div>
           <div class="body">
             <svg class="card-mascot wide" viewBox="0 0 216 110" role="img" aria-label="Kachhua the turtle"><use href="#kachhua" width="150" height="110"/><g stroke="#151515" stroke-width="2.2" stroke-linejoin="round"><path d="M158 4 H206 Q212 4 212 10 V32 Q212 38 206 38 H168 L150 46 L160 38 H158 Q152 38 152 32 V10 Q152 4 158 4 Z" fill="#fff"/><path d="M160 14 H204 M160 22 H196 M160 30 H186" stroke-width="2"/></g></svg>
-            <span class="mode m-speak">speak</span><br>
-            <span class="tag build">building</span><span class="tag">voice</span>
+            <span class="mode m-speak">speak</span>
             <h3>Teach to AI</h3>
-            <p>You learn by teaching. Students explain a concept on a call to an AI student who is confused about it, and they're evaluated on how well they explain. I'm building it for the viva in my Game Theory elective.</p>
-            <span class="small mono">demo coming soon →</span>
+            <p>Explain it to a confused AI student. <b>Get graded on teaching.</b></p>
+            <span class="soon">building · voice · for my elective's viva</span>
           </div>
         </div>
       </div>
@@ -392,29 +456,39 @@
     <!-- TEACHING -->
     <section id="teaching">
       <div class="sec-head"><span class="num">04</span><h2>Teaching</h2><svg class="sec-mascot" viewBox="0 12 150 98" role="img" aria-label="Kachhua the turtle"><use href="#kachhua" width="150" height="110"/><g stroke="#151515" stroke-width="2" stroke-linejoin="round"><path d="M104 27 L126 18 L148 27 L126 35 Z" fill="#151515"/><rect x="117" y="29" width="18" height="7" fill="#151515"/><path d="M148 27 V40" stroke="#F7A501" stroke-width="3"/></g><g stroke="#151515" stroke-width="2" fill="none"><circle cx="114" cy="43" r="7.5"/><circle cx="129.5" cy="42" r="8"/></g></svg></div>
-      <p class="sec-sub">Teaching gives me user research every day. A lecture is a product launch, and students tell me within ten minutes whether it's working.</p>
-      <div class="win">
-        <div class="bar"><i></i><i></i><i></i><span class="t">classroom</span></div>
-        <div class="body">
-          <ul class="list">
-            <li><b>Designed a Game Theory elective from scratch</b>. It has 20 lectures with paired labs, Catan as a teaching tool, and a Mahabharat-themed mid-sem paper. I pitched it to students and got it through the Board of Studies.</li>
-            <li><b>Designed the Python course</b> and built content for DSA. I teach Discrete Mathematics, Probability &amp; Statistics and DSA.</li>
-            <li><b>Lead a team of 6</b> and run examinations and evaluation for <b>1,000+ students</b>. <b>500+ teaching hours</b>, rated <b>4.7/5</b>.</li>
-          </ul>
-        </div>
+      <p class="sec-sub">Every lecture is a product launch. Students tell you in ten minutes if it's working.</p>
+      <div class="tiles">
+        <div class="tile reveal"><div class="big"><span class="count" data-to="20" data-prefix="" data-suffix="">20</span></div><span>lectures in a Game Theory elective I designed from scratch</span></div>
+        <div class="tile reveal"><div class="big"><span class="count" data-to="500" data-prefix="" data-suffix="+">500+</span></div><span>hours taught</span></div>
+        <div class="tile reveal"><div class="big">4.7<small>/5</small></div><span>student rating</span></div>
+        <div class="tile reveal"><div class="big"><span class="count" data-to="1000" data-prefix="" data-suffix="+">1,000+</span></div><span>students whose exams my team runs</span></div>
+      </div>
+      <div class="chips subj"><span>Game Theory</span><span>Discrete Math</span><span>Probability &amp; Stats</span><span>DSA</span><span>Python</span></div>
+    </section>
+
+    <!-- OFF THE CLOCK -->
+    <section id="fun">
+      <div class="sec-head"><span class="num">05</span><h2>Off the clock</h2></div>
+      <div class="fun-grid">
+        <div class="fun reveal"><svg class="fun-art" viewBox="-38 4 190 106" role="img" aria-label="Kachhua"><g stroke="#151515" stroke-width="2" stroke-linejoin="round"><path d="M-36 92 L-14 40 L-2 56 L16 12 L44 70 L40 92 Z" fill="#DADCD3"/><path d="M9 26 L16 12 L23 26 L17 23 L13 27 Z" fill="#fff"/></g><use href="#kachhua" width="150" height="110"/><g stroke="#151515" stroke-width="2.2" stroke-linejoin="round"><rect x="22" y="30" width="28" height="36" rx="6" fill="#1D4AFF"/><rect x="27" y="48" width="18" height="12" rx="3" fill="#5C7CFF"/><path d="M50 38 Q62 40 66 50" fill="none"/></g></svg><b>Trekking</b><span>Slow walks, big views. Kachhua approves.</span></div>
+        <div class="fun reveal"><svg class="fun-art" viewBox="0 14 168 96" role="img" aria-label="Kachhua"><use href="#kachhua" width="150" height="110"/><g stroke="#151515" stroke-width="2" stroke-linejoin="round"><rect x="118" y="52" width="32" height="21" rx="3" fill="#151515"/><rect x="124" y="48" width="9" height="5" rx="1" fill="#151515"/><circle cx="134" cy="62.5" r="7" fill="#9DB7C9" stroke="#fff" stroke-width="2"/><circle cx="146" cy="56" r="1.6" fill="#F7A501" stroke="none"/></g><g stroke="#F7A501" stroke-width="2.5" stroke-linecap="round"><path d="M154 46 L160 40 M156 56 L164 56 M154 66 L160 72"/></g></svg><b>Photography</b><span>I notice small things, in photos and in dashboards.</span></div>
+        <div class="fun reveal"><svg class="fun-art" viewBox="0 14 156 96" role="img" aria-label="Kachhua"><use href="#kachhua" width="150" height="110"/><g stroke="#151515" stroke-width="2.2" stroke-linejoin="round"><rect x="108" y="82" width="20" height="20" rx="4" fill="#fff"/><rect x="132" y="86" width="20" height="20" rx="4" fill="#F4766B" transform="rotate(12 142 96)"/></g><g fill="#151515"><circle cx="113" cy="87" r="1.8"/><circle cx="118" cy="92" r="1.8"/><circle cx="123" cy="97" r="1.8"/></g><g fill="#fff"><circle cx="138" cy="92" r="1.8"/><circle cx="146" cy="100" r="1.8"/><circle cx="146" cy="92" r="1.8"/><circle cx="138" cy="100" r="1.8"/></g></svg><b>Board games</b><span>I teach game theory with Catan. Yes, really.</span></div>
+        <div class="fun reveal"><svg class="fun-art" viewBox="-12 2 172 108" role="img" aria-label="Kachhua"><g stroke="#151515" stroke-width="2" stroke-linecap="round"><path d="M-6 36 H8 M-10 50 H6 M-6 64 H8"/></g><use href="#kachhua" width="150" height="110"/><text x="136" y="22" font-family="IBM Plex Sans, sans-serif" font-weight="700" font-size="24" fill="#F54E00" stroke="#151515" stroke-width="1">!!</text></svg><b>Anime &amp; manga</b><span>Long arcs, slow character growth. Very turtle.</span></div>
+        <div class="fun reveal"><svg class="fun-art" viewBox="-48 -18 198 128" role="img" aria-label="Kachhua"><g transform="translate(-46 -14)"><g stroke="#151515" stroke-width="2.2" stroke-linejoin="round"><path d="M30 2 L38 14 L52 6 L50 20 L64 22 L52 30 L60 42 L46 38 L42 52 L34 40 L22 48 L24 34 L8 32 L20 24 L10 12 L26 14 Z" fill="#F7A501"/></g><text x="21" y="31" font-family="IBM Plex Sans, sans-serif" font-weight="700" font-size="13" fill="#151515">POW</text></g><use href="#kachhua" width="150" height="110"/></svg><b>Comics &amp; pop culture</b><span>Stories are how people remember things.</span></div>
       </div>
     </section>
 
     <!-- WRITING -->
     <section id="writing">
-      <div class="sec-head"><span class="num">05</span><h2>Writing</h2><svg class="sec-mascot" viewBox="0 14 152 96" role="img" aria-label="Kachhua the turtle"><use href="#kachhua" width="150" height="110"/><g stroke="#151515" stroke-width="2" stroke-linejoin="round"><rect x="104" y="72" width="44" height="34" rx="2" fill="#fff" transform="rotate(-6 126 89)"/><path d="M110 80 H140 M110 88 H140 M110 96 H128" transform="rotate(-6 126 89)" stroke-width="1.6"/></g></svg></div>
-      <div class="win">
-        <div class="bar"><i></i><i></i><i></i><span class="t">office-hours</span></div>
-        <div class="body">
+      <div class="sec-head"><span class="num">06</span><h2>Writing</h2><svg class="sec-mascot" viewBox="0 14 152 96" role="img" aria-label="Kachhua the turtle"><use href="#kachhua" width="150" height="110"/><g stroke="#151515" stroke-width="2" stroke-linejoin="round"><rect x="104" y="72" width="44" height="34" rx="2" fill="#fff" transform="rotate(-6 126 89)"/><path d="M110 80 H140 M110 88 H140 M110 96 H128" transform="rotate(-6 126 89)" stroke-width="1.6"/></g></svg></div>
+      <div class="win reveal">
+        <div class="bar"><i></i><i></i><i></i><span class="t">product-notes</span></div>
+        <div class="body note-row">
+          <div>
+            <h3>Product Notes</h3>
+            <p>A fortnightly write-up on product and learning: what I'm building, reading and figuring out.</p>
+          </div>
           <span class="tag build">first issue soon</span>
-          <h3>Office Hours</h3>
-          <p>A fortnightly newsletter about product, learning and how to think through problems. <i>Come, we'll think it through together.</i></p>
-          <span class="small mono">first issue soon →</span>
         </div>
       </div>
     </section>
@@ -439,5 +513,30 @@
   <div class="fine mono">© 2026 Akash Chauhan</div>
 </footer>
 
+
+<script>
+(function(){
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce || !('IntersectionObserver' in window)) return;
+  document.documentElement.classList.add('js-motion');
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (!e.isIntersecting) return;
+      var el = e.target; io.unobserve(el);
+      if (el.classList.contains('reveal')) { el.classList.add('in'); return; }
+      var to = +el.dataset.to, pre = el.dataset.prefix || '', suf = el.dataset.suffix || '';
+      var t0 = null, dur = 1100;
+      function step(ts){
+        if (!t0) t0 = ts;
+        var k = Math.min(1, (ts - t0) / dur), v = Math.round(to * (1 - Math.pow(1 - k, 3)));
+        el.textContent = pre + v.toLocaleString('en-US') + suf;
+        if (k < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    });
+  }, {threshold: 0.25});
+  document.querySelectorAll('.reveal, .count').forEach(function(el){ io.observe(el); });
+})();
+</script>
 </body>
 </html>
