@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Question of the Day: a case study — Akash Chauhan</title>
+<meta name="description" content="How a daily practice question became a habit for half the students at Newton School of Technology.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='4' fill='%23F54E00'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#EEEFE9;--paper:#FDFDF8;--ink:#151515;--muted:#5B5B57;--line:#D0D1C9;--orange:#F54E00;--yellow:#F7A501;--blue:#1D4AFF;--green:#2F8F5B}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:"IBM Plex Sans",system-ui,sans-serif;font-size:17px;line-height:1.7}
+  a{color:inherit}
+  .mono{font-family:"IBM Plex Mono",ui-monospace,monospace}
+  header.top{position:sticky;top:0;z-index:5;background:rgba(238,239,233,.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+  header.top .in{max-width:980px;margin:0 auto;padding:0 22px;height:56px;display:flex;align-items:center;justify-content:space-between}
+  .brand{font-weight:700;text-decoration:none;display:flex;align-items:center;gap:8px}
+  .brand .dot{width:12px;height:12px;border-radius:3px;background:var(--orange)}
+  .back{font-size:14.5px;color:var(--muted);text-decoration:none}
+  .back:hover{color:var(--ink)}
+  article{max-width:720px;margin:0 auto;padding:56px 22px 40px}
+  .eyebrow{font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--muted)}
+  h1{font-size:clamp(32px,5vw,46px);line-height:1.1;letter-spacing:-.02em;margin:10px 0 16px}
+  h1 .hl{background:linear-gradient(transparent 62%,rgba(247,165,1,.45) 62%)}
+  .dek{font-size:20px;color:#2b2b28;margin:0 0 28px}
+  .meta{display:grid;grid-template-columns:repeat(4,1fr);border:1.5px solid var(--ink);border-radius:8px;background:var(--paper);overflow:hidden;margin-bottom:40px}
+  .meta div{padding:12px 14px;border-right:1px solid var(--line);font-size:14.5px}
+  .meta div:last-child{border-right:0}
+  .meta span{display:block;font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+  @media(max-width:640px){.meta{grid-template-columns:1fr 1fr}.meta div:nth-child(2){border-right:0}.meta div:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+  h2{font-size:26px;letter-spacing:-.01em;margin:48px 0 12px;display:flex;gap:12px;align-items:baseline}
+  h2 .n{font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--orange);font-weight:500}
+  p{margin:0 0 16px}
+  ul{padding-left:20px;margin:0 0 16px}
+  li{margin-bottom:8px}
+  .win{background:var(--paper);border:1.5px solid var(--ink);border-radius:8px;box-shadow:0 4px 0 var(--ink);overflow:hidden;margin:24px 0}
+  .win .bar{display:flex;align-items:center;gap:6px;padding:8px 12px;border-bottom:1.5px solid var(--ink);background:#E5E7E0;font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:#3a3a37}
+  .win .bar i{width:10px;height:10px;border-radius:50%;border:1.2px solid var(--ink);display:inline-block}
+  .win .bar i:nth-child(1){background:#F4766B}.win .bar i:nth-child(2){background:#F7C948}.win .bar i:nth-child(3){background:#5CC27A}
+  .win .bar .t{margin-left:8px}
+  .win .body{padding:18px 22px}
+  .quote{border-left:4px solid var(--yellow);padding:4px 0 4px 18px;margin:24px 0;font-size:19px;font-style:italic;color:#2b2b28}
+  table{width:100%;border-collapse:collapse;font-size:15px}
+  th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{font-family:"IBM Plex Mono",monospace;font-size:12px;font-weight:500;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+  tr:last-child td{border-bottom:0}
+  .yes{color:var(--green);font-weight:600}
+  .pillars{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0}
+  @media(max-width:640px){.pillars{grid-template-columns:1fr}}
+  .pillar{background:var(--paper);border:1.5px solid var(--ink);border-radius:8px;padding:16px 18px}
+  .pillar b{display:block;margin-bottom:4px}
+  .pillar p{margin:0;font-size:15.5px}
+  .tag{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:11.5px;padding:1px 8px;border:1px solid var(--ink);border-radius:20px;background:#fff;margin-bottom:8px}
+  .note{background:#FFF1CC;border:1.5px dashed var(--ink);border-radius:8px;padding:14px 18px;font-size:15px;margin:16px 0}
+  .next{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1.5px solid var(--ink);margin-top:56px;padding-top:24px}
+  .btn{display:inline-flex;padding:9px 16px;border:1.5px solid var(--ink);border-radius:6px;background:var(--paper);text-decoration:none;font-weight:600;font-size:15px;box-shadow:0 3px 0 var(--ink)}
+  .btn.primary{background:var(--yellow)}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="in">
+    <a class="brand" href="../"><span class="dot"></span>Akash Chauhan</a>
+    <a class="back" href="../#cases">← All work</a>
+  </div>
+</header>
+
+<article>
+  <div class="eyebrow">// case study 01 · newton school of technology</div>
+  <h1>Turning daily practice into a <span class="hl">habit</span></h1>
+  <p class="dek">How a single coding question a day went from "why should this exist?" to something half the student body did every day.</p>
+
+  <div class="meta">
+    <div><span>my role</span>Product owner, end to end</div>
+    <div><span>users</span>~2,100 students, 3 campuses</div>
+    <div><span>worked with</span>CTO, engineering, analytics, instructors</div>
+    <div><span>status</span>Live, in use</div>
+  </div>
+
+  <div class="win">
+    <div class="bar"><i></i><i></i><i></i><span class="t">tl;dr</span></div>
+    <div class="body">
+      <ul style="margin:0">
+        <li><b>Problem:</b> students practised coding on scattered platforms. Nobody, including the students themselves, could see what they had attempted, and many questions needed concepts they hadn't been taught yet.</li>
+        <li><b>Bet:</b> one question a day, matched to what each year has actually studied, with practice data in one place.</li>
+        <li><b>Result:</b> <b>600+ daily active users</b>. <b>Over half the students</b> kept a 30+ day streak, and QoTD activity showed a <b>strong positive correlation with exam scores</b>.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2><span class="n">01</span>The problem</h2>
+  <p>Our students know they should practise coding problems every day, because internships and placements depend on it. When I started talking to them, I found that practice was already happening, just in pieces. Students solved problems on LeetCode, GeeksforGeeks and InterviewBit, a few here and a few there.</p>
+  <p>That caused two problems.</p>
+  <ul>
+    <li><b>No one could see the practice.</b> Neither students nor instructors had a picture of who was practising, how often, or on what. We couldn't help with placement prep for students we knew nothing about.</li>
+    <li><b>The questions didn't match what students had learned.</b> A first-year student who opens a "medium" problem on LeetCode often finds it needs graphs or trees, which they haven't studied yet. They get stuck, decide they're bad at this, and stop.</li>
+  </ul>
+  <p class="quote">The problem wasn't motivation. Students were picking questions they had no way of solving yet.</p>
+
+  <h2><span class="n">02</span>Getting a yes</h2>
+  <p>"Students should practise more" isn't a product, and the CTO rightly asked why we needed to build anything when free platforms already existed. So the pitch couldn't be about practice in general. It had to show what the existing platforms couldn't give us:</p>
+  <ul>
+    <li><b>Practice matched to the syllabus,</b> released as each year covered the concepts.</li>
+    <li><b>Data we owned</b> on attempts and streaks, so instructors could step in and placement prep could be personalised.</li>
+    <li><b>A shared ritual,</b> where the same question goes to the whole cohort on the same day, so students can talk about it.</li>
+  </ul>
+  <p>The student interviews were the evidence. That's what got it approved.</p>
+
+  <h2><span class="n">03</span>Key decisions</h2>
+  <div class="pillars">
+    <div class="pillar"><span class="tag">release rule</span><b>Follow the syllabus, not the difficulty</b><p>Each year got questions only on concepts it had already covered. A first-year student never meets a graph problem in week three.</p></div>
+    <div class="pillar"><span class="tag">segmentation</span><b>Every year is a different user</b><p>First-years want confidence and fourth-years want placements. Motivation and question style were set separately for each year.</p></div>
+    <div class="pillar"><span class="tag">operations</span><b>A question supply chain across 3 campuses</b><p>A new question every day for every year needs a reliable pipeline. I split the work into ideation, creation and review across the Delhi NCR, Bengaluru and Pune campuses, with instructors owning each stage.</p></div>
+    <div class="pillar"><span class="tag">engagement</span><b>Instructors as the distribution channel</b><p>Instructors brought QoTD up in class every week. For students who reached a 100-day streak, there was a T-shirt, something visible they could wear around campus.</p></div>
+  </div>
+
+  <h2><span class="n">04</span>Defining success</h2>
+  <p>I didn't want "people use it" as the only goal, so I set targets against a base of about 2,100 students. Some targets were about habit, some about volume, and one about whether practice actually helped.</p>
+  <div class="win">
+    <div class="bar"><i></i><i></i><i></i><span class="t">success-metrics</span></div>
+    <div class="body" style="padding:6px 10px">
+      <table>
+        <tr><th>Metric</th><th>Target</th><th>Why it mattered</th></tr>
+        <tr><td>Students on a 30+ day streak</td><td>250 by mid-sem</td><td>Is it a habit, not a novelty?</td></tr>
+        <tr><td>Students doing 4+ QoTDs a week</td><td>400 by mid-sem</td><td>Regular use beyond the hardcore few</td></tr>
+        <tr><td>Students with 50+ questions solved</td><td>600 by end-sem</td><td>Enough practice volume to matter</td></tr>
+        <tr><td>Correlation of QoTD with exam marks (1st &amp; 2nd year)</td><td>≥ 0.4</td><td>Does it actually help people learn?</td></tr>
+      </table>
+    </div>
+  </div>
+  <p>The last metric was the one I cared about most. Engagement metrics can be gamed, but a correlation with exam marks is much harder to fake.</p>
+  <p><b>Measurement:</b> I first tried setting up Mixpanel for event tracking. After discussing it with the analytics team, we went with Metabase views they built to my requirements. These were funnels from question released, to attempted, to solved, broken down by year and campus. That was cheaper and closer to the data we already had.</p>
+
+  <h2><span class="n">05</span>Results</h2>
+  <div class="win">
+    <div class="bar"><i></i><i></i><i></i><span class="t">outcome</span></div>
+    <div class="body" style="padding:6px 10px">
+      <table>
+        <tr><th>What happened</th><th></th></tr>
+        <tr><td>Daily active users</td><td class="yes">600+</td></tr>
+        <tr><td>Students on a 30+ day streak</td><td class="yes">over 50%, well past the target of 250</td></tr>
+        <tr><td>QoTD activity vs. exam scores</td><td class="yes">strong positive correlation</td></tr>
+        <tr><td>Rollout</td><td class="yes">all years, all 3 campuses</td></tr>
+      </table>
+    </div>
+  </div>
+  <p class="note"><b>A note on the correlation:</b> it doesn't prove QoTD caused better marks. Students who practise daily may simply be the ones who were going to do well anyway. What it does show is that the product reached the students it was meant to help, and that it's worth testing properly.</p>
+
+  <h2><span class="n">06</span>What I learned</h2>
+  <ul>
+    <li><b>Habits come from fit, not from pressure.</b> My read is that the syllabus-matched release rule mattered more than any reminder. Students practise when they can actually solve the question.</li>
+    <li><b>The content pipeline is part of the product.</b> A daily product is only as reliable as whoever creates its content. Designing the ideation, creation and review workflow across campuses took as much effort as the feature itself.</li>
+    <li><b>Pick a metric you can't fool.</b> Linking engagement to exam marks forced an honest answer to "is this helping?" instead of "is this being used?"</li>
+  </ul>
+
+  <h2><span class="n">07</span>What I'd do differently</h2>
+  <ul>
+    <li><b>Run a proper comparison early.</b> A staggered rollout across sections would have given us a causal answer, not only a correlation.</li>
+    <li><b>Set up instrumentation before launch.</b> We had the measurement plan, but the dashboards were ready only after launch, so the first weeks of data were thinner than they should have been.</li>
+  </ul>
+
+  <div class="next">
+    <a class="btn" href="../">← Back to portfolio</a>
+    <a class="btn primary" href="../#contact">Talk to me about this →</a>
+  </div>
+</article>
+</body>
+</html>
