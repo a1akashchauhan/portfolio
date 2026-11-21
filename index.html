@@ -167,9 +167,13 @@
   .chip-s{font-family:"IBM Plex Mono",monospace;font-size:12px;border:1px solid var(--line);border-radius:4px;padding:2px 8px;background:var(--paper);color:var(--ink)}
   a.case{text-decoration:none;display:block;transition:transform .15s, box-shadow .15s}
   a.case:hover{transform:translateY(-3px);box-shadow:0 7px 0 var(--ink)}
-  .lab-intro .modes{display:flex;gap:8px;align-items:center}
-  .lab-intro .modes span{font-family:"IBM Plex Mono",monospace;font-size:13px;color:#fff;padding:2px 10px;border-radius:4px}
-  .lab-intro .modes i{font-style:normal;color:#bdbdb5}
+  .lab-intro .modes,.lab-sub .modes{display:flex;gap:8px;align-items:center}
+  .lab-sub{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin:28px 0 10px}
+  .lab-sub .eyebrow{margin:0}
+  .lab .tools{margin-top:10px}
+  .lab a.win{color:inherit;text-decoration:none}
+  .lab-intro .modes span,.lab-sub .modes span{font-family:"IBM Plex Mono",monospace;font-size:13px;color:#fff;padding:2px 10px;border-radius:4px}
+  .lab-intro .modes i,.lab-sub .modes i{font-style:normal;color:#bdbdb5}
   .lab .mode{margin-bottom:6px}
   .soon{display:block;font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--muted);margin-top:8px}
   .tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
@@ -192,11 +196,13 @@
   .js-motion .reveal.in{opacity:1;transform:none}
 
   .journey-wrap{margin-top:30px}
-  .journey{display:grid;grid-template-columns:repeat(4,1fr);position:relative;margin-top:14px}
+  .journey{display:grid;grid-template-columns:repeat(5,1fr);position:relative;margin-top:14px}
   .journey::before{content:"";position:absolute;left:8px;right:40px;top:8px;border-top:2px dashed var(--ink)}
   .node{position:relative;padding:30px 14px 0 0;font-size:14px}
   .node::before{content:"";position:absolute;left:0;top:0;width:14px;height:14px;border-radius:50%;background:var(--paper);border:2px solid var(--ink)}
   .node.on::before{background:var(--yellow)}
+  .node.next::before{border-style:dashed;background:#DDF3E4}
+  .node.next > b{color:var(--green)}
   .node .yr{display:block;font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--orange)}
   .node > b{display:block;font-size:16px;margin:2px 0}
   .node > span{color:var(--muted)}
@@ -290,7 +296,7 @@
       <a href="#about">About</a>
       <a href="#work">Work</a>
       <a href="#cases">Case studies</a>
-      <a href="#lab">AI prototypes</a>
+      <a href="#lab">Things I build</a>
       <a href="#design">Design</a>
       <a href="#teaching">Teaching</a>
       <a href="#fun">Off the clock</a>
@@ -447,6 +453,7 @@
           <div class="node on"><span class="yr">now</span><b>Team lead</b><span>product + teaching</span>
             <svg class="walker" viewBox="0 14 150 96" aria-hidden="true"><use href="#kachhua" width="150" height="110"/></svg>
           </div>
+          <div class="node next"><span class="yr">jan 2027 →</span><b>Product PoC</b><span>for my campus · + PM elective</span></div>
         </div>
       </div>
     </section>
@@ -478,9 +485,35 @@
 
     <!-- LEARNING LAB -->
     <section id="lab" class="lab">
-      <div class="sec-head"><span class="num">03</span><h2>AI prototypes</h2></div>
+      <div class="sec-head"><span class="num">03</span><h2>Things I build</h2></div>
       <div class="lab-intro">
-        <p><b>I build working AI products on my own.</b> The current set climbs past "remember", one for each way you learn.</p>
+        <p><b>I build working products on my own,</b> usually for a problem I actually have. Prototype in a weekend, then use it for real.</p>
+      </div>
+      <div class="eyebrow">// everyday tools · live</div>
+      <div class="grid2 tools">
+        <a class="win reveal" href="https://calm-split.vercel.app/">
+          <div class="bar"><i></i><i></i><i></i><span class="t">calm-split</span></div>
+          <div class="body">
+            <svg class="card-mascot" viewBox="0 14 152 96" role="img" aria-label="Kachhua the turtle"><use href="#kachhua" width="150" height="110"/><g stroke="#151515" stroke-width="2"><circle cx="128" cy="92" r="10" fill="#F7A501"/><circle cx="140" cy="84" r="10" fill="#FFD25A"/><path d="M137 84 H143 M140 81 V87" stroke-width="1.6"/></g></svg>
+            <span class="tag live">live</span><span class="tag">ai parsing</span><span class="tag">groups</span>
+            <h3>CalmSplit</h3>
+            <p>Export the trip's WhatsApp chat. AI pulls out <b>who paid, for what, for whom</b>. One shared link settles it.</p>
+            <span class="link">Open it →</span>
+          </div>
+        </a>
+        <a class="win reveal" href="https://calmnotes.vercel.app/">
+          <div class="bar"><i></i><i></i><i></i><span class="t">calm-notes</span></div>
+          <div class="body">
+            <svg class="card-mascot" viewBox="0 14 152 96" role="img" aria-label="Kachhua the turtle"><use href="#kachhua" width="150" height="110"/><g stroke="#151515" stroke-width="2" stroke-linejoin="round"><rect x="118" y="70" width="28" height="34" rx="2" fill="#fff"/><path d="M123 79 H141 M123 86 H139 M123 93 H134" stroke-width="1.6"/><path d="M146 66 Q152 58 148 52 Q141 57 146 66 Z" fill="#7BC08F"/></g></svg>
+            <span class="tag live">live</span><span class="tag">focus</span><span class="tag">minimal</span>
+            <h3>Calm Notes</h3>
+            <p>One quiet notepad. <b>Nothing else.</b> Every button has to earn its place.</p>
+            <span class="link">Open it →</span>
+          </div>
+        </a>
+      </div>
+      <div class="lab-sub">
+        <div class="eyebrow">// learning lab · one tool for each way you learn</div>
         <div class="modes"><span class="m-read">read</span><i>→</i><span class="m-write">write</span><i>→</i><span class="m-speak">speak</span></div>
       </div>
       <div class="grid3">
@@ -495,11 +528,11 @@
           </div>
         </div>
         <div class="win reveal">
-          <div class="bar"><i></i><i></i><i></i><span class="t">make-it-stick</span></div>
+          <div class="bar"><i></i><i></i><i></i><span class="t">slate</span></div>
           <div class="body">
             <svg class="card-mascot" viewBox="0 14 152 96" role="img" aria-label="Kachhua the turtle"><use href="#kachhua" width="150" height="110"/><g stroke="#151515" stroke-width="2" stroke-linejoin="round" transform="rotate(35 120 80)"><rect x="116" y="58" width="9" height="34" fill="#F7A501"/><rect x="116" y="54" width="9" height="6" fill="#F4766B"/><path d="M116 92 L120.5 101 L125 92 Z" fill="#F3E3C3"/></g></svg>
             <span class="mode m-write">write</span>
-            <h3>Make It Stick</h3>
+            <h3>Slate</h3>
             <p>Topic or PDF in. <b>Guided worksheet</b> out.</p>
             <span class="soon">building · claude agent</span>
           </div>
@@ -511,7 +544,8 @@
             <span class="mode m-speak">speak</span>
             <h3>Teach to AI</h3>
             <p>Explain it to a confused AI student. <b>Get graded on teaching.</b></p>
-            <span class="soon">building · voice · for my elective's viva</span>
+            <span class="soon">voice · built for my elective's viva</span>
+            <a class="link" href="https://teach-to-ai.netlify.app/">Try it →</a>
           </div>
         </div>
       </div>
