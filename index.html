@@ -74,6 +74,41 @@
   @media (max-width:820px){.grid2,.grid3{grid-template-columns:1fr}}
 
 
+
+  /* experience block */
+  .xp{display:grid;grid-template-columns:270px 1fr;gap:22px;align-items:start}
+  .xp-co{background:var(--ink);color:#F4F4EE;border-radius:12px;padding:24px;position:sticky;top:80px}
+  .xp-mono{width:56px;height:56px;border-radius:12px;background:var(--yellow);color:var(--ink);display:grid;place-items:center;font-family:"IBM Plex Mono",monospace;font-weight:700;font-size:17px;margin-bottom:14px}
+  .xp-co h3{margin:0;font-size:21px;line-height:1.25;color:#fff}
+  .xp-role{margin:4px 0 0;font-weight:600;color:var(--yellow)}
+  .xp-meta{margin:2px 0 14px;font-family:"IBM Plex Mono",monospace;font-size:13px;color:#bdbdb5}
+  .xp-facts{list-style:none;padding:0;margin:0 0 16px;display:grid;gap:8px;font-size:15px}
+  .xp-facts li{padding-left:18px;position:relative}
+  .xp-facts li::before{content:"";position:absolute;left:0;top:.6em;width:8px;height:8px;border-radius:2px;background:var(--yellow)}
+  .xp-next{display:block;background:#DDF3E4;color:var(--ink);border-radius:6px;padding:8px 10px;font-size:14px;font-weight:600;margin-bottom:14px}
+  .xp-cv{color:#fff;font-weight:600;text-decoration:none;border-bottom:1.5px solid var(--orange)}
+  .xp-list{display:grid;gap:16px}
+  .xrow{display:grid;grid-template-columns:52px 1fr 165px;gap:18px;align-items:start;background:var(--paper);border:1.5px solid var(--ink);border-radius:12px;box-shadow:0 4px 0 var(--ink);padding:20px 22px;transition:transform .2s ease,box-shadow .2s ease}
+  .xrow:hover{transform:translateY(-3px);box-shadow:0 7px 0 var(--ink)}
+  .x-ic{width:52px;height:52px;border-radius:12px;border:1.5px solid var(--ink);display:grid;place-items:center}
+  .x-ic svg{width:26px;height:26px;fill:none;stroke:var(--ink);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+  .x-yellow .x-ic{background:#FFD25A}.x-blue .x-ic{background:#BFD0FF}.x-green .x-ic{background:#A9E2BD}.x-orange .x-ic{background:#FFC2A1}
+  .x-yellow.feat{background:#FFF6DA}
+  .xrow h4{margin:0 0 6px;font-size:19px;line-height:1.3}
+  .x-kind{display:inline-block;margin-left:6px;font-family:"IBM Plex Mono",monospace;font-size:12px;font-weight:500;color:var(--muted);vertical-align:2px}
+  .xrow p{margin:0;color:#33332f;font-size:15.5px}
+  .x-path{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:12px 0 10px;font-family:"IBM Plex Mono",monospace;font-size:13px}
+  .x-path span{border:1px solid var(--ink);border-radius:20px;padding:2px 10px;background:#fff}
+  .x-path span.on{background:var(--ink);color:#fff}
+  .x-path i{font-style:normal;color:var(--muted)}
+  .x-num{text-align:right;display:flex;flex-direction:column;gap:2px}
+  .x-num b{font-size:40px;line-height:1;letter-spacing:-.02em}
+  .x-num .count{font-size:inherit;font-weight:inherit;font-family:inherit;color:inherit}
+  .x-num b small{font-size:18px;color:var(--muted)}
+  .x-num span{font-weight:600;font-size:14.5px}
+  .x-num em{font-style:normal;font-size:13px;color:var(--muted)}
+  @media (max-width:900px){.xp{grid-template-columns:1fr}.xp-co{position:static}}
+  @media (max-width:640px){.xrow{grid-template-columns:44px 1fr}.x-ic{width:44px;height:44px}.x-num{grid-column:2;text-align:left;flex-direction:row;flex-wrap:wrap;align-items:baseline;gap:6px}.x-num b{font-size:30px}}
   /* image tiles */
   .ptile{display:flex;flex-direction:column;background:var(--paper);border:1.5px solid var(--ink);border-radius:10px;overflow:hidden;box-shadow:0 4px 0 var(--ink);color:inherit;text-decoration:none;transition:transform .2s ease,box-shadow .2s ease}
   .ptile:hover{transform:translateY(-4px);box-shadow:0 8px 0 var(--ink)}
@@ -92,19 +127,22 @@
   .c-yellow{background:#FFD25A}.c-lilac{background:#DCE2FF}.c-dark{background:#111}
   .cases-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
   .ptile.ptile-lg h3{font-size:24px}
-  .build-grid{display:grid;grid-template-columns:1.35fr 1fr;grid-template-rows:auto auto;gap:24px}
-  .build-grid .feature{grid-row:span 2}
-  .build-grid .feature .cover{aspect-ratio:auto;flex:1 1 auto;min-height:300px}
-  .build-grid .feature .cover img{position:absolute;inset:0}
+  .build-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .ptile.app .browser{display:flex;align-items:center;gap:8px;padding:8px 10px;background:#E5E7E0;border-bottom:1.5px solid var(--ink);font-family:"IBM Plex Mono",monospace;font-size:11px}
+  .ptile.app .dots{display:flex;gap:5px}.ptile.app .dots i{width:9px;height:9px;border-radius:50%;border:1.2px solid var(--ink)}
+  .ptile.app .dots i:nth-child(1){background:#F4766B}.ptile.app .dots i:nth-child(2){background:#F7C948}.ptile.app .dots i:nth-child(3){background:#5CC27A}
+  .ptile.app .url{flex:1;background:#fff;border:1px solid #c9c9c0;border-radius:20px;padding:2px 10px;color:#3a3a37;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .ptile.app .live{color:var(--green);font-weight:600;white-space:nowrap}
+  .ptile.app .shot{aspect-ratio:16/10;overflow:hidden;border-bottom:1.5px solid var(--ink);background:#fff}
+  .ptile.app .shot img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
+  .ptile.app:hover .shot img{transform:scale(1.03)}
   .ptile .tbadge{z-index:1}
-  .build-grid .side .cover{aspect-ratio:16/8}
   .lab-row{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:24px}
   .lab-card{border:1.5px dashed var(--ink);border-radius:10px;padding:18px 20px;display:flex;gap:16px;align-items:center;background:transparent}
   .lab-card svg{width:96px;flex:none}
   .lab-card h3{margin:0 0 2px;font-size:18px}
   .lab-card p{margin:0;color:var(--muted);font-size:15px}
-  @media (max-width:820px){.cases-grid,.build-grid,.lab-row{grid-template-columns:1fr}.build-grid .feature{grid-row:auto}.build-grid .feature .cover{min-height:0;aspect-ratio:16/10}}
-  .build-grid .feature .meta{flex:none}
+  @media (max-width:820px){.cases-grid,.build-grid,.lab-row{grid-template-columns:1fr}}
   .tag{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:12px;padding:2px 8px;border:1px solid var(--ink);border-radius:20px;margin:0 6px 6px 0;background:#fff}
   .tag.live{background:#DDF3E4}.tag.build{background:#FFF1CC}.tag.proto{background:#E3E8FF}
 
@@ -406,69 +444,58 @@
 
     <!-- WORK -->
     <section id="work">
-      <div class="sec-head"><span class="num">01</span><h2>Product work</h2><svg class="sec-mascot" viewBox="0 8 150 102" role="img" aria-label="Kachhua the turtle"><use href="#kachhua" width="150" height="110"/><g stroke="#151515" stroke-width="2.2" stroke-linejoin="round"><path d="M104 32 Q106 12 125 12 Q144 12 146 32 Z" fill="#F7A501"/><rect x="99" y="30" width="52" height="6" rx="3" fill="#F7A501"/><path d="M125 13 V30"/></g></svg></div>
-      <div class="role">
-        <b>Newton School of Technology · SDE + Instructor 2</b>
-        <span class="small mono">Jun 2024 — present</span>
-      </div>
-
-      <div class="win flag reveal">
-        <div class="bar"><i></i><i></i><i></i><span class="t">question-of-the-day.md</span></div>
-        <div class="body">
-          <div class="flag-head">
-            <div><span class="tag live">shipped · in use</span><span class="tag">0 → 1</span><span class="tag">habit &amp; retention</span><span class="tag">metrics design</span>
-            <h3>Question of the Day</h3></div>
-            <a class="link" href="qotd/">Read the full case study →</a>
-          </div>
-          <div class="panels">
-            <div class="panel">
-              <span class="lbl">1 · before</span>
-              <div class="scatter"><em style="--r:-8deg">LeetCode</em><em style="--r:6deg">GFG</em><em style="--r:-3deg">InterviewBit</em><em class="q" style="--r:10deg">?</em></div>
-              <p>Practice everywhere,<br><b>tracked nowhere.</b></p>
+      <div class="sec-head"><span class="num">01</span><h2>Experience</h2><svg class="sec-mascot" viewBox="0 8 150 102" role="img" aria-label="Kachhua the turtle"><use href="#kachhua" width="150" height="110"/><g stroke="#151515" stroke-width="2.2" stroke-linejoin="round"><path d="M104 32 Q106 12 125 12 Q144 12 146 32 Z" fill="#F7A501"/><rect x="99" y="30" width="52" height="6" rx="3" fill="#F7A501"/><path d="M125 13 V30"/></g></svg></div>
+      <article class="xp reveal">
+        <aside class="xp-co">
+          <div class="xp-mono" aria-hidden="true">NST</div>
+          <h3>Newton School of Technology</h3>
+          <p class="xp-role">SDE + Instructor 2</p>
+          <p class="xp-meta">Jun 2024 – present · Sonipat, India</p>
+          <ul class="xp-facts">
+            <li>Product work across 4 internal products</li>
+            <li>Lead a team of 6 instructors</li>
+            <li>Run exams for 1,000+ students</li>
+          </ul>
+          <span class="xp-next">Next: Product PoC for my campus, from Jan 2027</span>
+          <a class="xp-cv" href="resume.pdf">Download resume (PDF) →</a>
+        </aside>
+        <div class="xp-list">
+          <section class="xrow x-yellow feat">
+            <div class="x-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M8 15l2.5 2.5L16 13"/></svg></div>
+            <div class="x-main">
+              <h4>Question of the Day <span class="x-kind">0 → 1 · owned end to end</span></h4>
+              <p>Student interviews showed practice was scattered across LeetCode and GFG, with no record of attempts. I pitched a daily, syllabus-matched question to the CTO, set the success metrics and rolled it out across 3 campuses.</p>
+              <div class="x-path"><span>scattered practice</span><i>→</i><span>1 question a day</span><i>→</i><span class="on">a daily habit</span></div>
+              <a class="link" href="qotd/">Read the case study →</a>
             </div>
-            <div class="panel">
-              <span class="lbl">2 · the bet</span>
-              <div class="daycard"><div>DAY 24</div><b>1 question</b><span>matched to your syllabus</span></div>
-              <p>Small, daily and <b>always solvable.</b></p>
+            <div class="x-num"><b><span class="count" data-to="600" data-prefix="" data-suffix="+">600+</span></b><span>daily active users</span><em>over half on 30+ day streaks</em></div>
+          </section>
+          <section class="xrow x-blue">
+            <div class="x-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="5" height="16" rx="1"/><rect x="10" y="4" width="5" height="11" rx="1"/><rect x="17" y="4" width="4" height="7" rx="1"/></svg></div>
+            <div class="x-main">
+              <h4>Task Management System <span class="x-kind">internal workflow tool</span></h4>
+              <p>Replaced a web of spreadsheets with one create → review → release flow for course content, plus a review checklist that gates question quality before release.</p>
             </div>
-            <div class="panel win-panel">
-              <span class="lbl">3 · after</span>
-              <div class="big"><span class="count" data-to="600" data-prefix="" data-suffix="+">600+</span></div><p class="bl">daily active users</p>
-              <div class="big">&gt;<span class="count" data-to="50" data-prefix="" data-suffix="%">50%</span></div><p class="bl">on 30+ day streaks</p>
+            <div class="x-num"><b><span class="count" data-to="200" data-prefix="" data-suffix="+">200+</span></b><span>instructors use it</span><em>across 20+ courses</em></div>
+          </section>
+          <section class="xrow x-green">
+            <div class="x-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.5-3.4 8-8 9-4.6-1-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg></div>
+            <div class="x-main">
+              <h4>Testing &amp; proctoring <span class="x-kind">Athena + Heimdall</span></h4>
+              <p>Worked on our in-house test-taking and proctoring tools, and specified a report that ranks students by breaches so invigilators know where to look.</p>
             </div>
-          </div>
+            <div class="x-num"><b><span class="count" data-to="1000" data-prefix="" data-suffix="+">1,000+</span></b><span>students in one live contest</span></div>
+          </section>
+          <section class="xrow x-orange">
+            <div class="x-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4M7 10l3 2 4-4 3 2"/></svg></div>
+            <div class="x-main">
+              <h4>Live class tools <span class="x-kind">feature design</span></h4>
+              <p>Defined tick-and-release questions, polls and topic-tree marking, with funnels in Metabase showing where students drop off during class.</p>
+            </div>
+            <div class="x-num"><b>4.75<small>/5</small></b><span>student satisfaction</span><em>across 200+ sessions</em></div>
+          </section>
         </div>
-      </div>
-
-      <div class="grid3" style="margin-top:20px">
-        <div class="win reveal">
-          <div class="bar"><i></i><i></i><i></i><span class="t">tms</span></div>
-          <div class="body">
-            <span class="tag">workflow</span><span class="tag">internal tool</span>
-            <div class="big"><span class="count" data-to="200" data-prefix="" data-suffix="+">200+</span></div><p class="bl">instructors · 20+ courses</p>
-            <h3>Task Management System</h3>
-            <div class="flow"><span class="x">sheets ×∞</span><i>→</i><span>create</span><i>→</i><span>review</span><i>→</i><span>release</span></div>
-          </div>
-        </div>
-        <div class="win reveal">
-          <div class="bar"><i></i><i></i><i></i><span class="t">athena + heimdall</span></div>
-          <div class="body">
-            <span class="tag">real-time</span><span class="tag">at scale</span>
-            <div class="big"><span class="count" data-to="1000" data-prefix="" data-suffix="+">1,000+</span></div><p class="bl">students, one contest, live</p>
-            <h3>Testing &amp; proctoring</h3>
-            <div class="flow"><span>test</span><i>+</i><span>proctor</span><i>→</i><span>breach report</span></div>
-          </div>
-        </div>
-        <div class="win reveal">
-          <div class="bar"><i></i><i></i><i></i><span class="t">live-class</span></div>
-          <div class="body">
-            <span class="tag">engagement</span><span class="tag">feature design</span>
-            <div class="big">4.75<small>/5</small></div><p class="bl">satisfaction · 200+ sessions</p>
-            <h3>Live class tools</h3>
-            <div class="flow"><span>tick &amp; release</span><span>polls</span><span>topic tree</span></div>
-          </div>
-        </div>
-      </div>
+      </article>
 
       <div class="journey-wrap reveal">
         <div class="eyebrow">// the path so far</div>
@@ -530,28 +557,33 @@
         <p><b>I build working products on my own,</b> usually for a problem I actually have. Prototype in a weekend, then use it for real.</p>
       </div>
       <div class="build-grid">
-        <a class="ptile feature reveal" href="https://calm-split.vercel.app/">
-          <div class="cover"><span class="tbadge live">live</span><img src="img/calmsplit.webp" alt="CalmSplit landing page" loading="lazy"></div>
+        <a class="ptile app reveal" href="https://calm-split.vercel.app/">
+          <div class="browser"><span class="dots"><i></i><i></i><i></i></span><span class="url">calm-split.vercel.app</span><span class="live">● live</span></div>
+          <div class="shot"><img src="img/calmsplit.webp" alt="CalmSplit landing page: drop a WhatsApp chat or start fresh" loading="lazy" width="1600" height="1000"></div>
           <div class="meta">
-            <span class="eyebrow">groups · ai parsing · built solo</span>
+            <span class="eyebrow">groups · ai parsing</span>
             <h3>CalmSplit</h3>
             <p>Export the trip's WhatsApp chat. AI pulls out who paid, for what, for whom. One shared link settles it.</p>
             <span class="go">Open it <i>→</i></span>
           </div>
         </a>
-        <a class="ptile side reveal" href="https://calmnotes.vercel.app/">
-          <div class="cover c-dark"><span class="tbadge live">live</span><img src="img/calmnotes.webp" alt="Calm Notes, a single dark notepad" loading="lazy"></div>
+        <a class="ptile app reveal" href="https://calmnotes.vercel.app/">
+          <div class="browser"><span class="dots"><i></i><i></i><i></i></span><span class="url">calmnotes.vercel.app</span><span class="live">● live</span></div>
+          <div class="shot"><img src="img/calmnotes.webp" alt="Calm Notes: a single dark notepad" loading="lazy" width="1600" height="1000"></div>
           <div class="meta">
+            <span class="eyebrow">focus · minimal</span>
             <h3>Calm Notes</h3>
-            <p>One quiet notepad. Nothing else.</p>
+            <p>One quiet notepad. No folders, no tags. Every button has to earn its place.</p>
             <span class="go">Open it <i>→</i></span>
           </div>
         </a>
-        <a class="ptile side reveal" href="https://teach-to-ai.netlify.app/">
-          <div class="cover"><span class="tbadge live">live · voice</span><img src="img/teach-to-ai.webp" alt="Teach to AI: an AI student waiting to be taught" loading="lazy"></div>
+        <a class="ptile app reveal" href="https://teach-to-ai.netlify.app/">
+          <div class="browser"><span class="dots"><i></i><i></i><i></i></span><span class="url">teach-to-ai.netlify.app</span><span class="live">● live</span></div>
+          <div class="shot"><img src="img/teach-to-ai.webp" alt="Teach to AI: an AI student waiting to be taught" loading="lazy" width="1600" height="1000"></div>
           <div class="meta">
+            <span class="eyebrow">voice · ai student</span>
             <h3>Teach to AI</h3>
-            <p>Explain it to a confused AI student. Get graded on teaching.</p>
+            <p>Explain a concept to a confused AI student, out loud. Get graded on how well you teach.</p>
             <span class="go">Try it <i>→</i></span>
           </div>
         </a>
