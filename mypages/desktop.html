@@ -1,0 +1,1057 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My Pages prototype (desktop)</title>
+<meta name="description" content="My Pages: a feature proposal and working prototype for SuperKalam by Akash Chauhan. A UPSC lesson that becomes the student's own marked-up copy, where worksheet mistakes turn into sticky notes on the exact lines.">
+<meta property="og:title" content="My Pages prototype (desktop)">
+<meta property="og:description" content="My Pages: a feature proposal and working prototype for SuperKalam by Akash Chauhan. A UPSC lesson that becomes the student's own marked-up copy, where worksheet mistakes turn into sticky notes on the exact lines.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://a1akashchauhan.github.io/portfolio/mypages/desktop.html">
+<meta property="og:image" content="https://a1akashchauhan.github.io/portfolio/mypages/assets/fbe48e8284e81fcd60ab99576223275b.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232F6BDE'/%3E%3Cpath d='M9 8h11l3 3v13H9z' fill='%23fff'/%3E%3Crect x='12' y='14' width='8' height='5' fill='%23FBE38E'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400;1,8..60,600&amp;family=Lato:ital,wght@0,400;0,700;1,400&amp;family=Kalam:wght@400;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#2F6BDE}a:hover{color:#2456B8}
+button{cursor:pointer}
+</style>
+<style>
+
+html, body { margin: 0; height: 100%; }
+#app > div { width: 100% !important; height: 100vh !important; height: 100dvh !important; }
+
+</style>
+<script src="assets/morphdom.min.js"></script>
+<script src="assets/dc.js"></script>
+</head>
+<body>
+<div id="app"></div>
+<template id="dc-tpl-Web">
+<div style="width: 1280px; height: 800px; position: relative; overflow: hidden; box-sizing: border-box; background: #FFFFFF; color: #1C1B19; font-family: 'Source Serif 4', Georgia, serif; display: flex; flex-direction: column">
+
+<header style="flex: none; background: #FFFFFF; border-bottom: 1px solid #E7E4DE; font-family: 'Lato', sans-serif">
+<div style="max-width: 1040px; margin: 0 auto; padding: 8px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px">
+<div style="display: flex; align-items: center; gap: 6px">
+<button aria-label="Back to the unit" onClick="{{openExit}}" style="width: 40px; height: 40px; border: 0; background: transparent; border-radius: 20px; padding: 0; display: flex; align-items: center; justify-content: center; color: #1C1B19"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4l-6 6 6 6"/></svg></button>
+<div style="font-family: 'Source Serif 4', serif; font-size: 16px; font-style: italic; color: #4A4740; white-space: nowrap">Polity, Unit 1 · The Company Rule</div>
+</div>
+<nav aria-label="Jump to an act" style="display: flex; gap: 2px">
+<sc-for list="{{nav}}" as="y" hint-placeholder-count="8">
+<a href="#w-{{y.year}}" aria-label="{{y.label}}" style="height: 36px; padding: 0 9px; display: flex; align-items: center; text-decoration: none; font-size: 14px; font-weight: {{y.weight}}; color: {{y.color}}; border-bottom: 2px solid {{y.line}}">{{y.year}}</a>
+</sc-for>
+</nav>
+<div style="display: flex; gap: 8px">
+<button aria-pressed="{{big}}" onClick="{{toggleBig}}" style="height: 36px; padding: 0 12px; border: 1px solid #CFCBC2; background: {{aaBg}}; color: #1C1B19; font-family: 'Source Serif 4', serif; font-size: 15px; border-radius: 6px">Aa</button>
+<button onClick="{{practise}}" style="height: 36px; padding: 0 14px; border: 0; background: #2F6BDE; color: #FFFFFF; font-family: 'Lato', sans-serif; font-size: 14px; font-weight: 700; border-radius: 6px">Practice</button>
+</div>
+</div>
+<div aria-hidden="true" style="height: 2px; background: #F0EDE7"><div style="height: 2px; width: {{progress}}%; background: #2F6BDE"></div></div>
+</header>
+
+<main onScroll="{{onScroll}}" style="position: relative; flex: 1; min-height: 0; overflow-y: auto">
+<div style="max-width: 1040px; margin: 0 auto; padding: 48px 24px 0; display: grid; grid-template-columns: minmax(0, 680px) 260px; column-gap: 52px">
+
+<div style="grid-column: 1 / -1; margin-bottom: 28px">
+<p style="margin: 0 0 8px; font-size: 16px; font-style: italic; color: #6B675E">Polity, Unit 1 · Lesson 1</p>
+<h1 style="margin: 0; font-size: 54px; line-height: 1.05; font-weight: 700; letter-spacing: -0.015em">The Company Rule, <span style="color: #2F6BDE">1773–1858</span></h1>
+</div>
+
+<figure style="grid-column: 1 / -1; margin: 0 0 28px">
+<sc-if value="{{hero.hasSrc}}" hint-placeholder-val="{{ false }}"><img src="{{hero.src}}" alt="{{hero.alt}}" style="display: block; width: 100%; height: 360px; object-fit: cover; border-radius: 2px"></sc-if>
+<sc-if value="{{hero.noSrc}}" hint-placeholder-val="{{ true }}">
+<div role="img" aria-label="{{hero.alt}}" style="height: 360px; background: #EFEBE4; border-radius: 2px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; text-align: center; font-family: 'Lato', sans-serif; color: #6B675E">
+<svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="M4 18l5-5 4 4 3-3 4 4"/></svg>
+<span style="font-size: 14px">Image to add: {{hero.want}}</span>
+</div>
+</sc-if>
+<figcaption style="margin-top: 10px; max-width: 680px; font-size: 15px; line-height: 1.5; font-style: italic; color: #5C5850">{{hero.caption}}</figcaption>
+</figure>
+
+<div style="grid-column: 1">
+<p style="margin: 0 0 18px; font-size: {{fsLead}}px; line-height: 1.6">In 1600 a group of London merchants got a royal charter to trade with the East. A century and a half later, that trading company was collecting taxes, running courts and fighting wars across eastern India.</p>
+<p style="margin: 0 0 32px; font-size: {{fs}}px; line-height: 1.65">Back in London, Parliament began to ask an awkward question: who was the Company answerable to? The eight laws in this lesson are its answer, worked out a little at a time between 1773 and 1858.</p>
+</div>
+<div style="grid-column: 2">
+<sc-if value="{{showHint}}" hint-placeholder-val="{{ true }}">
+<p style="margin: 6px 0 0; font-size: 15px; line-height: 1.5; color: #4A4740; font-style: italic">A small tip: click any <span style="text-decoration: underline dotted #2F6BDE; text-underline-offset: 4px">underlined word</span> and its meaning appears here in the margin. Select any words to highlight them, and click a point's number to write your own note. <button onClick="{{hideHint}}" style="border: 0; background: transparent; padding: 0; font: inherit; color: #2F6BDE; text-decoration: underline">Got it</button></p>
+</sc-if>
+</div>
+
+<figure style="grid-column: 1 / -1; margin: 0 0 40px; border-top: 1px solid #1C1B19; border-bottom: 1px solid #D9D5CC; padding: 18px 0 18px; font-family: 'Lato', sans-serif">
+<div style="display: grid; grid-template-columns: minmax(0, 1.25fr) 120px minmax(0, 1fr); gap: 16px; align-items: stretch">
+<div style="border: 1.5px solid #2F6BDE; border-radius: 6px; padding: 14px 16px 8px">
+<div style="display: flex; align-items: baseline; justify-content: space-between; gap: 8px; margin-bottom: 8px">
+<b style="font-family: 'Source Serif 4', serif; font-size: 20px; color: #2F6BDE">The Company Rule, 1773–1858</b>
+<span style="font-size: 12px; color: #3C3F43; font-weight: 600">you are here</span>
+</div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 16px">
+<sc-for list="{{nav}}" as="y" hint-placeholder-count="8">
+<a href="#w-{{y.year}}" style="min-height: 36px; display: grid; grid-template-columns: 44px 1fr; align-items: center; column-gap: 6px; text-decoration: none; color: #1C1B19; border-top: 1px solid #EEEBE5">
+<b style="font-size: 14px; color: #2F6BDE">{{y.year}}</b>
+<span style="font-size: 14px; color: #3F3C36">{{y.title}}</span>
+</a>
+</sc-for>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 8px; text-align: center; font-size: 13px; line-height: 1.45; color: #4A4740">
+<svg width="56" height="14" viewBox="0 0 56 14" fill="none" stroke="#8A857B" stroke-width="1.5" aria-hidden="true"><path d="M2 7h50M46 2l6 5-6 5"/></svg>
+1857, the revolt.<br>1858, the Crown takes over.
+</div>
+<div style="border: 1px solid #D9D5CC; border-radius: 6px; padding: 14px 16px; color: #6B675E">
+<div style="display: flex; align-items: baseline; justify-content: space-between; gap: 8px; margin-bottom: 8px">
+<b style="font-family: 'Source Serif 4', serif; font-size: 20px; color: #4A4740">The Crown Rule, 1858–1947</b>
+<span style="font-size: 12px">next lesson</span>
+</div>
+<div style="display: grid; grid-template-columns: 44px 1fr; row-gap: 8px; column-gap: 6px; font-size: 14px">
+<b>1858</b><span>Government of India Act</span>
+<b>1861</b><span>Indian Councils Act</span>
+<b>1892</b><span>Indian Councils Act</span>
+<b>1909</b><span>Morley-Minto Reforms</span>
+<b>1919</b><span>Montagu-Chelmsford Reforms</span>
+<b>1935</b><span>Government of India Act</span>
+</div>
+</div>
+</div>
+<figcaption style="margin-top: 12px; font-family: 'Source Serif 4', serif; font-size: 15px; font-style: italic; color: #5C5850">Fig. 1 · British rule in India came in two halves. This lesson is the first.</figcaption>
+</figure>
+
+<sc-for list="{{acts}}" as="a" hint-placeholder-count="2">
+<section id="w-{{a.year}}" style="grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 680px) 260px; column-gap: 52px; padding: 36px 0 44px; border-top: 1px solid #E7E4DE">
+
+<div style="grid-column: 1; min-width: 0">
+<p style="margin: 0 0 4px; font-family: 'Lato', sans-serif; font-size: 14px; color: #8A857B">{{a.no}} of 8</p>
+<h2 style="margin: 0 0 18px; font-size: 34px; line-height: 1.12; font-weight: 700">{{a.title}}, <span style="color: #2F6BDE">{{a.year}}</span></h2>
+<p id="hl-lead-{{a.year}}" style="margin: 0 0 22px; font-size: {{fs}}px; line-height: 1.65"><sc-for list="{{a.leadSegs}}" as="ls" hint-placeholder-count="1"><span style="background: {{ls.hl}}; -webkit-box-decoration-break: clone; box-decoration-break: clone">{{ls.t}}</span></sc-for></p>
+
+<sc-if value="{{a.wide}}" hint-placeholder-val="{{ false }}">
+<figure style="margin: 0 0 24px">
+<sc-if value="{{a.hasSrc}}" hint-placeholder-val="{{ false }}"><img src="{{a.src}}" alt="{{a.alt}}" style="display: block; width: 100%; height: 300px; object-fit: cover; border-radius: 2px"></sc-if>
+<sc-if value="{{a.noSrc}}" hint-placeholder-val="{{ true }}"><div role="img" aria-label="{{a.alt}}" style="height: 300px; background: #EFEBE4; border-radius: 2px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; padding: 0 40px; text-align: center; font-family: 'Lato', sans-serif; font-size: 14px; color: #6B675E"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="M4 18l5-5 4 4 3-3 4 4"/></svg>Image to add: {{a.want}}</div></sc-if>
+<figcaption style="margin-top: 8px; font-size: 15px; line-height: 1.5; font-style: italic; color: #5C5850">{{a.caption}}</figcaption>
+</figure>
+</sc-if>
+
+<p style="margin: 0 0 10px; font-size: {{fs}}px; line-height: 1.6">{{a.listIntro}}</p>
+<div style="margin-bottom: 24px">
+<sc-for list="{{a.provs}}" as="p" hint-placeholder-count="4">
+<div style="display: grid; grid-template-columns: 42px minmax(0, 1fr); column-gap: 4px; align-items: start">
+<button aria-label="{{p.btnLabel}}" aria-expanded="{{p.showActions}}" onClick="{{p.toggleSel}}" style="width: 42px; height: 42px; border: 0; background: transparent; padding: {{p.numTop}}px 0 0; display: flex; align-items: flex-start; justify-content: flex-start">
+<span style="width: 28px; height: 28px; border-radius: 50%; box-sizing: border-box; display: flex; align-items: center; justify-content: center; font-family: 'Lato', sans-serif; font-variant-numeric: lining-nums; font-size: 15px; font-weight: 600; background: {{p.numBg}}; color: {{p.numColor}}; border: 1px solid {{p.numBorder}}">{{p.n}}</span>
+</button>
+<div style="display: flex; flex-direction: column; gap: 8px; padding: 0 0 12px">
+<p id="hl-{{p.id}}" style="margin: 0; font-size: {{p.fs}}px; line-height: 1.6"><span style="background: {{p.bg}}; -webkit-box-decoration-break: clone; box-decoration-break: clone; padding: 1px 0"><sc-for list="{{p.segs}}" as="s" hint-placeholder-count="2"><sc-if value="{{s.plain}}" hint-placeholder-val="{{ true }}"><span style="background: {{s.hl}}; -webkit-box-decoration-break: clone; box-decoration-break: clone">{{s.t}}</span></sc-if><sc-if value="{{s.isTerm}}" hint-placeholder-val="{{ false }}"><span role="button" tabindex="0" onClick="{{s.open}}" style="border: 0; background: {{s.bg}}; padding: 0; margin: 0; font: inherit; color: inherit; display: inline; line-height: inherit; vertical-align: baseline; text-decoration: underline dotted #2F6BDE; text-decoration-thickness: 1.5px; text-underline-offset: 4px">{{s.t}}</span></sc-if></sc-for></span></p>
+<sc-if value="{{p.pyq}}" hint-placeholder-val="{{ false }}">
+<div style="align-self: flex-start; font-family: 'Kalam', cursive; font-size: 16px; color: #3C3F43; border: 1.5px solid #3C3F43; border-radius: 4px; padding: 0 8px; transform: rotate(-1.5deg)">UPSC asked this · {{p.pyqLabel}}</div>
+</sc-if>
+<sc-if value="{{p.hasSlip}}" hint-placeholder-val="{{ false }}">
+<sc-for list="{{p.slips}}" as="sn" hint-placeholder-count="1">
+<div style="position: relative; align-self: flex-start; max-width: 92%; margin: 12px 0 6px 8px; background: {{sn.bg}}; padding: 18px 16px 12px; transform: rotate({{sn.tilt}}deg); box-shadow: 0 2px 5px rgba(0,0,0,0.13); opacity: {{sn.op}}">
+<div aria-hidden="true" style="position: absolute; top: -9px; left: 50%; width: 70px; height: 18px; margin-left: -35px; background: rgba(255,255,255,0.7); border: 1px solid rgba(0,0,0,0.06); transform: rotate(-3deg)"></div>
+<div style="display: flex; align-items: baseline; justify-content: space-between; gap: 10px; margin-bottom: 2px"><span style="font-family: 'Kalam', cursive; font-size: 15px; font-weight: 700; color: {{sn.labelColor}}">{{sn.label}}</span><span style="font-family: 'Lato', sans-serif; font-size: 11px; color: #7A5A52">{{sn.dates}}</span></div>
+<div style="font-family: 'Kalam', cursive; font-size: 18px; line-height: 1.38; color: #3A140E; text-decoration: {{sn.deco}}; text-decoration-color: rgba(46,125,50,0.7)">{{sn.t}}</div>
+</div>
+</sc-for>
+</sc-if>
+<sc-if value="{{p.showActions}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; gap: 8px">
+<button onClick="{{p.toggleMark}}" style="height: 38px; padding: 0 14px; border: 1px solid #C9A227; background: #FFF7D6; color: #5C4A0A; font-family: 'Lato', sans-serif; font-size: 14px; font-weight: 500; border-radius: 19px">{{p.markLabel}}</button>
+<button onClick="{{p.startNote}}" style="height: 38px; padding: 0 14px; border: 1px solid #CFCBC2; background: #FFFFFF; color: #1C1B19; font-family: 'Lato', sans-serif; font-size: 14px; font-weight: 500; border-radius: 19px">{{p.noteLabel}}</button>
+</div>
+</sc-if>
+<sc-if value="{{p.editing}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-direction: column; gap: 6px; font-family: 'Lato', sans-serif">
+<label for="note-input-web" style="font-size: 12px; color: #6B675E">Your note on this point</label>
+<textarea id="note-input-web" rows="2" value="{{p.draft}}" onChange="{{p.onDraft}}" placeholder="Write it your way" style="font-family: 'Kalam', cursive; font-size: 18px; line-height: 1.4; color: #2F6BDE; border: 1.5px solid #2F6BDE; border-radius: 6px; padding: 8px 10px; resize: vertical; box-sizing: border-box; width: 100%"></textarea>
+<div style="display: flex; gap: 8px">
+<button onClick="{{p.saveNote}}" style="height: 38px; padding: 0 16px; border: 0; background: #2F6BDE; color: #FFFFFF; font-family: 'Lato', sans-serif; font-size: 14px; font-weight: 500; border-radius: 19px">Save note</button>
+<button onClick="{{p.cancelNote}}" style="height: 38px; padding: 0 14px; border: 0; background: transparent; color: #6B675E; font-family: 'Lato', sans-serif; font-size: 14px">Cancel</button>
+</div>
+</div>
+</sc-if>
+</div>
+</div>
+</sc-for>
+</div>
+
+<figure style="margin: 0 0 22px; font-family: 'Lato', sans-serif">
+<div style="border: 1px solid #E2DED6; border-radius: 6px; padding: 22px 24px">
+<div style="max-width: 440px; margin: 0 auto">
+
+<sc-if value="{{a.f1773}}" hint-placeholder-val="{{ true }}">
+<div style="display: flex; flex-direction: column; align-items: stretch">
+<div style="align-self: center; border: 1px solid #CFCBC2; color: #3F3C36; border-radius: 4px; padding: 7px 14px; font-size: 14px">Parliament, London</div>
+<div style="position: relative; height: 30px"><div style="position: absolute; left: 50%; top: 0; width: 1.5px; height: 30px; background: #8A857B"></div><div style="position: absolute; left: calc(50% + 10px); top: 6px; font-family: 'Source Serif 4', serif; font-size: 14px; font-style: italic; color: #6B675E">keeps watch</div></div>
+<div style="background: #2F6BDE; color: #FFFFFF; border-radius: 4px; padding: 11px; font-size: 15px; line-height: 1.35; text-align: center"><b>Governor-General of Bengal</b><br><span style="font-size: 14px">and his council of four</span></div>
+<div style="position: relative; height: 14px"><div style="position: absolute; left: 50%; top: 0; width: 1.5px; height: 14px; background: #8A857B"></div></div>
+<div style="height: 12px; margin: 0 25%; border: 1.5px solid #8A857B; border-bottom: 0"></div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px">
+<div style="border: 1px solid #2F6BDE; color: #2F6BDE; border-radius: 4px; padding: 9px; font-size: 14px; text-align: center">Bombay</div>
+<div style="border: 1px solid #2F6BDE; color: #2F6BDE; border-radius: 4px; padding: 9px; font-size: 14px; text-align: center">Madras</div>
+</div>
+<div style="margin-top: 14px; border: 1.5px dashed #8A857B; border-radius: 4px; padding: 9px; font-size: 14px; color: #3F3C36; text-align: center">and, on the side, a Supreme Court at Calcutta</div>
+</div>
+</sc-if>
+
+<sc-if value="{{a.f1781}}" hint-placeholder-val="{{ false }}">
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; font-size: 14px; line-height: 1.45">
+<div style="display: flex; flex-direction: column; gap: 8px; color: #2F6BDE"><b>The Court still hears</b><span>ordinary civil and criminal cases</span><span>family cases, now under personal law</span></div>
+<div style="display: flex; flex-direction: column; gap: 8px; color: #3C3F43"><b>Taken off its desk</b><span style="text-decoration: line-through">officials' acts on duty</span><span style="text-decoration: line-through">revenue disputes</span></div>
+</div>
+</sc-if>
+
+<sc-if value="{{a.f1784}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-direction: column; align-items: stretch">
+<div style="align-self: center; border: 1px solid #CFCBC2; color: #3F3C36; border-radius: 4px; padding: 7px 14px; font-size: 14px">India's affairs</div>
+<div style="position: relative; height: 14px"><div style="position: absolute; left: 50%; top: 0; width: 1.5px; height: 14px; background: #8A857B"></div></div>
+<div style="height: 12px; margin: 0 25%; border: 1.5px solid #8A857B; border-bottom: 0"></div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px">
+<div style="border: 1px solid #3C3F43; color: #3C3F43; border-radius: 4px; padding: 11px 6px; font-size: 14px; line-height: 1.4; text-align: center"><b>Court of Directors</b><br>the business</div>
+<div style="background: #2F6BDE; color: #FFFFFF; border-radius: 4px; padding: 11px 6px; font-size: 14px; line-height: 1.4; text-align: center"><b>Board of Control</b><br>the politics</div>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{a.f1786}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-direction: column; align-items: stretch">
+<div style="display: grid; grid-template-columns: minmax(0, 1fr) 30px minmax(0, 1fr); align-items: center">
+<div style="border: 1px solid #2F6BDE; color: #2F6BDE; border-radius: 4px; padding: 11px 4px; font-size: 14px; text-align: center">Governor-General</div>
+<div style="text-align: center; font-family: 'Source Serif 4', serif; font-size: 22px; color: #6B675E">+</div>
+<div style="border: 1px solid #2F6BDE; color: #2F6BDE; border-radius: 4px; padding: 11px 4px; font-size: 14px; text-align: center">Commander-in-Chief</div>
+</div>
+<div style="position: relative; height: 22px"><div style="position: absolute; left: 50%; top: 0; width: 1.5px; height: 22px; background: #8A857B"></div></div>
+<div style="background: #2F6BDE; color: #FFFFFF; border-radius: 4px; padding: 11px; font-size: 15px; text-align: center">one man: Cornwallis</div>
+</div>
+</sc-if>
+
+<sc-if value="{{a.f1793}}" hint-placeholder-val="{{ false }}">
+<div style="position: relative; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 4px">
+<div aria-hidden="true" style="position: absolute; left: 12.5%; right: 12.5%; top: 6px; height: 1.5px; background: #8A857B"></div>
+<div style="position: relative; display: flex; flex-direction: column; align-items: center; gap: 5px; text-align: center"><span style="width: 14px; height: 14px; border-radius: 50%; background: #2F6BDE"></span><b style="font-size: 14px">1793</b><span style="font-size: 13px; line-height: 1.3; color: #3F3C36">renewed</span></div>
+<div style="position: relative; display: flex; flex-direction: column; align-items: center; gap: 5px; text-align: center"><span style="width: 14px; height: 14px; border-radius: 50%; background: #FFFFFF; border: 2px solid #2F6BDE; box-sizing: border-box"></span><b style="font-size: 14px">1813</b><span style="font-size: 13px; line-height: 1.3; color: #3F3C36">loses most trade</span></div>
+<div style="position: relative; display: flex; flex-direction: column; align-items: center; gap: 5px; text-align: center"><span style="width: 14px; height: 14px; border-radius: 50%; background: #FFFFFF; border: 2px solid #2F6BDE; box-sizing: border-box"></span><b style="font-size: 14px">1833</b><span style="font-size: 13px; line-height: 1.3; color: #3F3C36">loses all trade</span></div>
+<div style="position: relative; display: flex; flex-direction: column; align-items: center; gap: 5px; text-align: center"><span style="width: 14px; height: 14px; border-radius: 50%; background: #FFFFFF; border: 2px solid #2F6BDE; box-sizing: border-box"></span><b style="font-size: 14px">1853</b><span style="font-size: 13px; line-height: 1.3; color: #3F3C36">the last one</span></div>
+</div>
+</sc-if>
+
+<sc-if value="{{a.f1813}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-direction: column; gap: 12px; font-size: 14px">
+<div style="display: grid; grid-template-columns: 44px 1fr; gap: 12px; align-items: center"><b>1793</b><div><div style="height: 18px; background: #2F6BDE; border-radius: 2px"></div><div style="margin-top: 3px; color: #3F3C36">all trade with India</div></div></div>
+<div style="display: grid; grid-template-columns: 44px 1fr; gap: 12px; align-items: center"><b style="color: #3C3F43">1813</b><div><div style="height: 18px; background: #F0EDE7; border-radius: 2px"><div style="height: 18px; width: 24%; background: #3C3F43; border-radius: 2px"></div></div><div style="margin-top: 3px; color: #3F3C36">only tea, and China</div></div></div>
+<div style="display: grid; grid-template-columns: 44px 1fr; gap: 12px; align-items: center"><b>1833</b><div><div style="height: 18px; background: #F0EDE7; border-radius: 2px"></div><div style="margin-top: 3px; color: #3F3C36">nothing</div></div></div>
+</div>
+</sc-if>
+
+<sc-if value="{{a.f1833}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-direction: column; gap: 9px; font-size: 14px; line-height: 1.35">
+<div style="width: calc(100% - 80px); border: 1px solid #CFCBC2; border-radius: 4px; padding: 9px 12px; color: #3F3C36; box-sizing: border-box"><b>1773</b> Governor-General of Bengal, Hastings</div>
+<div style="margin-left: 40px; width: calc(100% - 80px); background: #2F6BDE; color: #FFFFFF; border-radius: 4px; padding: 9px 12px; box-sizing: border-box"><b>1833</b> Governor-General of India, Bentinck</div>
+<div style="margin-left: 80px; width: calc(100% - 80px); border: 1.5px dashed #8A857B; border-radius: 4px; padding: 9px 12px; color: #3F3C36; box-sizing: border-box"><b>1858</b> Viceroy, Canning</div>
+</div>
+</sc-if>
+
+<sc-if value="{{a.f1853}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-direction: column; align-items: stretch">
+<div style="align-self: center; border: 1px solid #CFCBC2; color: #3F3C36; border-radius: 4px; padding: 7px 14px; font-size: 14px">Governor-General's council</div>
+<div style="position: relative; height: 14px"><div style="position: absolute; left: 50%; top: 0; width: 1.5px; height: 14px; background: #8A857B"></div></div>
+<div style="height: 12px; margin: 0 25%; border: 1.5px solid #8A857B; border-bottom: 0"></div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px">
+<div style="border: 1px solid #2F6BDE; color: #2F6BDE; border-radius: 4px; padding: 11px 6px; font-size: 14px; line-height: 1.4; text-align: center"><b>Executive</b><br>governs</div>
+<div style="background: #2F6BDE; color: #FFFFFF; border-radius: 4px; padding: 11px 6px; font-size: 14px; line-height: 1.4; text-align: center"><b>Legislative</b><br>makes laws, +6 members</div>
+</div>
+</div>
+</sc-if>
+</div>
+</div>
+<figcaption style="margin-top: 8px; font-family: 'Source Serif 4', serif; font-size: 15px; font-style: italic; color: #5C5850">{{a.figCap}}</figcaption>
+</figure>
+
+<p style="margin: 0; font-size: 17px; line-height: 1.6; color: #3F3C36"><i>For the exam:</i> {{a.exam}}</p>
+</div>
+
+<aside aria-label="Margin for {{a.year}}" style="grid-column: 2; display: flex; flex-direction: column; gap: 18px; padding-top: 86px">
+<sc-if value="{{a.portrait}}" hint-placeholder-val="{{ false }}">
+<figure style="margin: 0">
+<sc-if value="{{a.hasSrc}}" hint-placeholder-val="{{ false }}"><img src="{{a.src}}" alt="{{a.alt}}" style="display: block; width: 100%; height: 300px; object-fit: cover; border-radius: 2px"></sc-if>
+<sc-if value="{{a.noSrc}}" hint-placeholder-val="{{ true }}"><div role="img" aria-label="{{a.alt}}" style="width: 100%; height: 300px; background: #EFEBE4; border-radius: 2px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; padding: 16px; box-sizing: border-box; text-align: center; font-family: 'Lato', sans-serif; font-size: 13px; line-height: 1.4; color: #6B675E"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="9" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>Image to add:<br>{{a.want}}</div></sc-if>
+<figcaption style="margin-top: 8px; font-size: 14px; line-height: 1.45; font-style: italic; color: #5C5850">{{a.caption}}</figcaption>
+</figure>
+</sc-if>
+
+<sc-if value="{{a.termOpen}}" hint-placeholder-val="{{ false }}">
+<div role="region" aria-label="{{a.termTitle}}" style="border-left: 2px solid #2F6BDE; padding: 2px 0 2px 14px; display: flex; flex-direction: column; gap: 6px">
+<div style="display: flex; justify-content: space-between; gap: 8px; align-items: flex-start">
+<b style="font-size: 17px; line-height: 1.3">{{a.termTitle}}</b>
+<button aria-label="Close explanation" onClick="{{closeSheet}}" style="flex: none; width: 28px; height: 28px; border: 0; background: #F2F0EB; border-radius: 14px; padding: 0; display: flex; align-items: center; justify-content: center; color: #1C1B19"><svg width="11" height="11" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 3l8 8M11 3l-8 8"/></svg></button>
+</div>
+<p style="margin: 0; font-size: 16px; line-height: 1.55">{{a.termBody}}</p>
+</div>
+</sc-if>
+
+<div style="background: #FFF6C9; padding: 12px 14px 14px; transform: rotate(-0.8deg); box-shadow: 0 1px 2px rgba(0,0,0,0.08)">
+<div style="font-family: 'Kalam', cursive; font-size: 19px; line-height: 1.4; color: #3B2F05">{{a.note}}</div>
+</div>
+
+<sc-for list="{{a.marginNotes}}" as="m" hint-placeholder-count="0">
+<button onClick="{{m.edit}}" aria-label="{{m.label}}" style="text-align: left; border: 0; border-left: 2px solid #2F6BDE; background: transparent; padding: 2px 0 2px 12px; display: flex; flex-direction: column; gap: 2px">
+<span style="font-family: 'Lato', sans-serif; font-size: 12px; color: #6B675E">your note, point {{m.n}}</span>
+<span style="font-family: 'Kalam', cursive; font-size: 18px; line-height: 1.35; color: #2F6BDE">{{m.note}}</span>
+</button>
+</sc-for>
+</aside>
+</section>
+</sc-for>
+
+<section id="w-practise" style="grid-column: 1 / -1; margin: 0 -24px; background: #F6F3EE; padding: 48px 48px 64px; border-top: 1px solid #E7E4DE">
+<div style="max-width: 680px">
+<h2 style="margin: 0 0 12px; font-size: 34px; line-height: 1.15; font-weight: 700">That's the Company Rule.</h2>
+<p style="margin: 0 0 10px; font-size: 19px; line-height: 1.6">Before you move on, give it eight minutes. Eight short questions, and each answer marks your copy of these pages, so it's ready when you come back to revise.</p>
+<p style="margin: 0 0 22px; font-family: 'Lato', sans-serif; font-size: 14px; color: #6B675E">So far you've highlighted {{nHl}} points and written {{nNotes}} notes.</p>
+<button onClick="{{practise}}" style="height: 54px; padding: 0 32px; border: 0; background: #2F6BDE; color: #FFFFFF; font-family: 'Lato', sans-serif; font-size: 16px; font-weight: 600; border-radius: 8px">Start practice</button>
+<sc-if value="{{hasOpen}}" hint-placeholder-val="{{ false }}">
+<button onClick="{{openRevise}}" style="margin-top: 10px; margin-left: 12px; padding: 0 22px; height: 50px; border: 1.5px solid #2F6BDE; background: #FFFFFF; color: #2F6BDE; font-family: 'Lato', sans-serif; font-size: 15px; font-weight: 700; border-radius: 8px">Revise my sticky notes ({{nOpen}} open)</button>
+</sc-if>
+<sc-if value="{{toast}}" hint-placeholder-val="{{ false }}">
+<p style="margin: 12px 0 0; font-family: 'Lato', sans-serif; font-size: 15px; line-height: 1.5; color: #2F6BDE">{{appliedText}}</p>
+</sc-if>
+</div>
+</section>
+
+</div>
+</main>
+
+<sc-if value="{{w.open}}" hint-placeholder-val="{{ false }}">
+<div role="dialog" aria-modal="true" aria-label="Worksheet: The Company Rule" style="position: absolute; inset: 0; background: #FFFFFF; display: flex; flex-direction: column; font-family: 'Lato', sans-serif; color: #1C1B19">
+<header style="flex: none; display: flex; align-items: center; justify-content: space-between; padding: 2px 8px; border-bottom: 1px solid #E7E4DE">
+<button aria-label="Back to the lesson" onClick="{{w.close}}" style="width: 44px; height: 44px; border: 0; background: transparent; padding: 0; display: flex; align-items: center; justify-content: center; color: #1C1B19"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 4l12 12M16 4L4 16"/></svg></button>
+<div style="font-size: 15px; font-weight: 700">Worksheet</div>
+<div style="width: 120px; font-size: 13px; color: #6B675E; text-align: right; padding-right: 12px">{{w.progressText}}</div>
+</header>
+
+<div style="flex: 1; min-height: 0; overflow-y: auto; background: #F6F3EE; padding: 32px 24px 40px">
+<div style="position: relative; max-width: 720px; margin: 0 auto; background: #FFFFFF; border: 1px solid #E7E4DE; box-shadow: 0 2px 10px rgba(0,0,0,0.05); padding: 40px 48px 36px 64px">
+<div aria-hidden="true" style="position: absolute; left: 36px; top: 0; bottom: 0; width: 1.5px; background: #F2C7BF"></div>
+
+<p style="margin: 0 0 2px; font-family: 'Source Serif 4', serif; font-size: 14px; font-style: italic; color: #6B675E">Polity, Unit 1 · Lesson 1</p>
+<h1 style="margin: 0 0 10px; font-family: 'Source Serif 4', serif; font-size: 28px; line-height: 1.15; font-weight: 700">The Company Rule, on paper</h1>
+<p style="margin: 0 0 6px; font-family: 'Source Serif 4', serif; font-size: 16px; line-height: 1.55; color: #3F3C36">Seven short tasks, about eight minutes. Work through them like a pencil worksheet: nothing is marked until you press <i>Check</i>, and you can look back at the lesson any time.</p>
+<div style="margin: 0 0 26px; display: flex; align-items: baseline; gap: 8px; font-size: 14px; color: #6B675E">Name <span style="flex: 1; border-bottom: 1px solid #CFCBC2; font-family: 'Kalam', cursive; font-size: 18px; color: #24477A; padding-left: 6px"> </span></div>
+
+<section style="margin-bottom: 30px">
+<h2 style="margin: 0 0 4px; font-family: 'Source Serif 4', serif; font-size: 19px; font-weight: 700">1. What happened first?</h2>
+<p style="margin: 0 0 12px; font-family: 'Source Serif 4', serif; font-size: 15px; font-style: italic; color: #5C5850">No years to help you this time. Tap these six changes in the order they happened. The years appear when you check.</p>
+<div style="position: relative; display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px">
+<div aria-hidden="true" style="position: absolute; left: 11px; top: 14px; bottom: 14px; width: 1.5px; background: #D9D5CC"></div>
+<sc-for list="{{w.slots}}" as="sl" hint-placeholder-count="6">
+<div style="position: relative; min-height: 34px; display: grid; grid-template-columns: 24px minmax(0, 1fr) auto; column-gap: 10px; align-items: end">
+<span style="justify-self: center; align-self: center; width: 22px; height: 22px; border-radius: 11px; background: #FFFFFF; border: 1.5px solid #8A857B; display: flex; align-items: center; justify-content: center; font-family: 'Lato', sans-serif; font-size: 12px; font-weight: 700; color: #3F3C36">{{sl.n}}</span>
+<span style="border-bottom: 1.5px solid {{sl.border}}; padding: 0 2px 2px; font-family: 'Kalam', cursive; font-size: 17px; line-height: 1.3; color: {{sl.color}}">{{sl.text}}</span>
+<span style="font-family: 'Lato', sans-serif; font-size: 13px; font-weight: 700; color: {{sl.yearColor}}">{{sl.year}}</span>
+</div>
+</sc-for>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center">
+<sc-for list="{{w.pool}}" as="c" hint-placeholder-count="6">
+<button onClick="{{c.pick}}" style="min-height: 40px; padding: 6px 12px; border: 1px dashed #A8A294; background: #FBFAF7; border-radius: 6px; font-family: 'Lato', sans-serif; font-size: 14px; line-height: 1.3; color: #1C1B19; text-align: left; opacity: {{c.op}}">{{c.label}}</button>
+</sc-for>
+<button onClick="{{w.undo}}" style="height: 40px; padding: 0 10px; border: 0; background: transparent; font-family: 'Lato', sans-serif; font-size: 14px; color: #6B675E; text-decoration: underline">Undo</button>
+</div>
+<sc-if value="{{w.checked}}" hint-placeholder-val="{{ false }}"><p style="margin: 10px 0 0; font-family: 'Kalam', cursive; font-size: 17px; line-height: 1.4; color: {{w.orderFbColor}}">{{w.orderFb}}</p></sc-if>
+</section>
+
+<section style="margin-bottom: 30px">
+<h2 style="margin: 0 0 4px; font-family: 'Source Serif 4', serif; font-size: 19px; font-weight: 700">2. Fill in the blanks</h2>
+<p style="margin: 0 0 12px; font-family: 'Source Serif 4', serif; font-size: 15px; font-style: italic; color: #5C5850">Tap a blank, then a word. Some words are there to trick you.</p>
+<p style="margin: 0 0 14px; font-family: 'Source Serif 4', serif; font-size: 18px; line-height: 2.1"><sc-for list="{{w.gapSegs}}" as="g" hint-placeholder-count="4"><sc-if value="{{g.isText}}" hint-placeholder-val="{{ true }}">{{g.t}}</sc-if><sc-if value="{{g.isGap}}" hint-placeholder-val="{{ false }}"><button onClick="{{g.focus}}" style="border: 0; border-bottom: 2px solid {{g.line}}; background: {{g.bg}}; padding: 0 4px; margin: 0 1px; min-width: 64px; font-family: 'Kalam', cursive; font-size: 19px; line-height: 1.3; color: {{g.color}}; text-decoration: {{g.deco}}">{{g.shown}}</button><sc-if value="{{g.showFix}}" hint-placeholder-val="{{ false }}"><span style="font-family: 'Kalam', cursive; font-size: 18px; color: #B8322A"> {{g.fix}}</span></sc-if></sc-if></sc-for></p>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<sc-for list="{{w.bank}}" as="b" hint-placeholder-count="6">
+<button onClick="{{b.pick}}" style="height: 38px; padding: 0 12px; border: 1px dashed #A8A294; background: #FBFAF7; border-radius: 6px; font-family: 'Lato', sans-serif; font-size: 14px; color: #1C1B19">{{b.label}}</button>
+</sc-for>
+</div>
+</section>
+
+<section style="margin-bottom: 30px">
+<h2 style="margin: 0 0 4px; font-family: 'Source Serif 4', serif; font-size: 19px; font-weight: 700">3. Label the picture</h2>
+<p style="margin: 0 0 12px; font-family: 'Source Serif 4', serif; font-size: 15px; font-style: italic; color: #5C5850">After 1784, who ran what? Fill each side with a name and its job.</p>
+<div style="display: flex; flex-direction: column; align-items: stretch">
+<div style="align-self: center; border: 1px solid #CFCBC2; border-radius: 4px; padding: 7px 12px; font-size: 14px; color: #3F3C36">India's affairs, after 1784</div>
+<div style="position: relative; height: 14px"><div style="position: absolute; left: 50%; top: 0; width: 1.5px; height: 14px; background: #8A857B"></div></div>
+<div style="height: 12px; margin: 0 25%; border: 1.5px solid #8A857B; border-bottom: 0"></div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; max-width: 520px; margin: 0 auto; width: 100%">
+<div style="border: 1.5px dashed #A8A294; border-radius: 8px; padding: 10px 8px; display: flex; flex-direction: column; gap: 6px">
+<div style="font-size: 12px; font-weight: 700; color: #6B675E; text-align: center">The Company's side</div>
+<button onClick="{{w.cn.focus}}" style="min-height: 44px; border: 1.5px solid {{w.cn.border}}; background: {{w.cn.bg}}; border-radius: 6px; padding: 4px 6px; font-family: {{w.cn.font}}; font-size: {{w.cn.size}}px; line-height: 1.25; color: {{w.cn.color}}">{{w.cn.shown}}</button>
+<sc-if value="{{w.cn.showFix}}" hint-placeholder-val="{{ false }}"><span style="font-family: 'Kalam', cursive; font-size: 16px; color: #B8322A; text-align: center">{{w.cn.fix}}</span></sc-if>
+<button onClick="{{w.cj.focus}}" style="min-height: 44px; border: 1.5px solid {{w.cj.border}}; background: {{w.cj.bg}}; border-radius: 6px; padding: 4px 6px; font-family: {{w.cj.font}}; font-size: {{w.cj.size}}px; line-height: 1.25; color: {{w.cj.color}}">{{w.cj.shown}}</button>
+<sc-if value="{{w.cj.showFix}}" hint-placeholder-val="{{ false }}"><span style="font-family: 'Kalam', cursive; font-size: 16px; color: #B8322A; text-align: center">{{w.cj.fix}}</span></sc-if>
+</div>
+<div style="border: 1.5px dashed #A8A294; border-radius: 8px; padding: 10px 8px; display: flex; flex-direction: column; gap: 6px">
+<div style="font-size: 12px; font-weight: 700; color: #6B675E; text-align: center">The Crown's side</div>
+<button onClick="{{w.rn.focus}}" style="min-height: 44px; border: 1.5px solid {{w.rn.border}}; background: {{w.rn.bg}}; border-radius: 6px; padding: 4px 6px; font-family: {{w.rn.font}}; font-size: {{w.rn.size}}px; line-height: 1.25; color: {{w.rn.color}}">{{w.rn.shown}}</button>
+<sc-if value="{{w.rn.showFix}}" hint-placeholder-val="{{ false }}"><span style="font-family: 'Kalam', cursive; font-size: 16px; color: #B8322A; text-align: center">{{w.rn.fix}}</span></sc-if>
+<button onClick="{{w.rj.focus}}" style="min-height: 44px; border: 1.5px solid {{w.rj.border}}; background: {{w.rj.bg}}; border-radius: 6px; padding: 4px 6px; font-family: {{w.rj.font}}; font-size: {{w.rj.size}}px; line-height: 1.25; color: {{w.rj.color}}">{{w.rj.shown}}</button>
+<sc-if value="{{w.rj.showFix}}" hint-placeholder-val="{{ false }}"><span style="font-family: 'Kalam', cursive; font-size: 16px; color: #B8322A; text-align: center">{{w.rj.fix}}</span></sc-if>
+</div>
+</div>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px">
+<sc-for list="{{w.labBank}}" as="b" hint-placeholder-count="4">
+<button onClick="{{b.pick}}" style="height: 38px; padding: 0 12px; border: 1px dashed #A8A294; background: #FBFAF7; border-radius: 6px; font-family: 'Lato', sans-serif; font-size: 14px; color: #1C1B19">{{b.label}}</button>
+</sc-for>
+</div>
+</section>
+
+<section style="margin-bottom: 30px">
+<h2 style="margin: 0 0 4px; font-family: 'Source Serif 4', serif; font-size: 19px; font-weight: 700">4. Draw the links</h2>
+<p style="margin: 0 0 12px; font-family: 'Source Serif 4', serif; font-size: 15px; font-style: italic; color: #5C5850">Every act fixed a problem. {{w.linkHint}}</p>
+<div style="display: grid; grid-template-columns: 240px 1fr 140px; align-items: start">
+<div style="display: flex; flex-direction: column; gap: 10px">
+<sc-for list="{{w.left}}" as="l" hint-placeholder-count="4">
+<button onClick="{{l.pick}}" style="height: 64px; border: 1.5px solid {{l.border}}; background: {{l.bg}}; border-radius: 8px; padding: 4px 8px; font-family: 'Lato', sans-serif; font-size: 13px; line-height: 1.3; color: #1C1B19; text-align: left">{{l.t}}</button>
+</sc-for>
+</div>
+<svg width="100%" height="286" viewBox="0 0 100 286" preserveAspectRatio="none" aria-hidden="true" style="display: block"><sc-for list="{{w.lines}}" as="ln" hint-placeholder-count="0"><line x1="0" y1="{{ln.y1}}" x2="100" y2="{{ln.y2}}" stroke="{{ln.color}}" stroke-width="2.5" stroke-linecap="round" vector-effect="non-scaling-stroke"/></sc-for></svg>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<sc-for list="{{w.right}}" as="r" hint-placeholder-count="4">
+<button onClick="{{r.pick}}" style="height: 64px; border: 1.5px solid #CFCBC2; background: #FFFFFF; border-radius: 8px; font-family: 'Source Serif 4', serif; font-size: 20px; font-weight: 700; color: #2F6BDE">{{r.t}}</button>
+</sc-for>
+</div>
+</div>
+</section>
+
+<section style="margin-bottom: 30px">
+<h2 style="margin: 0 0 4px; font-family: 'Source Serif 4', serif; font-size: 19px; font-weight: 700">5. Circle the odd one out</h2>
+<p style="margin: 0 0 12px; font-family: 'Source Serif 4', serif; font-size: 15px; font-style: italic; color: #5C5850">Three of these came with the Charter Act of 1813. One did not. This exact trap was set in Prelims 2019.</p>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<sc-for list="{{w.odd}}" as="o" hint-placeholder-count="4">
+<button onClick="{{o.pick}}" style="min-height: 48px; border: 2.5px solid {{o.ring}}; border-radius: 48% 52% 50% 50% / 60% 45% 55% 40%; background: transparent; padding: 8px 14px; font-family: 'Source Serif 4', serif; font-size: 17px; line-height: 1.35; color: #1C1B19; text-align: left">{{o.t}}<sc-if value="{{o.tick}}" hint-placeholder-val="{{ false }}"><span style="font-family: 'Kalam', cursive; color: #2E7D32"> ✓ came in 1858</span></sc-if></button>
+</sc-for>
+</div>
+<sc-if value="{{w.checked}}" hint-placeholder-val="{{ false }}"><p style="margin: 10px 0 0; font-family: 'Kalam', cursive; font-size: 17px; color: {{w.oddFbColor}}">{{w.oddFb}}</p></sc-if>
+</section>
+
+<section style="margin-bottom: 30px">
+<h2 style="margin: 0 0 4px; font-family: 'Source Serif 4', serif; font-size: 19px; font-weight: 700">6. Spot the mistake</h2>
+<p style="margin: 0 0 12px; font-family: 'Source Serif 4', serif; font-size: 15px; font-style: italic; color: #5C5850">One word in this sentence is wrong. Tap it to cross it out, then pick the right one.</p>
+<p style="margin: 0 0 12px; font-family: 'Source Serif 4', serif; font-size: 19px; line-height: 2.2"><sc-for list="{{w.words}}" as="wd" hint-placeholder-count="8"><button onClick="{{wd.pick}}" style="border: 0; background: transparent; padding: 0 2px; margin: 0; font: inherit; color: {{wd.color}}; text-decoration: {{wd.deco}}; text-decoration-color: #B8322A; text-decoration-thickness: 2px">{{wd.t}}</button><sc-if value="{{wd.hasFix}}" hint-placeholder-val="{{ false }}"><span style="font-family: 'Kalam', cursive; font-size: 20px; color: #24477A">{{wd.fix}}</span></sc-if> </sc-for></p>
+<sc-if value="{{w.showFixes}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; gap: 8px; align-items: center"><span style="font-size: 14px; color: #6B675E">It should be</span>
+<sc-for list="{{w.fixes}}" as="f" hint-placeholder-count="3"><button onClick="{{f.pick}}" style="height: 38px; padding: 0 12px; border: 1.5px solid {{f.border}}; background: {{f.bg}}; border-radius: 6px; font-family: 'Lato', sans-serif; font-size: 15px; font-weight: 700; color: #1C1B19">{{f.t}}</button></sc-for>
+</div>
+</sc-if>
+<sc-if value="{{w.checked}}" hint-placeholder-val="{{ false }}"><p style="margin: 10px 0 0; font-family: 'Kalam', cursive; font-size: 17px; color: {{w.mistakeFbColor}}">{{w.mistakeFb}}</p></sc-if>
+</section>
+
+<section style="margin-bottom: 26px">
+<h2 style="margin: 0 0 4px; font-family: 'Source Serif 4', serif; font-size: 19px; font-weight: 700">7. Say it in your own words</h2>
+<p style="margin: 0 0 12px; font-family: 'Source Serif 4', serif; font-size: 15px; font-style: italic; color: #5C5850">Explain "dual government" to a friend in one or two lines. Then read it out loud once. Hearing yourself explain it is one of the easiest ways to make it stick.</p>
+<label for="ws-explain" style="display: block; font-size: 12px; color: #6B675E; margin-bottom: 4px">Your explanation (it goes on your page as a note)</label>
+<textarea id="ws-explain" rows="3" value="{{w.explain}}" onChange="{{w.onExplain}}" placeholder="Dual government means..." style="width: 100%; box-sizing: border-box; border: 0; border-bottom: 1.5px solid #CFCBC2; background: repeating-linear-gradient(transparent 0 31px, #E7E4DE 31px 32px); padding: 2px 4px; font-family: 'Kalam', cursive; font-size: 19px; line-height: 32px; color: #24477A; resize: none"></textarea>
+<label style="margin-top: 12px; display: flex; align-items: center; gap: 10px; min-height: 44px; font-size: 15px; color: #1C1B19"><input type="checkbox" checked="{{w.spoke}}" onChange="{{w.onSpoke}}" style="width: 22px; height: 22px; accent-color: #2F6BDE"> I read it out loud</label>
+</section>
+
+<sc-if value="{{w.checked}}" hint-placeholder-val="{{ false }}">
+<p style="margin: 0 0 4px; font-family: 'Kalam', cursive; font-size: 20px; line-height: 1.4; color: #B8322A; transform: rotate(-1deg)">{{w.resultText}}</p>
+</sc-if>
+</div>
+</div>
+
+<footer style="flex: none; border-top: 1px solid #E7E4DE; padding: 12px 24px 16px; display: flex; justify-content: center; gap: 12px">
+<sc-if value="{{w.notChecked}}" hint-placeholder-val="{{ true }}">
+<button onClick="{{w.check}}" style="width: 320px; height: 52px; border: 0; background: #2F6BDE; color: #FFFFFF; font-family: 'Lato', sans-serif; font-size: 16px; font-weight: 700; border-radius: 12px">Check my worksheet</button>
+</sc-if>
+<sc-if value="{{w.checked}}" hint-placeholder-val="{{ false }}">
+<button onClick="{{w.redo}}" style="width: 180px; height: 52px; border: 1px solid #CFCBC2; background: #FFFFFF; color: #1C1B19; font-family: 'Lato', sans-serif; font-size: 15px; font-weight: 700; border-radius: 12px">Start over</button>
+<button onClick="{{w.apply}}" style="width: 320px; height: 52px; border: 0; background: #2F6BDE; color: #FFFFFF; font-family: 'Lato', sans-serif; font-size: 16px; font-weight: 700; border-radius: 12px">Put it on my pages</button>
+</sc-if>
+</footer>
+</div>
+</sc-if>
+
+<sc-if value="{{rv.open}}" hint-placeholder-val="{{ false }}">
+<div role="dialog" aria-modal="true" aria-label="Revise your sticky notes" style="position: absolute; inset: 0; background: #F6F3EE; display: flex; flex-direction: column; font-family: 'Lato', sans-serif; color: #1C1B19; z-index: 15">
+<header style="flex: none; background: #FFFFFF; display: flex; align-items: center; justify-content: space-between; padding: 2px 8px; border-bottom: 1px solid #E7E4DE">
+<button aria-label="Back to the lesson" onClick="{{rv.close}}" style="width: 44px; height: 44px; border: 0; background: transparent; padding: 0; display: flex; align-items: center; justify-content: center; color: #1C1B19"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 4l12 12M16 4L4 16"/></svg></button>
+<div style="font-size: 15px; font-weight: 700">Revise my sticky notes</div>
+<div style="width: 44px"></div>
+</header>
+<div style="flex: 1; min-height: 0; overflow-y: auto; padding: 20px 16px 28px">
+<div style="max-width: 640px; margin: 0 auto; background: #FFFFFF; border: 1px solid #E7E4DE; padding: 26px 22px 22px">
+<h1 style="margin: 0 0 8px; font-family: 'Source Serif 4', serif; font-size: 26px; line-height: 1.15; font-weight: 700">Only what you slipped on</h1>
+<p style="margin: 0 0 22px; font-family: 'Source Serif 4', serif; font-size: 16px; line-height: 1.55; color: #3F3C36">{{rv.count}} quick questions, one for each open sticky note. They ask the same facts in a new way, so you can't just remember the last answer. Circle one in each.</p>
+<sc-for list="{{rv.items}}" as="it" hint-placeholder-count="3">
+<section style="margin-bottom: 24px">
+<p style="margin: 0 0 10px; font-family: 'Source Serif 4', serif; font-size: 18px; line-height: 1.45"><b>{{it.no}}.</b> {{it.q}}</p>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<sc-for list="{{it.opts}}" as="o" hint-placeholder-count="3">
+<button onClick="{{o.pick}}" style="min-height: 46px; border: 2.5px solid {{o.ring}}; border-radius: 48% 52% 50% 50% / 60% 45% 55% 40%; background: transparent; padding: 8px 14px; font-family: 'Source Serif 4', serif; font-size: 17px; line-height: 1.35; color: #1C1B19; text-align: left">{{o.t}}<sc-if value="{{o.tick}}" hint-placeholder-val="{{ false }}"><span style="font-family: 'Kalam', cursive; color: #2E7D32"> ✓</span></sc-if></button>
+</sc-for>
+</div>
+</section>
+</sc-for>
+<sc-if value="{{rv.checked}}" hint-placeholder-val="{{ false }}"><p style="margin: 0; font-family: 'Kalam', cursive; font-size: 19px; line-height: 1.4; color: #B8322A; transform: rotate(-1deg)">{{rv.resultText}}</p></sc-if>
+</div>
+</div>
+<footer style="flex: none; background: #FFFFFF; border-top: 1px solid #E7E4DE; padding: 10px 16px 16px; display: flex; justify-content: center">
+<sc-if value="{{rv.notChecked}}" hint-placeholder-val="{{ true }}"><button onClick="{{rv.check}}" style="width: 100%; max-width: 360px; height: 52px; border: 0; background: #2F6BDE; color: #FFFFFF; font-family: 'Lato', sans-serif; font-size: 16px; font-weight: 700; border-radius: 12px">Check</button></sc-if>
+<sc-if value="{{rv.checked}}" hint-placeholder-val="{{ false }}"><button onClick="{{rv.apply}}" style="width: 100%; max-width: 360px; height: 52px; border: 0; background: #2F6BDE; color: #FFFFFF; font-family: 'Lato', sans-serif; font-size: 16px; font-weight: 700; border-radius: 12px">Update my pages</button></sc-if>
+</footer>
+</div>
+</sc-if>
+
+<sc-if value="{{selOpen}}" hint-placeholder-val="{{ false }}">
+<div style="position: absolute; left: 0; right: 0; bottom: 24px; display: flex; justify-content: center; pointer-events: none; z-index: 20">
+<div style="pointer-events: auto; display: flex; align-items: center; gap: 6px; background: #1C1B19; border-radius: 26px; padding: 6px 6px 6px 16px; box-shadow: 0 6px 18px rgba(0,0,0,0.22); font-family: 'Lato', sans-serif">
+<span style="font-size: 14px; color: #F2F0EB">Highlight these words?</span>
+<button onPointerDown="{{doHl}}" onClick="{{doHl}}" style="height: 40px; padding: 0 16px; border: 0; background: #FBE38E; color: #1C1B19; font-family: 'Lato', sans-serif; font-size: 15px; font-weight: 700; border-radius: 20px">Highlight</button>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{exitOpen}}" hint-placeholder-val="{{ false }}">
+<div style="position: absolute; inset: 0; background: rgba(28, 27, 25, 0.45); display: flex; align-items: center; justify-content: center; font-family: 'Lato', sans-serif">
+<button aria-label="Keep reading" onClick="{{keepGoing}}" style="position: absolute; inset: 0; border: 0; background: transparent"></button>
+<div role="dialog" aria-modal="true" aria-label="Keep up the streak" style="position: relative; width: 440px; background: #FFFFFF; border-radius: 20px; padding: 32px 28px 26px; display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; box-shadow: 0 20px 50px rgba(0,0,0,0.18)">
+<span style="width: 72px; height: 72px; border-radius: 36px; background: #F7E3D6; display: flex; align-items: center; justify-content: center"><svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22c-4 0-7-3-7-7 0-3 2-5 3-7 0 2 1 3 2 3 0-4 2-7 5-9 0 3 1 5 3 7 1 1 1 3 1 5 0 4-3 8-7 8z" fill="#E07B39"/><path d="M12 20c-1.7 0-3-1.3-3-3 0-1.5 1.2-2.6 3-4.5 1.8 1.9 3 3 3 4.5 0 1.7-1.3 3-3 3z" fill="#FBD9C2"/></svg></span>
+<h2 style="margin: 4px 0 0; font-size: 26px; line-height: 1.2; font-weight: 700; color: #1C1B19">Keep up the streak</h2>
+<p style="margin: 0; font-size: 17px; line-height: 1.5; color: #3F3C36">{{exitBody}}</p>
+<sc-if value="{{hasSaved}}" hint-placeholder-val="{{ false }}"><p style="margin: 0; font-size: 14px; line-height: 1.45; color: #6B675E">{{exitSaved}}</p></sc-if>
+<div style="align-self: stretch; margin-top: 6px; border: 1px solid #E7E4DE; border-radius: 16px; padding: 14px 10px; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); row-gap: 8px">
+<span style="font-size: 15px; font-weight: 700; color: #6B675E">M</span><span style="font-size: 15px; font-weight: 700; color: #2F6BDE">T</span><span style="font-size: 15px; font-weight: 700; color: #6B675E">W</span><span style="font-size: 15px; font-weight: 700; color: #6B675E">Th</span><span style="font-size: 15px; font-weight: 700; color: #6B675E">F</span>
+<svg style="justify-self: center" width="30" height="30" viewBox="0 0 24 24" role="img" aria-label="Monday done"><path d="M12 22c-4 0-7-3-7-7 0-3 2-5 3-7 0 2 1 3 2 3 0-4 2-7 5-9 0 3 1 5 3 7 1 1 1 3 1 5 0 4-3 8-7 8z" fill="#E07B39"/></svg>
+<svg style="justify-self: center" width="30" height="30" viewBox="0 0 24 24" role="img" aria-label="Today, not done yet"><path d="M12 22c-4 0-7-3-7-7 0-3 2-5 3-7 0 2 1 3 2 3 0-4 2-7 5-9 0 3 1 5 3 7 1 1 1 3 1 5 0 4-3 8-7 8z" fill="none" stroke="#E07B39" stroke-width="1.6" stroke-dasharray="3 2"/></svg>
+<svg style="justify-self: center" width="30" height="30" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22c-4 0-7-3-7-7 0-3 2-5 3-7 0 2 1 3 2 3 0-4 2-7 5-9 0 3 1 5 3 7 1 1 1 3 1 5 0 4-3 8-7 8z" fill="#D9D5CC"/></svg>
+<svg style="justify-self: center" width="30" height="30" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22c-4 0-7-3-7-7 0-3 2-5 3-7 0 2 1 3 2 3 0-4 2-7 5-9 0 3 1 5 3 7 1 1 1 3 1 5 0 4-3 8-7 8z" fill="#D9D5CC"/></svg>
+<svg style="justify-self: center" width="30" height="30" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22c-4 0-7-3-7-7 0-3 2-5 3-7 0 2 1 3 2 3 0-4 2-7 5-9 0 3 1 5 3 7 1 1 1 3 1 5 0 4-3 8-7 8z" fill="#D9D5CC"/></svg>
+</div>
+<div style="align-self: stretch; margin-top: 8px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
+<button onClick="{{exitAnyway}}" style="height: 52px; border: 0; background: #F2F0EB; color: #1C1B19; font-family: 'Lato', sans-serif; font-size: 16px; font-weight: 700; border-radius: 12px">Exit anyway</button>
+<button onClick="{{keepGoing}}" style="height: 52px; border: 0; background: #2F6BDE; color: #FFFFFF; font-family: 'Lato', sans-serif; font-size: 16px; font-weight: 700; border-radius: 12px">Keep reading</button>
+</div>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{exited}}" hint-placeholder-val="{{ false }}">
+<div style="position: absolute; inset: 0; background: #FFFFFF; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; padding: 32px; text-align: center; font-family: 'Lato', sans-serif">
+<div style="font-size: 22px; font-weight: 700">You left the lesson</div>
+<p style="margin: 0; max-width: 420px; font-size: 16px; line-height: 1.5; color: #6B675E">In the app this goes back to the Polity unit list. Your place, highlights and notes stay saved.</p>
+<button onClick="{{undoExit}}" style="margin-top: 8px; height: 48px; padding: 0 22px; border: 1px solid #2F6BDE; background: #FFFFFF; color: #2F6BDE; font-family: 'Lato', sans-serif; font-size: 15px; font-weight: 700; border-radius: 12px">Back to the lesson</button>
+</div>
+</sc-if>
+<sc-if value="{{tourCard}}" hint-placeholder-val="{{ false }}">
+<div role="region" aria-label="Guide" style="position: absolute; right: 24px; top: 72px; width: 340px; z-index: 40; background: #1C1B19; color: #FFFFFF; border-radius: 14px; padding: 12px 12px 10px 14px; box-shadow: 0 10px 28px rgba(0,0,0,0.25); font-family: 'Lato', sans-serif">
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 4px"><span style="font-size: 12px; font-weight: 700; color: #A9C4F5">Guide · step {{tourNo}} of 7</span><button onClick="{{tourHide}}" style="height: 30px; padding: 0 8px; border: 0; background: transparent; color: #D9D5CC; font-family: 'Lato', sans-serif; font-size: 13px; text-decoration: underline">Hide</button></div>
+<div style="font-size: 15px; line-height: 1.45; margin-bottom: 10px">{{tourText}}</div>
+<div style="display: flex; justify-content: space-between; gap: 8px; align-items: center">
+<a href="index.html" style="color: #D9D5CC; font-size: 13px">About this demo</a>
+<span style="display: flex; gap: 6px"><button onClick="{{tourPrev}}" disabled="{{tourFirst}}" style="height: 36px; padding: 0 12px; border: 1px solid #5C5850; background: transparent; color: #FFFFFF; font-family: 'Lato', sans-serif; font-size: 14px; border-radius: 18px">Back</button><button onClick="{{tourNext}}" style="height: 36px; padding: 0 14px; border: 0; background: #FBE38E; color: #1C1B19; font-family: 'Lato', sans-serif; font-size: 14px; font-weight: 700; border-radius: 18px">{{tourNextLabel}}</button></span>
+</div>
+</div>
+</sc-if>
+<sc-if value="{{tourPill}}" hint-placeholder-val="{{ false }}">
+<button onClick="{{tourShow}}" style="position: absolute; right: 24px; top: 72px; z-index: 40; height: 36px; padding: 0 14px; border: 0; background: #1C1B19; color: #FFFFFF; font-family: 'Lato', sans-serif; font-size: 13px; font-weight: 700; border-radius: 18px; box-shadow: 0 6px 16px rgba(0,0,0,0.2)">Guide</button>
+</sc-if>
+</div>
+</template>
+<script>
+DC.define("Web", function (DCLogic) {
+
+var TERMS = {
+  polAdmin: { title: "Political and administrative functions", body: "Ruling, not just trading: collecting revenue, keeping order, running courts. In 1773 Parliament admitted, for the first time, that the Company was doing a government's work." },
+  ggBengal: { title: "Governor-General of Bengal", body: "The head of the Company's government in Bengal, now with authority over Bombay and Madras too. Not yet of all India; that title only came in 1833." },
+  council: { title: "The council of four", body: "Four members who governed alongside the Governor-General. Decisions went by majority, so they could outvote him, until the Act of 1786 changed that." },
+  sc: { title: "Supreme Court at Calcutta", body: "Set up in 1774 with a chief justice and three judges. The first chief justice was Sir Elijah Impey." },
+  revenue: { title: "Revenue matters", body: "Disputes over land revenue and how it was collected, the Company's main source of money. After 1781 the Supreme Court could not hear them." },
+  personal: { title: "Personal law", body: "A community's own rules on marriage, inheritance and family: Hindu law for Hindus, Mohammedan law for Muslims." },
+  cod: { title: "Court of Directors", body: "The Company's own board in London, elected by its shareholders. After 1784 it ran only the business side." },
+  boc: { title: "Board of Control", body: "A new body of the British government, set up in 1784 to oversee the Company's political, military and revenue affairs." },
+  dual: { title: "Dual government", body: "India run by two masters at once: the Company for trade, the Crown's Board for politics. It lasted until 1858." },
+  cinc: { title: "Commander-in-Chief", body: "Head of the army. From 1786 the Governor-General held this job as well." },
+  charter: { title: "Charter", body: "The Company's licence from Parliament, renewed every twenty years: 1793, 1813, 1833, 1853." },
+  sovereign: { title: "Sovereignty of the Crown", body: "The final authority belonged to the British Crown. The Company only held its territories on the Crown's behalf." },
+  acts: { title: "Acts, not Regulations", body: "Laws made in India before 1833 were called Regulations. From this Act on, they were called Acts." },
+  open: { title: "Open competition", body: "Choosing civil servants by an open exam, rather than by the directors handing out posts to people they knew." },
+  macaulay: { title: "Macaulay Committee", body: "Set up in 1854 to draw up the rules for the new civil service exam." },
+  minip: { title: "Mini-Parliament", body: "The new Legislative Council worked much like the British Parliament: bills, debate, procedure." }
+};
+
+function T(k, t) { return { k: k, t: t }; }
+
+var HERO = { src: "assets/fbe48e8284e81fcd60ab99576223275b.jpg", want: "East India House, Leadenhall Street, London (public-domain engraving, early 1800s)", alt: "East India House, the Company's headquarters in London", caption: "East India House on Leadenhall Street, London, drawn by Thomas Shepherd around 1828. The Company was run from here. From here, a trading firm governed millions of people in India." };
+
+var ACTS = [
+  { year: "1773", title: "The Regulating Act", short: "Regulating Act",
+    img: { kind: "portrait", src: "assets/458ec3c9392239a6767916d49d49f02c.jpg", want: "Warren Hastings, by Tilly Kettle", alt: "Portrait of Warren Hastings", caption: "Warren Hastings, painted by Tilly Kettle around 1772. He became the first Governor-General of Bengal." },
+    lead: "By 1772 the Company was nearly broke. It went to Parliament for a loan, while its own officers were coming home rich from private trade and \"presents\". Parliament lent the money, but it wanted something back: a say in how the Company ran India. The Regulating Act was the price.",
+    listIntro: "Here is what it changed.",
+    provs: [
+      ["For the first time, it recognised the Company's ", T("polAdmin", "political and administrative functions"), ", not just its trade."],
+      ["The Governor of Bengal became the ", T("ggBengal", "Governor-General of Bengal"), ". The first to hold the post was Warren Hastings."],
+      ["He was given a ", T("council", "council of four"), " to govern with."],
+      ["The Governors of Bombay and Madras now answered to Bengal."],
+      ["A ", T("sc", "Supreme Court at Calcutta"), " was set up in 1774."],
+      ["Company servants were barred from private trade and from taking gifts or bribes."]
+    ],
+    fig: "f1773", figCap: "Fig. 1.1 · After 1773, Bengal sits above Bombay and Madras, and Parliament keeps watch.",
+    note: "\"Of Bengal\", not \"of India\". That only comes in 1833, with Bentinck.",
+    exam: "remember it as three firsts. Parliament's first control over the Company, the first recognition of its political role, and the first step towards ruling India from one centre." },
+  { year: "1781", title: "The Amending Act", short: "Amending Act",
+    img: null,
+    lead: "The new set-up had a flaw. The Supreme Court and the Governor-General's council both thought they had the final word, and they kept colliding, over revenue cases and over what officials did on the job. Eight years in, Parliament had to referee.",
+    listIntro: "So it drew some lines.",
+    provs: [
+      ["The Governor-General, his council and Company servants could no longer be taken to the Supreme Court for things done in their official capacity."],
+      [T("revenue", "Revenue matters"), " were taken out of the Court's hands."],
+      ["The Court had to decide cases by the ", T("personal", "personal law"), " of the person being sued: Hindu law for Hindus, Mohammedan law for Muslims."],
+      ["Appeals from the provincial courts would go to the Governor-General-in-Council, not to the Supreme Court."]
+    ],
+    fig: "f1781", figCap: "Fig. 1.2 · The Court made in 1773 is trimmed back in 1781.",
+    note: "1773 made the Court. 1781 trimmed it.",
+    exam: "this Act is also called the Act of Settlement. If you see that name in a question, this is the one." },
+  { year: "1784", title: "Pitt's India Act", short: "Pitt's India Act",
+    img: { kind: "portrait", src: "assets/d0d8865078eadf3925f4df2522a3f8c4.jpg", want: "William Pitt the Younger, portrait", alt: "Portrait of William Pitt the Younger", caption: "William Pitt the Younger, painted by George Romney. He became prime minister at 24. His India Act put the Company's politics under a government board." },
+    lead: "Parliament still wasn't satisfied. William Pitt, the new prime minister, found a middle path: let the Company keep its business, but put its politics under a board answerable to the government. For the next 74 years, India would have two masters at once.",
+    listIntro: "This is how the split worked.",
+    provs: [
+      ["The Company's commercial work was separated from its political work."],
+      ["The ", T("cod", "Court of Directors"), " kept the business side."],
+      ["A new ", T("boc", "Board of Control"), " took over the political side. Historians call this ", T("dual", "dual government"), "."],
+      ["The Board could supervise and direct civil and military affairs and the revenues."],
+      ["The Company's territories were called \"British possessions in India\" for the first time."]
+    ],
+    fig: "f1784", figCap: "Fig. 1.3 · One set of affairs, two masters.",
+    note: "Directors deal, Board bosses.",
+    exam: "watch for the phrase \"British possessions in India\". This Act was the first to use it." },
+  { year: "1786", title: "The Act of 1786", short: "Act of 1786",
+    img: { kind: "portrait", src: "assets/36220844727e5c80649ab2149ee254f1.jpg", want: "Lord Cornwallis, by Thomas Gainsborough (1783)", alt: "Portrait of Lord Cornwallis", caption: "Lord Cornwallis, by Thomas Gainsborough, 1783. He took the post only once this Act met his terms." },
+    lead: "Lord Cornwallis was offered the job of Governor-General, and he had conditions. He wanted to be able to overrule his own council, and he wanted the army as well. Parliament gave him both. It's a short Act, but it turned one man into the centre of power in British India.",
+    listIntro: "Two changes, both for him.",
+    provs: [
+      ["The Governor-General could override his council in special cases."],
+      ["He was also made the ", T("cinc", "Commander-in-Chief"), "."]
+    ],
+    fig: "f1786", figCap: "Fig. 1.4 · Two posts, one man.",
+    note: "1773: the council could outvote him. 1786: he can overrule them.",
+    exam: "questions on this Act usually hide inside the story of Cornwallis. Link the two." },
+  { year: "1793", title: "The Charter Act", short: "Charter Act",
+    img: null,
+    lead: "The Company's charter, its licence to trade, ran for twenty years at a time. In 1793 it was simply renewed, and not much else changed. But notice the rhythm: 1793, 1813, 1833, 1853. Every renewal gave Parliament a chance to take something away.",
+    listIntro: "What the renewal said.",
+    provs: [
+      ["The Company's trade monopoly in India was renewed, through its ", T("charter", "charter"), ", for another twenty years."],
+      ["The Governor-General's power to override his council was extended to the Governors of Bombay and Madras."],
+      ["The salaries of the Board of Control's members and staff would now be paid out of Indian revenues."]
+    ],
+    fig: "f1793", figCap: "Fig. 1.5 · Every twenty years, the Company loses a little more.",
+    note: "20, 20, 20. Each charter takes a bite.",
+    exam: "the salary point is a favourite statement in MCQs. India paid for the Board that controlled it." },
+  { year: "1813", title: "The Charter Act", short: "Charter Act",
+    img: { kind: "wide", src: "assets/e28607c05af8e70f9eb733416ead8dd8.jpg", want: "The European factories at Canton, by William Daniell (c. 1805)", alt: "Painting of the European trading houses on the waterfront at Canton", caption: "The European trading houses at Canton, painted by William Daniell around 1805. After 1813, tea and the China trade were all the Company had left." },
+    lead: "By 1813 Britain itself had changed. Its new factory owners wanted to sell their cloth in India, and the Company's monopoly stood in the way. Parliament opened India's trade to every British merchant. The Company was left with only two things: tea, and trade with China.",
+    listIntro: "Along with the monopoly, a few other things changed.",
+    provs: [
+      ["The Company's monopoly over trade with India ended, except for tea and trade with China."],
+      ["The ", T("sovereign", "sovereignty of the Crown"), " over the Company's territories was spelt out."],
+      ["Christian missionaries were allowed to come to India."],
+      ["Money was set aside to spread Western education."],
+      ["Local governments could now levy taxes."]
+    ],
+    pyq: { i: 0, label: "Prelims 2019" },
+    fig: "f1813", figCap: "Fig. 1.6 · How much of the trade the Company still held. The bars show scope, not exact shares.",
+    note: "1813: all but tea and China. 1833: nothing at all.",
+    exam: "this came up in Prelims 2019. The trap was revenue: Parliament's direct control over Indian revenue came only in 1858, not here." },
+  { year: "1833", title: "The Charter Act", short: "Charter Act",
+    img: { kind: "portrait", src: "assets/bba510791c6e26ddf1ee5611aa66a253.jpg", want: "Lord William Bentinck, portrait", alt: "Portrait of Lord William Bentinck", caption: "Lord William Bentinck, painted by Thomas Lawrence in 1804. Thirty years later he became the first Governor-General of India." },
+    lead: "Twenty years on, the Company lost its trade altogether. What was left was a government, and Parliament now treated it as one: a single head in Calcutta for the whole of British India.",
+    listIntro: "This was the high point of centralisation.",
+    provs: [
+      ["The Governor-General of Bengal became the Governor-General of India, with all civil and military power. Lord William Bentinck was the first."],
+      ["The Governors of Bombay and Madras lost their power to make laws."],
+      ["Laws made from now on were called ", T("acts", "Acts"), ", not Regulations."],
+      ["The Company stopped trading and became a purely administrative body."],
+      ["It tried to bring in ", T("open", "open competition"), " for civil servants, but the Court of Directors blocked it."]
+    ],
+    pyq: { i: 0, label: "Prelims" },
+    fig: "f1833", figCap: "Fig. 1.7 · The same office, climbing.",
+    note: "Bengal (1773, Hastings) → India (1833, Bentinck) → Viceroy (1858, Canning).",
+    exam: "\"Which Act made the Governor-General of Bengal the Governor-General of India?\" has been asked more than once. The answer is this one." },
+  { year: "1853", title: "The Charter Act", short: "Charter Act",
+    img: { kind: "portrait", src: "assets/49ac7b707a4e21d202ad546d28b4e349.jpg", want: "Thomas Babington Macaulay, portrait", alt: "Portrait of Thomas Babington Macaulay", caption: "Thomas Babington Macaulay, painted by John Partridge. His committee drew up the rules for the new civil service exam." },
+    lead: "This turned out to be the last charter, though nobody knew it yet. Parliament split the Governor-General's council in two: one part to govern, one part to make laws. And it opened the civil service to anyone who could pass an exam, Indians included.",
+    listIntro: "The changes that outlived the Company.",
+    provs: [
+      ["For the first time, the council's law-making work was separated from its executive work."],
+      ["Six new members were added for law-making, making a Legislative Council that worked like a ", T("minip", "mini-Parliament"), "."],
+      [T("open", "Open competition"), " for the civil services was introduced, and Indians could compete too."],
+      ["The ", T("macaulay", "Macaulay Committee"), " was set up in 1854 to plan it."],
+      ["Four of the six new members came from Madras, Bombay, Bengal and Agra: the first local representation."]
+    ],
+    fig: "f1853", figCap: "Fig. 1.8 · One council becomes two.",
+    note: "Open competition: tried in 1833, blocked. Done in 1853.",
+    exam: "if you write a mains answer on how India's institutions grew, start here: a separate law-making council, and a civil service chosen by exam. The exam you're preparing for goes back to this Act." }
+];
+
+var WS = {
+  events: { e1: ["Governor-General of Bengal created", "1773"], e2: ["Board of Control set up", "1784"], e3: ["Governor-General also made Commander-in-Chief", "1786"], e4: ["Trade monopoly ends, except tea and China", "1813"], e5: ["Governor-General of India created", "1833"], e6: ["Civil services opened to competition", "1853"] },
+  order: ["e1", "e2", "e3", "e4", "e5", "e6"],
+  pool: ["e4", "e1", "e6", "e3", "e5", "e2"],
+  gapText: [{ t: "In 1773 the Governor of " }, { g: "g1" }, { t: " was made Governor-General. The first to hold the post was " }, { g: "g2" }, { t: ", who governed with a council of " }, { g: "g3" }, { t: " members. Sixty years later, in " }, { g: "g4" }, { t: ", the title became Governor-General of " }, { g: "g5" }, { t: "." }],
+  gapOrder: ["g1", "g2", "g3", "g4", "g5"],
+  gapAns: { g1: "Bengal", g2: "Warren Hastings", g3: "four", g4: "1833", g5: "India" },
+  gapIds: { g1: "1773-1", g2: "1773-1", g3: "1773-2", g4: "1833-0", g5: "1833-0" },
+  bank: ["India", "Warren Hastings", "four", "1853", "Bengal", "William Bentinck", "1833", "six"],
+  labOrder: ["cn", "cj", "rn", "rj"],
+  labAns: { cn: "Court of Directors", cj: "business", rn: "Board of Control", rj: "politics" },
+  labIds: { cn: "1784-1", cj: "1784-1", rn: "1784-2", rj: "1784-2" },
+  labBank: ["Board of Control", "business", "Court of Directors", "politics"],
+  left: ["Officers taking bribes", "Council vs Supreme Court", "Cornwallis's conditions", "Factories want India's market"],
+  right: ["1813", "1781", "1773", "1786"],
+  linkAns: ["1773", "1781", "1786", "1813"],
+  linkIds: ["1773-5", "1781-0", "1786-0", "1813-0"],
+  odd: ["Ended most of the Company's trade monopoly", "Let Christian missionaries come to India", "Gave Parliament direct control of Indian revenue", "Set aside money for Western education"],
+  oddAns: 2,
+  words: ["In", "1853,", "open", "competition", "for", "civil", "servants", "was", "first", "tried,", "but", "the", "Directors", "blocked", "it."],
+  wrongWord: 1, fixes: ["1813", "1833", "1858"], fixAns: "1833"
+};
+var INK = "#24477A", RED = "#B8322A", OKC = "#2E7D32", LEAD = "#9A958B";
+function freshW() { return { order: [], gaps: {}, activeGap: "g1", lab: {}, activeLab: "cn", links: {}, pl: null, odd: null, word: null, fix: null, explain: "", spoke: false, checked: false }; }
+
+function buildWS(self, s) {
+  var w = s.w || freshW(), ck = w.checked;
+  function set(p) { self.setState({ w: Object.assign({}, self.state.w || freshW(), p) }); }
+  var orderOk = w.order.join() === WS.order.join();
+  var slots = WS.order.map(function (e, i) {
+    var v = w.order[i] || "", ok = v === e;
+    return { n: i + 1, text: v ? WS.events[v][0] : "\u00a0", color: !v ? LEAD : (ck ? (ok ? OKC : RED) : INK), border: v ? "#3F3C36" : "#CFCBC2",
+      year: ck && v ? WS.events[v][1] : "", yearColor: ok ? OKC : RED };
+  });
+  var pool = WS.pool.map(function (e) {
+    var used = w.order.indexOf(e) >= 0;
+    return { label: WS.events[e][0], op: used ? 0.3 : 1, pick: function () { if (!used && !ck && w.order.length < 6) set({ order: w.order.concat([e]) }); } };
+  });
+  var gapSegs = WS.gapText.map(function (x) {
+    if (x.t) return { isText: true, isGap: false, t: x.t };
+    var v = w.gaps[x.g], ok = v === WS.gapAns[x.g], act = !ck && w.activeGap === x.g;
+    return { isText: false, isGap: true, shown: v || "        ", color: ck ? (ok ? OKC : RED) : INK,
+      deco: ck && v && !ok ? "line-through" : "none", line: act ? "#2F6BDE" : "#3F3C36", bg: act ? "#EEF3FD" : "transparent",
+      showFix: ck && !ok, fix: WS.gapAns[x.g], focus: function () { if (!ck) set({ activeGap: x.g }); } };
+  });
+  var bank = WS.bank.map(function (b) {
+    return { label: b, pick: function () {
+      if (ck || !w.activeGap) return;
+      var g = Object.assign({}, w.gaps); g[w.activeGap] = b;
+      var nxt = WS.gapOrder.filter(function (k) { return !g[k]; })[0] || null;
+      set({ gaps: g, activeGap: nxt });
+    } };
+  });
+  function labSlot(k) {
+    var v = w.lab[k], ok = v === WS.labAns[k], act = !ck && w.activeLab === k;
+    return { shown: v || "tap, then pick a label", color: !v ? LEAD : (ck ? (ok ? OKC : RED) : INK), font: v ? "'Kalam', cursive" : "'Lato', sans-serif", size: v ? 18 : 13,
+      border: act ? "#2F6BDE" : "#CFCBC2", bg: act ? "#EEF3FD" : "#FFFFFF", showFix: ck && !ok, fix: WS.labAns[k],
+      focus: function () { if (!ck) set({ activeLab: k }); } };
+  }
+  var labBank = WS.labBank.map(function (b) {
+    return { label: b, pick: function () {
+      if (ck || !w.activeLab) return;
+      var l = Object.assign({}, w.lab); l[w.activeLab] = b;
+      var nxt = WS.labOrder.filter(function (k) { return !l[k]; })[0] || null;
+      set({ lab: l, activeLab: nxt });
+    } };
+  });
+  var left = WS.left.map(function (t, i) {
+    var linked = w.links[i] != null;
+    return { t: t, border: w.pl === i ? "#2F6BDE" : (linked ? "#3F3C36" : "#CFCBC2"), bg: w.pl === i ? "#EEF3FD" : "#FFFFFF",
+      pick: function () { if (!ck) set({ pl: w.pl === i ? null : i }); } };
+  });
+  var right = WS.right.map(function (y) {
+    return { t: y, pick: function () {
+      if (ck || w.pl == null) return;
+      var L = Object.assign({}, w.links); Object.keys(L).forEach(function (k) { if (L[k] === y) delete L[k]; }); L[w.pl] = y;
+      set({ links: L, pl: null });
+    } };
+  });
+  var lines = Object.keys(w.links).map(function (k) {
+    var i = Number(k), j = WS.right.indexOf(w.links[k]), ok = w.links[k] === WS.linkAns[i];
+    return { y1: 32 + i * 74, y2: 32 + j * 74, color: ck ? (ok ? OKC : RED) : "#3F3C36" };
+  });
+  var odd = WS.odd.map(function (t, i) {
+    var on = w.odd === i, isAns = i === WS.oddAns;
+    return { t: t, ring: on ? (ck ? (isAns ? OKC : RED) : RED) : "transparent", tick: ck && isAns, pick: function () { if (!ck) set({ odd: i }); } };
+  });
+  var words = WS.words.map(function (t, i) {
+    var on = w.word === i;
+    return { t: t, deco: on ? "line-through" : "none", color: on ? RED : "#1C1B19", hasFix: on && !!w.fix, fix: w.fix || "", pick: function () { if (!ck) set({ word: on ? null : i, fix: null }); } };
+  });
+  var fixes = WS.fixes.map(function (f) {
+    return { t: f, bg: w.fix === f ? "#EEF3FD" : "#FFFFFF", border: w.fix === f ? "#2F6BDE" : "#CFCBC2", pick: function () { if (!ck) set({ fix: f }); } };
+  });
+  var res = {
+    order: orderOk,
+    gaps: WS.gapOrder.map(function (g) { return w.gaps[g] === WS.gapAns[g]; }),
+    lab: WS.labOrder.map(function (k) { return w.lab[k] === WS.labAns[k]; }),
+    links: WS.linkAns.map(function (y, i) { return w.links[i] === y; }),
+    odd: w.odd === WS.oddAns,
+    mistake: w.word === WS.wrongWord && w.fix === WS.fixAns
+  };
+  var flat = [res.order].concat(res.gaps, res.lab, res.links, [res.odd, res.mistake]);
+  var nRight = flat.filter(function (x) { return x; }).length, nWrong = flat.length - nRight;
+  var started = [w.order.length > 0, Object.keys(w.gaps).length > 0, Object.keys(w.lab).length > 0, Object.keys(w.links).length > 0, w.odd != null, w.word != null, !!w.explain.trim()].filter(function (x) { return x; }).length;
+  function apply() {
+    var u = updateConcepts(self.state, CONCEPTS.map(function (c) { return { key: c.key, ok: !!c.ok(res) }; }));
+    var notes = Object.assign({}, self.state.notes);
+    if (w.explain.trim() && !notes["1784-2"]) notes["1784-2"] = w.explain.trim();
+    self.setState({ marks: u.marks, slips: u.slips, notes: notes, ws: false, applied: u.text, w: Object.assign({}, w, { applied: true }) });
+    if (self.scrollEl) self.scrollEl.scrollTop = 0;
+  }
+  return {
+    open: !!s.ws, close: function () { self.setState({ ws: false }); },
+    progressText: started + " of 7 started",
+    slots: slots, pool: pool, undo: function () { if (!ck) set({ order: w.order.slice(0, -1) }); },
+    orderFb: orderOk ? "\u2713 Right order, all six." : "The right order: Bengal's Governor-General (1773), Board of Control (1784), Commander-in-Chief too (1786), monopoly ends (1813), Governor-General of India (1833), open competition (1853).", orderFbColor: orderOk ? OKC : RED,
+    gapSegs: gapSegs, bank: bank,
+    cn: labSlot("cn"), cj: labSlot("cj"), rn: labSlot("rn"), rj: labSlot("rj"), labBank: labBank,
+    left: left, right: right, lines: lines, linkHint: w.pl != null ? "Now tap the year it leads to." : "Tap a cause, then the year it leads to.",
+    odd: odd, oddFb: res.odd ? "✓ Yes. That came only in 1858." : "The odd one out is revenue control: Parliament got it only in 1858.", oddFbColor: res.odd ? OKC : RED,
+    words: words, showFixes: w.word != null && !ck, fixes: fixes,
+    mistakeFb: res.mistake ? "✓ Right: tried in 1833, blocked, brought in by 1853." : "The mistake is the year: it was 1833, not 1853.", mistakeFbColor: res.mistake ? OKC : RED,
+    explain: w.explain, onExplain: function (e) { set({ explain: e.target.value }); },
+    spoke: w.spoke, onSpoke: function (e) { set({ spoke: e.target.checked }); },
+    checked: ck, notChecked: !ck,
+    check: function () { set({ checked: true, activeGap: null, activeLab: null, pl: null }); },
+    resultText: "You got " + nRight + " of " + flat.length + " right." + (nWrong ? " What you missed will be pinned as slips on the lines it came from." : " Nothing to fix."),
+    apply: apply, applied: !!w.applied,
+    redo: function () { self.setState({ w: freshW() }); }
+  };
+}
+
+
+var HLC = "#FBE38E";
+function piecesOf(segs, ranges) {
+  var out = [], off = 0, rs = (ranges || []).slice().sort(function (a, b) { return a[0] - b[0]; });
+  segs.forEach(function (sg) {
+    var t = sg.t, s0 = off, e0 = off + t.length, cuts = [s0, e0];
+    rs.forEach(function (r) { if (r[0] > s0 && r[0] < e0) cuts.push(r[0]); if (r[1] > s0 && r[1] < e0) cuts.push(r[1]); });
+    cuts.sort(function (a, b) { return a - b; });
+    cuts = cuts.filter(function (v, i, arr) { return i === 0 || v !== arr[i - 1]; });
+    for (var i = 0; i < cuts.length - 1; i++) {
+      var a = cuts[i], b = cuts[i + 1];
+      var on = rs.some(function (r) { return r[0] <= a && r[1] >= b; });
+      out.push({ t: t.slice(a - s0, b - s0), k: sg.k, hl: on });
+    }
+    off = e0;
+  });
+  return out;
+}
+function mergeRange(list, r) {
+  var all = (list || []).concat([r]).sort(function (a, b) { return a[0] - b[0]; }), res = [];
+  all.forEach(function (x) { var l = res[res.length - 1]; if (l && x[0] <= l[1]) { l[1] = Math.max(l[1], x[1]); } else { res.push([x[0], x[1]]); } });
+  return res;
+}
+
+var CONCEPTS = [
+  { key: "ggBengal", id: "1773-1", t: "First Governor-General of Bengal: Warren Hastings, in 1773. Of Bengal, not yet of India.", ok: function (r) { return r.gaps[0] && r.gaps[1]; } },
+  { key: "council4", id: "1773-2", t: "His council had four members, and they could outvote him until 1786.", ok: function (r) { return r.gaps[2]; } },
+  { key: "ggIndia", id: "1833-0", t: "1833: the Governor-General of Bengal becomes Governor-General of India. The first was Bentinck.", ok: function (r) { return r.gaps[3] && r.gaps[4]; } },
+  { key: "dual", id: "1784-2", t: "Directors deal, Board bosses. The Court of Directors kept the business; the Board of Control took the politics.", ok: function (r) { return r.lab.every(function (x) { return x; }); } },
+  { key: "why1773", id: "1773-5", t: "1773 came because Company officers were getting rich on private trade, gifts and bribes.", ok: function (r) { return r.links[0]; } },
+  { key: "why1781", id: "1781-0", t: "1781 was Parliament refereeing the fight between the Council and the Supreme Court.", ok: function (r) { return r.links[1]; } },
+  { key: "why1786", id: "1786-0", t: "1786 was written to meet Cornwallis's terms: overrule his council, and command the army.", ok: function (r) { return r.links[2]; } },
+  { key: "why1813", id: "1813-0", t: "1813 came because Britain's factory owners wanted India's market for themselves.", ok: function (r) { return r.links[3]; } },
+  { key: "rev1858", id: "1813-1", t: "The Prelims 2019 trap: Parliament's direct control of Indian revenue came only in 1858, not in 1813.", ok: function (r) { return r.odd; } },
+  { key: "open1833", id: "1833-4", t: "Open competition: tried in 1833 and blocked by the Directors. Brought in by 1853.", ok: function (r) { return r.mistake; } }
+];
+var CONCEPT_BY_KEY = {}; CONCEPTS.forEach(function (c) { CONCEPT_BY_KEY[c.key] = c; });
+var REV = {
+  ggBengal: { q: "In 1773, Warren Hastings became the first Governor-General of …", opts: ["India", "Bengal", "Madras"], ans: 1 },
+  council4: { q: "How many members sat on the Governor-General's council under the Regulating Act?", opts: ["Three", "Four", "Six"], ans: 1 },
+  ggIndia: { q: "Who was the first Governor-General of India?", opts: ["Warren Hastings", "Lord Cornwallis", "Lord William Bentinck"], ans: 2 },
+  dual: { q: "After 1784, who looked after the Company's political affairs?", opts: ["The Court of Directors", "The Board of Control", "The Governor of Bengal"], ans: 1 },
+  why1773: { q: "What pushed Parliament to pass the Regulating Act?", opts: ["Corruption among Company officers, and a Company close to bankruptcy", "British factory owners wanting India's market", "Cornwallis's conditions for taking the job"], ans: 0 },
+  why1781: { q: "The 1781 Act mainly settled …", opts: ["the China and tea trade", "a clash between the Council and the Supreme Court", "how civil servants were chosen"], ans: 1 },
+  why1786: { q: "Why was the Act of 1786 passed?", opts: ["To end the trade monopoly", "To create the Board of Control", "To meet Lord Cornwallis's conditions"], ans: 2 },
+  why1813: { q: "Who pushed hardest for the Charter Act of 1813?", opts: ["British factory owners and merchants", "The Court of Directors", "Indian rulers"], ans: 0 },
+  rev1858: { q: "Parliament took direct control of Indian revenue in …", opts: ["1813", "1833", "1858"], ans: 2 },
+  open1833: { q: "Open competition for civil servants was first tried, and blocked, in …", opts: ["1813", "1833", "1853"], ans: 1 }
+};
+function todayLabel() { var d = new Date(); return d.getDate() + " " + ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"].at(d.getMonth()); }
+function updateConcepts(state, results) {
+  var marks = Object.assign({}, state.marks), slips = Object.assign({}, state.slips || {}), today = todayLabel();
+  var c = { hl: 0, fresh: 0, fixed: 0, again: 0 };
+  results.forEach(function (x) {
+    var con = CONCEPT_BY_KEY[x.key], arr = (slips[con.id] || []).slice(), k = -1;
+    arr.forEach(function (sl, i) { if (sl.key === con.key) k = i; });
+    if (x.ok) {
+      if (!marks[con.id]) { marks[con.id] = true; c.hl++; }
+      if (k >= 0 && !arr[k].fixed) { arr[k] = Object.assign({}, arr[k], { fixed: today }); c.fixed++; }
+    } else if (k >= 0) {
+      arr[k] = Object.assign({}, arr[k], { dates: arr[k].dates.concat([today]), fixed: null }); c.again++;
+    } else {
+      arr.push({ key: con.key, t: con.t, dates: [today], fixed: null }); c.fresh++;
+    }
+    slips[con.id] = arr;
+  });
+  var parts = [];
+  if (c.hl) parts.push(c.hl + (c.hl === 1 ? " point" : " points") + " highlighted");
+  if (c.fresh) parts.push(c.fresh + (c.fresh === 1 ? " new sticky note" : " new sticky notes"));
+  if (c.fixed) parts.push(c.fixed + " fixed");
+  if (c.again) parts.push(c.again + " missed again, now marked in red");
+  var text = "Your pages are updated: " + (parts.length ? parts.join(", ") : "nothing changed") + ". Scroll up to see them.";
+  return { marks: marks, slips: slips, text: text };
+}
+function openNotes(state) {
+  var out = [];
+  Object.keys(state.slips || {}).forEach(function (id) { (state.slips[id] || []).forEach(function (sl) { if (!sl.fixed && REV[sl.key]) out.push(sl); }); });
+  return out;
+}
+function buildRV(self, s) {
+  var rv = s.rv || { ans: {}, checked: false }, items = openNotes(s);
+  if (rv.keys) items = rv.keys.map(function (k) { return { key: k }; });
+  var ck = rv.checked;
+  function setRV(p) { self.setState({ rv: Object.assign({}, self.state.rv || { ans: {}, checked: false }, p) }); }
+  var list = items.map(function (sl, n) {
+    var d = REV[sl.key], pick = rv.ans[sl.key];
+    return { no: n + 1, q: d.q, opts: d.opts.map(function (o, i) {
+      var on = pick === i, right = i === d.ans;
+      return { t: o, ring: on ? (ck ? (right ? "#2E7D32" : "#B8322A") : "#B8322A") : "transparent", tick: ck && right,
+        pick: function () { if (!ck) { var a = Object.assign({}, (self.state.rv || {}).ans || {}); a[sl.key] = i; setRV({ ans: a }); } } };
+    }) };
+  });
+  var nRight = items.filter(function (sl) { return rv.ans[sl.key] === REV[sl.key].ans; }).length;
+  return {
+    open: !!s.rvOpen, close: function () { self.setState({ rvOpen: false }); },
+    items: list, count: items.length, checked: ck, notChecked: !ck,
+    check: function () { setRV({ checked: true }); },
+    resultText: "You got " + nRight + " of " + items.length + " right. Right answers mark those sticky notes as fixed. The rest stay, marked as missed again.",
+    apply: function () {
+      var u = updateConcepts(self.state, items.map(function (sl) { return { key: sl.key, ok: rv.ans[sl.key] === REV[sl.key].ans }; }));
+      self.setState({ marks: u.marks, slips: u.slips, applied: u.text, rvOpen: false, rv: null });
+      if (self.scrollEl) self.scrollEl.scrollTop = 0;
+    }
+  };
+}
+
+var TOUR = ["Scroll and read. Start with the big picture, then the first act, 1773.", "Tap a dotted word, like \"Governor-General of Bengal\", to see it explained.", "Select a few words and press Highlight. Or tap a point's number to add your own note.", "Scroll to the end and tap Start practice. Get two or three answers wrong on purpose.", "Press Check, then Put it on my pages. Scroll up: your mistakes are now sticky notes on the exact lines.", "Tap Revise my sticky notes. Get one right and one wrong, and watch them change.", "Tap the close or back button partway through a lesson to see the streak reminder."];
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { act: -1, seen: {}, progress: 0, marks: {}, notes: {}, sel: null, editing: null, draft: "", sheet: null, big: false, showHint: true, toast: false };
+  }
+  componentDidMount() {
+    var self = this;
+    this._sel = function () {
+      var sel = window.getSelection();
+      if (!sel || sel.rangeCount === 0 || sel.isCollapsed) { if (self.state.selRange) self.setState({ selRange: null }); return; }
+      var r = sel.getRangeAt(0), el = r.commonAncestorContainer;
+      if (el && el.nodeType === 3) el = el.parentNode;
+      var box = el && el.closest ? el.closest('[id^="hl-"]') : null;
+      if (!box) { if (self.state.selRange) self.setState({ selRange: null }); return; }
+      var pre = document.createRange(); pre.selectNodeContents(box); pre.setEnd(r.startContainer, r.startOffset);
+      var a = pre.toString().length, b = a + r.toString().length;
+      if (b > a) self.setState({ selRange: { pid: box.id.slice(3), a: a, b: b } });
+    };
+    document.addEventListener("selectionchange", this._sel);
+  }
+  componentWillUnmount() { document.removeEventListener("selectionchange", this._sel); }
+  renderVals() {
+    var self = this, s = this.state, fs = s.big ? 21 : 19;
+    var nav = ACTS.map(function (x, i) {
+      var cur = i === s.act, seen = !!s.seen[i];
+      return { year: x.year, title: x.short, label: "Go to " + x.year + ", " + x.title,
+        weight: cur ? 700 : 500, color: cur ? "#2F6BDE" : (seen ? "#3F3C36" : "#9A958B"),
+        line: cur ? "#2F6BDE" : "transparent", dotBg: seen || cur ? "#2F6BDE" : "#FFFFFF" };
+    });
+    var acts = ACTS.map(function (a, ai) {
+      var im = a.img || {};
+      var o = { year: a.year, title: a.title, no: ai + 1, lead: a.lead, listIntro: a.listIntro, figCap: a.figCap, note: a.note, exam: a.exam,
+        portrait: im.kind === "portrait", wide: im.kind === "wide", src: im.src || "", hasSrc: !!im.src, noSrc: !im.src,
+        want: im.want || "", alt: im.alt || "", caption: im.caption || "" };
+      o.leadSegs = piecesOf([{ t: a.lead }], (s.hls || {})["lead-" + a.year]).map(function (pc) { return { t: pc.t, hl: pc.hl ? HLC : "transparent" }; });
+      ["f1773", "f1781", "f1784", "f1786", "f1793", "f1813", "f1833", "f1853"].forEach(function (k) { o[k] = a.fig === k; });
+      var open = s.sheet && s.sheet.act === ai ? TERMS[s.sheet.k] : null;
+      o.termOpen = !!open; o.termTitle = open ? open.title : ""; o.termBody = open ? open.body : "";
+      o.marginNotes = [];
+      o.provs = a.provs.map(function (segs, i) {
+        var id = a.year + "-" + i, marked = !!s.marks[id], note = s.notes[id] || "", sel = s.sel === id, editing = s.editing === id;
+        var startNote = function () { self.setState({ editing: id, sel: id, draft: self.state.notes[id] || "" }); };
+        if (note && !editing) o.marginNotes.push({ n: i + 1, note: note, label: "Edit your note on " + a.year + ", point " + (i + 1), edit: startNote });
+        return {
+          n: i + 1, fs: fs, numTop: Math.max(0, Math.round((fs * 1.6 - 28) / 2)),
+          btnLabel: a.year + ", point " + (i + 1) + ": highlight or add a note",
+          id: id,
+          segs: piecesOf(segs.map(function (x) { return typeof x === "string" ? { t: x } : { t: x.t, k: x.k }; }), (s.hls || {})[id]).map(function (pc) {
+            var on = !!pc.k && s.sheet && s.sheet.act === ai && s.sheet.k === pc.k;
+            return { plain: !pc.k, isTerm: !!pc.k, t: pc.t, hl: pc.hl ? HLC : "transparent", bg: pc.hl ? HLC : (on ? "#E3ECFC" : "transparent"), open: function () { self.setState({ sheet: { k: pc.k, act: ai } }); } };
+          }),
+          bg: marked ? "#FBE38E" : "transparent",
+          numBg: sel ? "#2F6BDE" : (marked ? "#FBE38E" : "#FFFFFF"),
+          numColor: sel ? "#FFFFFF" : "#2F6BDE",
+          numBorder: sel ? "#2F6BDE" : (marked ? "#C9A227" : "#CFCBC2"),
+          showActions: sel && !editing, editing: editing,
+          hasSlip: !!(s.slips && s.slips[id] && s.slips[id].length), slips: ((s.slips && s.slips[id]) || []).map(function (sl, q) { var n = sl.dates.length, fx = !!sl.fixed; return { t: sl.t, tilt: (i + q) % 2 ? 0.9 : -0.9, op: fx ? 0.6 : 1, deco: fx ? "line-through" : "none", bg: fx ? "#F3EFE9" : (n > 1 ? "#FFB9A8" : "#FFD9CF"), label: fx ? "Fixed \u00b7 " + sl.fixed : (n > 1 ? (n === 2 ? "Missed twice" : "Missed " + n + " times") : "Don't forget"), labelColor: fx ? "#2E7D32" : (n > 1 ? "#8E1B10" : "#9C2F22"), dates: sl.dates.filter(function (d, z, arr) { return arr.indexOf(d) === z; }).join(" \u00b7 ") }; }),
+          draft: s.draft, onDraft: function (e) { self.setState({ draft: e.target.value }); },
+          pyq: !!(a.pyq && a.pyq.i === i), pyqLabel: a.pyq ? a.pyq.label : "",
+          toggleSel: function () { self.setState({ sel: sel ? null : id, editing: null }); },
+          toggleMark: function () { var m = Object.assign({}, self.state.marks), h = Object.assign({}, self.state.hls || {}); if (marked || h[id]) { delete m[id]; delete h[id]; } else { m[id] = true; } self.setState({ marks: m, hls: h, sel: null }); },
+          markLabel: (marked || (s.hls || {})[id]) ? "Remove highlight" : "Highlight line",
+          startNote: startNote,
+          noteLabel: note ? "Edit note" : "Add note",
+          saveNote: function () { var t = (self.state.draft || "").trim(); var n = Object.assign({}, self.state.notes); if (t) { n[id] = t; } else { delete n[id]; } self.setState({ notes: n, editing: null, sel: null, draft: "" }); },
+          cancelNote: function () { self.setState({ editing: null, sel: null, draft: "" }); }
+        };
+      });
+      return o;
+    });
+    return {
+      nav: nav, acts: acts, fs: fs, fsLead: s.big ? 23 : 21, progress: s.progress,
+      hero: { src: HERO.src, hasSrc: !!HERO.src, noSrc: !HERO.src, want: HERO.want, alt: HERO.alt, caption: HERO.caption },
+      onScroll: function (e) {
+        var el = e.currentTarget || e.target; self.scrollEl = el; var top = el.scrollTop, idx = -1;
+        ACTS.forEach(function (x, i) { var sec = el.querySelector("#w-" + x.year); if (sec && sec.offsetTop - 160 <= top) idx = i; });
+        var max = el.scrollHeight - el.clientHeight, pr = max > 0 ? Math.round(top / max * 100) : 0;
+        if (idx !== self.state.act || pr !== self.state.progress) {
+          var sn = self.state.seen; if (idx >= 0 && !sn[idx]) { sn = Object.assign({}, sn); sn[idx] = true; }
+          self.setState({ act: idx, progress: pr, seen: sn });
+        }
+      },
+      nHl: Object.keys(Object.assign({}, s.marks, s.hls || {})).length, nNotes: Object.keys(s.notes).length,
+      big: s.big ? "true" : "false", aaBg: s.big ? "#F2F0EB" : "#FFFFFF",
+      toggleBig: function () { self.setState({ big: !self.state.big }); },
+      showHint: s.showHint, hideHint: function () { self.setState({ showHint: false }); },
+      closeSheet: function () { self.setState({ sheet: null }); },
+      practise: function () { self.setState({ ws: true, sheet: null }); },
+      selOpen: !!s.selRange && !s.ws,
+      doHl: function (e) { if (e && e.preventDefault) e.preventDefault(); var r = self.state.selRange; if (!r) return; var h = Object.assign({}, self.state.hls || {}); h[r.pid] = mergeRange(h[r.pid], [r.a, r.b]); self.setState({ hls: h, selRange: null }); try { window.getSelection().removeAllRanges(); } catch (x) {} },
+      rv: buildRV(self, s), hasOpen: openNotes(s).length > 0, nOpen: openNotes(s).length,
+      openRevise: function () { var keys = openNotes(self.state).map(function (sl) { return sl.key; }); self.setState({ rvOpen: true, rv: { ans: {}, checked: false, keys: keys }, sheet: null }); },
+      tourCard: self.props.tour !== "off" && !s.tourHidden && !s.exitOpen, tourPill: self.props.tour !== "off" && !!s.tourHidden,
+      tourNo: (s.tourStep || 0) + 1, tourText: TOUR[s.tourStep || 0], tourFirst: !(s.tourStep), tourNextLabel: (s.tourStep || 0) === TOUR.length - 1 ? "Done" : "Next",
+      tourNext: function () { var n = (self.state.tourStep || 0) + 1; if (n >= TOUR.length) self.setState({ tourHidden: true, tourStep: 0 }); else self.setState({ tourStep: n }); },
+      tourPrev: function () { self.setState({ tourStep: Math.max(0, (self.state.tourStep || 0) - 1) }); },
+      tourHide: function () { self.setState({ tourHidden: true }); }, tourShow: function () { self.setState({ tourHidden: false }); },
+      toast: !!s.applied, appliedText: s.applied || "",
+      w: buildWS(self, s),
+      exitOpen: !!s.exitOpen, exited: !!s.exited,
+      openExit: function () { var st = self.state; if (!st.promptShown && st.act >= 0 && st.progress < 95) { self.setState({ exitOpen: true, promptShown: true, sheet: null }); } else { self.setState({ exited: true, sheet: null }); } },
+      keepGoing: function () { self.setState({ exitOpen: false }); },
+      exitAnyway: function () { self.setState({ exitOpen: false, exited: true }); },
+      undoExit: function () { self.setState({ exited: false }); },
+      exitBody: s.act >= 0 ? "You're on act " + (s.act + 1) + " of 8. Finish this lesson to keep your streak going." : "You've just started. Finish this lesson to keep your streak going.",
+      hasSaved: Object.keys(s.marks).length + Object.keys(s.notes).length > 0,
+      exitSaved: "Your " + Object.keys(s.marks).length + (Object.keys(s.marks).length === 1 ? " highlight" : " highlights") + " and " + Object.keys(s.notes).length + (Object.keys(s.notes).length === 1 ? " note" : " notes") + " are saved on this page."
+    };
+  }
+}
+
+return Component;
+}, {"tour": "on"});
+</script>
+<script>
+DC.boot('Web', 'app');
+
+</script>
+</body>
+</html>
