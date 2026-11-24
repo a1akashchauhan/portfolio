@@ -127,7 +127,8 @@
   .c-yellow{background:#FFD25A}.c-lilac{background:#DCE2FF}.c-dark{background:#111}
   .cases-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
   .ptile.ptile-lg h3{font-size:24px}
-  .build-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .build-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+  .ptile h3 .was{font-family:"IBM Plex Mono",monospace;font-size:12px;font-weight:500;color:var(--muted);margin-left:6px}
   .ptile.app .browser{display:flex;align-items:center;gap:8px;padding:8px 10px;background:#E5E7E0;border-bottom:1.5px solid var(--ink);font-family:"IBM Plex Mono",monospace;font-size:11px}
   .ptile.app .dots{display:flex;gap:5px}.ptile.app .dots i{width:9px;height:9px;border-radius:50%;border:1.2px solid var(--ink)}
   .ptile.app .dots i:nth-child(1){background:#F4766B}.ptile.app .dots i:nth-child(2){background:#F7C948}.ptile.app .dots i:nth-child(3){background:#5CC27A}
@@ -137,7 +138,7 @@
   .ptile.app .shot img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
   .ptile.app:hover .shot img{transform:scale(1.03)}
   .ptile .tbadge{z-index:1}
-  .lab-row{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:24px}
+  .lab-row{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:14px}
   .lab-card{border:1.5px dashed var(--ink);border-radius:10px;padding:18px 20px;display:flex;gap:16px;align-items:center;background:transparent}
   .lab-card svg{width:96px;flex:none}
   .lab-card h3{margin:0 0 2px;font-size:18px}
@@ -577,21 +578,30 @@
             <span class="go">Open it <i>→</i></span>
           </div>
         </a>
+        <a class="ptile app reveal" href="https://slate-worksheet.vercel.app/">
+          <div class="browser"><span class="dots"><i></i><i></i><i></i></span><span class="url">slate-worksheet.vercel.app</span><span class="live">● live</span></div>
+          <div class="shot"><img src="img/slate.webp" alt="Slate: turn a lecture or chapter into a worksheet you solve by hand" loading="lazy" width="1600" height="1000"></div>
+          <div class="meta">
+            <span class="eyebrow">ai agent · active recall</span>
+            <h3>Slate</h3>
+            <p>Give it a lecture, chapter or video. Get a worksheet that makes you predict, try small cases and explain it back.</p>
+            <span class="go">Make a worksheet <i>→</i></span>
+          </div>
+        </a>
         <a class="ptile app reveal" href="https://teach-to-ai.netlify.app/">
           <div class="browser"><span class="dots"><i></i><i></i><i></i></span><span class="url">teach-to-ai.netlify.app</span><span class="live">● live</span></div>
-          <div class="shot"><img src="img/teach-to-ai.webp" alt="Teach to AI: an AI student waiting to be taught" loading="lazy" width="1600" height="1000"></div>
+          <div class="shot"><img src="img/dais.webp" alt="Dais: an AI student waiting to be taught" loading="lazy" width="1600" height="1000"></div>
           <div class="meta">
             <span class="eyebrow">voice · ai student</span>
-            <h3>Teach to AI</h3>
-            <p>Explain a concept to a confused AI student, out loud. Get graded on how well you teach.</p>
+            <h3>Dais <small class="was">was Teach to AI</small></h3>
+            <p>Pick any topic and teach it to an AI student who asks doubts on a voice call. Get feedback on how well you taught.</p>
             <span class="go">Try it <i>→</i></span>
           </div>
         </a>
       </div>
-      <div class="eyebrow" style="margin-top:30px">// in the lab · building</div>
+      <div class="eyebrow" style="margin-top:30px">// in the lab · next up</div>
       <div class="lab-row">
         <div class="lab-card reveal"><svg class="card-mascot" viewBox="0 14 152 96" role="img" aria-label="Kachhua the turtle"><use href="#kachhua" width="150" height="110"/><g stroke="#151515" stroke-width="2" fill="none"><circle cx="114" cy="43" r="7.5"/><circle cx="129.5" cy="42" r="8"/></g><g stroke="#151515" stroke-width="2.2" stroke-linejoin="round"><path d="M112 96 L130 88 L148 96 L148 106 L130 98 L112 106 Z" fill="#fff"/><path d="M130 88 V98"/><path d="M116 97 L126 93 M134 93 L144 97" stroke-width="1.5"/></g></svg><div><h3>Litmus</h3><p>Click on any article. Get asked if you understood it. <span class="mono">· chrome extension</span></p></div></div>
-        <div class="lab-card reveal"><svg class="card-mascot" viewBox="0 14 152 96" role="img" aria-label="Kachhua the turtle"><use href="#kachhua" width="150" height="110"/><g stroke="#151515" stroke-width="2" stroke-linejoin="round" transform="rotate(35 120 80)"><rect x="116" y="58" width="9" height="34" fill="#F7A501"/><rect x="116" y="54" width="9" height="6" fill="#F4766B"/><path d="M116 92 L120.5 101 L125 92 Z" fill="#F3E3C3"/></g></svg><div><h3>Slate</h3><p>Topic or PDF in. Guided worksheet out. <span class="mono">· claude agent</span></p></div></div>
       </div>
     </section>
 
