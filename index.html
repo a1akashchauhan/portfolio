@@ -141,8 +141,11 @@
   .ptile.app .dots i:nth-child(1){background:#F4766B}.ptile.app .dots i:nth-child(2){background:#F7C948}.ptile.app .dots i:nth-child(3){background:#5CC27A}
   .ptile.app .url{flex:1;background:#fff;border:1px solid #c9c9c0;border-radius:20px;padding:2px 10px;color:#3a3a37;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .ptile.app .live{color:var(--green);font-weight:600;white-space:nowrap}
-  .ptile.app.wide{grid-column:1/-1}
-  .ptile.app.wide .shot{aspect-ratio:16/6}
+  .ptile.app.wide{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto 1fr}
+  .ptile.app.wide .browser{grid-column:1/-1}
+  .ptile.app.wide .shot{aspect-ratio:16/9;border-bottom:none;border-right:1.5px solid var(--ink)}
+  .ptile.app.wide .meta{justify-content:center}
+  @media (max-width:820px){.ptile.app.wide{display:flex}.ptile.app.wide .shot{border-right:none;border-bottom:1.5px solid var(--ink)}}
   .ptile.app .shot{aspect-ratio:16/10;overflow:hidden;border-bottom:1.5px solid var(--ink);background:#fff}
   .ptile.app .shot img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
   .ptile.app:hover .shot img{transform:scale(1.03)}
@@ -568,16 +571,6 @@
         <p><b>I build working products on my own,</b> usually for a problem I actually have. Prototype in a weekend, then use it for real.</p>
       </div>
       <div class="build-grid">
-        <a class="ptile app wide reveal" href="https://jonbar-hinge.vercel.app/">
-          <div class="browser"><span class="dots"><i></i><i></i><i></i></span><span class="url">jonbar-hinge.vercel.app</span><span class="live">● live</span></div>
-          <div class="shot"><img src="img/jonbar-hinge.webp" alt="Jonbar Hinge: a tech tree of human history, from canal irrigation to the printing press" loading="lazy" width="1600" height="1000"></div>
-          <div class="meta">
-            <span class="eyebrow">new · interactive history · ai-written</span>
-            <h3>Jonbar Hinge</h3>
-            <p>An encyclopedia of history that didn't happen. Scroll a tech tree of human history, pick one of twelve turning points, change it, and watch everything after it rewire.</p>
-            <span class="go">Pick a hinge <i>→</i></span>
-          </div>
-        </a>
         <a class="ptile app reveal" href="https://calm-split.vercel.app/">
           <div class="browser"><span class="dots"><i></i><i></i><i></i></span><span class="url">calm-split.vercel.app</span><span class="live">● live</span></div>
           <div class="shot"><img src="img/calmsplit.webp" alt="CalmSplit landing page: drop a WhatsApp chat or start fresh" loading="lazy" width="1600" height="1000"></div>
@@ -616,6 +609,16 @@
             <h3>Dais <small class="was">was Teach to AI</small></h3>
             <p>Pick any topic and teach it to an AI student who asks doubts on a voice call. Get feedback on how well you taught.</p>
             <span class="go">Try it <i>→</i></span>
+          </div>
+        </a>
+        <a class="ptile app wide reveal" href="https://jonbar-hinge.vercel.app/">
+          <div class="browser"><span class="dots"><i></i><i></i><i></i></span><span class="url">jonbar-hinge.vercel.app</span><span class="live">● live</span></div>
+          <div class="shot"><img src="img/jonbar-hinge.webp" alt="Jonbar Hinge: a tech tree of human history, from canal irrigation to the printing press" loading="lazy" width="1600" height="1000"></div>
+          <div class="meta">
+            <span class="eyebrow">interactive history · ai-written</span>
+            <h3>Jonbar Hinge</h3>
+            <p>An encyclopedia of history that didn't happen. Scroll a tech tree of human history, pick one of twelve turning points, change it, and watch everything after it rewire.</p>
+            <span class="go">Pick a hinge <i>→</i></span>
           </div>
         </a>
       </div>
