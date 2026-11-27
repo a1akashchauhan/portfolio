@@ -6,7 +6,13 @@
 <title>Akash Chauhan — Product</title>
 <meta name="description" content="Akash Chauhan builds products that help people actually learn. Product work, case studies and side projects.">
 <meta property="og:title" content="Akash Chauhan — Product">
-<meta property="og:description" content="I build products that help people actually learn.">
+<meta property="og:description" content="Product-minded engineer: 0 → 1 products, user research and metrics. Looking for a Product Manager role.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://a1akashchauhan.github.io/portfolio/">
+<meta property="og:image" content="https://a1akashchauhan.github.io/portfolio/img/og-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -101,6 +107,7 @@
   .x-path span{border:1px solid var(--ink);border-radius:20px;padding:2px 10px;background:#fff}
   .x-path span.on{background:var(--ink);color:#fff}
   .x-path i{font-style:normal;color:var(--muted)}
+  .x-bet{margin:0 0 10px !important;font-size:14.5px !important;background:#fff;border:1px dashed var(--ink);border-radius:8px;padding:8px 12px}
   .x-num{text-align:right;display:flex;flex-direction:column;gap:2px}
   .x-num b{font-size:40px;line-height:1;letter-spacing:-.02em}
   .x-num .count{font-size:inherit;font-weight:inherit;font-family:inherit;color:inherit}
@@ -134,6 +141,8 @@
   .ptile.app .dots i:nth-child(1){background:#F4766B}.ptile.app .dots i:nth-child(2){background:#F7C948}.ptile.app .dots i:nth-child(3){background:#5CC27A}
   .ptile.app .url{flex:1;background:#fff;border:1px solid #c9c9c0;border-radius:20px;padding:2px 10px;color:#3a3a37;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .ptile.app .live{color:var(--green);font-weight:600;white-space:nowrap}
+  .ptile.app.wide{grid-column:1/-1}
+  .ptile.app.wide .shot{aspect-ratio:16/6}
   .ptile.app .shot{aspect-ratio:16/10;overflow:hidden;border-bottom:1.5px solid var(--ink);background:#fff}
   .ptile.app .shot img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
   .ptile.app:hover .shot img{transform:scale(1.03)}
@@ -414,7 +423,7 @@
       </div>
 
       <div class="stats">
-        <div class="stat"><b><span class="count" data-to="600" data-prefix="" data-suffix="+">600+</span></b><span>daily active users on a product I took 0 → 1</span></div>
+        <div class="stat"><b><span class="count" data-to="600" data-prefix="" data-suffix="+">600+</span></b><span>daily active users, 2,000+ students in all, on a product I took 0 → 1</span></div>
         <div class="stat"><b><span class="count" data-to="200" data-prefix="" data-suffix="+">200+</span></b><span>instructors on a tool I helped build</span></div>
         <div class="stat"><b><span class="count" data-to="1000" data-prefix="" data-suffix="+">1,000+</span></b><span>students in one proctored contest</span></div>
         <div class="stat"><b>3</b><span>campuses I rolled a product out across</span></div>
@@ -437,7 +446,7 @@
           <div class="ladder">
             <span>Intern</span><i>→</i><span>SME</span><i>→</i><span>Instructor</span><i>→</i><span class="on">Team lead</span>
           </div>
-          <p>Two years at Newton School of Technology, building the tools our students and instructors use every day. I care about one thing: <b>people should leave a product understanding more</b>, not just having clicked more.</p>
+          <p>Over two years at Newton School of Technology, building the tools our students and instructors use every day. I care about one thing: <b>people should leave a product understanding more</b>, not just having clicked more.</p>
           <div class="chips"><span>B.Tech CSE · RGIPT</span><span>Delhi NCR, India</span><span>open to remote</span></div>
         </div>
       </div>
@@ -467,9 +476,10 @@
               <h4>Question of the Day <span class="x-kind">0 → 1 · owned end to end</span></h4>
               <p>Student interviews showed practice was scattered across LeetCode and GFG, with no record of attempts. I pitched a daily, syllabus-matched question to the CTO, set the success metrics and rolled it out across 3 campuses.</p>
               <div class="x-path"><span>scattered practice</span><i>→</i><span>1 question a day</span><i>→</i><span class="on">a daily habit</span></div>
+              <p class="x-bet"><b>The bet, set up front:</b> 250 students on a 30+ day streak by mid-sem, and a ≥ 0.4 correlation with exam marks. <b>Result:</b> over half of all students on 30+ day streaks.</p>
               <a class="link" href="qotd/">Read the case study →</a>
             </div>
-            <div class="x-num"><b><span class="count" data-to="600" data-prefix="" data-suffix="+">600+</span></b><span>daily active users</span><em>over half on 30+ day streaks</em></div>
+            <div class="x-num"><b><span class="count" data-to="600" data-prefix="" data-suffix="+">600+</span></b><span>daily active users</span><em>2,000+ students in all; over half on 30+ day streaks</em></div>
           </section>
           <section class="xrow x-blue">
             <div class="x-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="5" height="16" rx="1"/><rect x="10" y="4" width="5" height="11" rx="1"/><rect x="17" y="4" width="4" height="7" rx="1"/></svg></div>
@@ -558,6 +568,16 @@
         <p><b>I build working products on my own,</b> usually for a problem I actually have. Prototype in a weekend, then use it for real.</p>
       </div>
       <div class="build-grid">
+        <a class="ptile app wide reveal" href="https://jonbar-hinge.vercel.app/">
+          <div class="browser"><span class="dots"><i></i><i></i><i></i></span><span class="url">jonbar-hinge.vercel.app</span><span class="live">● live</span></div>
+          <div class="shot"><img src="img/jonbar-hinge.webp" alt="Jonbar Hinge: a tech tree of human history, from canal irrigation to the printing press" loading="lazy" width="1600" height="1000"></div>
+          <div class="meta">
+            <span class="eyebrow">new · interactive history · ai-written</span>
+            <h3>Jonbar Hinge</h3>
+            <p>An encyclopedia of history that didn't happen. Scroll a tech tree of human history, pick one of twelve turning points, change it, and watch everything after it rewire.</p>
+            <span class="go">Pick a hinge <i>→</i></span>
+          </div>
+        </a>
         <a class="ptile app reveal" href="https://calm-split.vercel.app/">
           <div class="browser"><span class="dots"><i></i><i></i><i></i></span><span class="url">calm-split.vercel.app</span><span class="live">● live</span></div>
           <div class="shot"><img src="img/calmsplit.webp" alt="CalmSplit landing page: drop a WhatsApp chat or start fresh" loading="lazy" width="1600" height="1000"></div>
@@ -682,7 +702,7 @@
       </div>
     </section>
 
-    <!-- WRITING -->
+    <!-- WRITING (hidden until issue #1 ships)
     <section id="writing">
       <div class="sec-head"><span class="num">08</span><h2>Writing</h2><svg class="sec-mascot" viewBox="0 14 152 96" role="img" aria-label="Kachhua the turtle"><use href="#kachhua" width="150" height="110"/><g stroke="#151515" stroke-width="2" stroke-linejoin="round"><rect x="104" y="72" width="44" height="34" rx="2" fill="#fff" transform="rotate(-6 126 89)"/><path d="M110 80 H140 M110 88 H140 M110 96 H128" transform="rotate(-6 126 89)" stroke-width="1.6"/></g></svg></div>
       <div class="win reveal">
@@ -696,6 +716,7 @@
         </div>
       </div>
     </section>
+    -->
 
   </div>
 </main>
